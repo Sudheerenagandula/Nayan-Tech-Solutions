@@ -1,0 +1,185 @@
+ <!-- <app-navbar></app-navbar>
+
+
+
+<section class="about-banner">
+    <div class="container">
+
+        <h1 class="hover-text">
+            <span class="letter-line">
+                <span class="letter" #letterSpan *ngFor="let l of letters1">{{ l === ' ' ? '\u00A0' : l }}</span>
+            </span>
+            <br>
+            <span class="letter-line">
+                <span class="letter" #letterSpan *ngFor="let l of letters2">{{ l === ' ' ? '\u00A0' : l }}</span>
+            </span>
+            <br>
+            <span class="letter-line">
+                <span class="letter" #letterSpan *ngFor="let l of letters3">{{ l === ' ' ? '\u00A0' : l }}</span>
+            </span>
+        </h1>
+
+        <p>
+            Your Trusted Partner for Tomorrow's Tech Solution
+        </p>
+
+        <button class="btn-get-in-touch">Get in Touch</button>
+    </div>
+</section> -->
+
+<app-navbar></app-navbar>
+
+<!-- Hero Banner -->
+<section class="about-banner">
+    <div class="container">
+
+        <h1 class="reveal-up" #revealEl>
+            Empowering Businesses, <br>
+            Transforming Lives with <br>
+            Leading Tech Talent
+        </h1>
+
+        <p class="reveal-up" #revealEl>
+            Your Trusted Partner for Tomorrow's Tech Solution
+        </p>
+
+     <button class="btn-get-in-touch" routerLink="/contact">Get in Touch</button>
+    </div>
+</section>
+
+<!-- Company Intro -->
+<section class="company-intro py-5">
+    <div class="container text-center">
+        <h2 class="reveal-up" #revealEl>
+            NayanTech Solutions was first established in 2018 and has quickly grown to be a market leader in recruitment technology across India.
+        </h2>
+        <p class="reveal-up" #revealEl>
+            NayanTech Solutions has transformed the recruitment services market and leads in product and service innovation.
+            With a focus on innovation and technology, we have developed various platforms and solutions that have
+            been widely adopted by professionals and organizations throughout India. Our approach includes the
+            latest technology, top industry talent, and a modern, inclusive approach to hiring. The success of this
+            approach can be witnessed through our fast-growing base of over 1,200+ companies comprising private and
+            government entities who hire across India.
+        </p>
+    </div>
+</section>
+
+<section class="stats-bar">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-4 stats-bar-item reveal-up" #revealEl>
+                <h3>25K+</h3>
+                <p>Candidates</p>
+            </div>
+            <div class="col-md-4 stats-bar-item reveal-up" #revealEl>
+                <h3>1,200+</h3>
+                <p>Companies</p>
+            </div>
+            <div class="col-md-4 stats-bar-item reveal-up" #revealEl>
+                <h3>8,500+</h3>
+                <p>Jobs Posted</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Core Values: TARGET -->
+
+<section class="target-section py-5">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-5">
+                <div class="target-image-wrap reveal-up" #revealEl>
+                    <img src="/Screenshot 2026-07-02 201232.png" alt="Target Core Values" class="img-fluid">
+                </div>
+            </div>
+
+            <div class="col-lg-7">
+                <h2 class="target-heading reveal-up" #revealEl>
+                    Our Core Values: <span class="highlight">TARGET</span>
+                </h2>
+                <p class="target-subtext reveal-up" #revealEl>
+                    TARGET is more than an acronym — it's how we operate.
+                </p>
+
+                <ul class="target-list reveal-up" #revealEl>
+                    <li><strong>T</strong> – Team Collaboration</li>
+                    <li><strong>A</strong> – Accountability in Action</li>
+                    <li><strong>R</strong> – Results That Matter</li>
+                    <li><strong>G</strong> – Growth-Driven Culture</li>
+                    <li><strong>E</strong> – Empowered People</li>
+                    <li><strong>T</strong> – Transparent Communication</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Mission and Vision -->
+<section class="mission-vision py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="reveal-up" #revealEl>Our Mission and Vision</h2>
+            <p class="mv-subtext reveal-up" #revealEl>
+                Our mission is to be world leaders in hiring management-level talent and ensure our candidates
+                and clients are perfectly matched to drive the business forward towards a bright future. We work
+                with a vision to help companies thrive through people power.
+            </p>
+        </div>
+
+        <div class="mv-card">
+
+            <!-- Row 1: Our Team -->
+            <div class="mv-row reveal-up" #revealEl>
+                <div class="row align-items-center g-0">
+                    <div class="col-lg-5">
+                        <img src="/diverse-team-meeting-stockcake.jpg" alt="Our Team" class="mv-image">
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="mv-content">
+                            <h1>Our Team</h1>
+                            <p>
+                                While a single person can cause the failure of a project, the right individual will
+                                ensure its success. That's why we've put together a talented team of professionals,
+                                each uniquely skilled in his or her vertical, including recruitment, visa processing,
+                                executive search, staffing solutions, and localized headhunters in the UAE, giving us
+                                the benefit of each person's years of experience in their field.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="mv-divider">
+
+            <!-- Row 2: Our Culture -->
+            <!-- <div class="mv-row">
+                ...
+            </div> -->
+
+
+            <!-- Row 2: Our Culture -->
+            <!-- <div class="mv-row">
+                <div class="row align-items-center g-0">
+                    <div class="col-lg-5">
+                        <img src="/diverse-team-meeting-stockcake.jpg" alt="Our Culture" class="mv-image">
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="mv-content">
+                            <h3>Our Culture</h3>
+                            <p>
+                                The basis of our culture is commitment to exceptional service. We understand the fact
+                                that international recruitment as well as emiratisation recruitment can have more
+                                impact on a company's success - and on an individual's career - than any other
+                                business decision. We follow a "can do" approach and we are capable of finding a way
+                                to add value at every part of the recruitment process.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+        </div>
+    </div>
+</section>
+<!-- your existing Leadership Team section stays unchanged below -->
+<app-footer></app-footer>

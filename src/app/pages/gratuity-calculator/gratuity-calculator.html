@@ -1,0 +1,123 @@
+<app-navbar></app-navbar>
+
+<section class="gratuity-hero">
+  <div class="container">
+    <h1>Gratuity Calculator</h1>
+  </div>
+</section>
+
+<section class="gratuity-calc">
+  <div class="container">
+    <div class="calc-card">
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Jurisdiction<span class="req">*</span></label>
+          <select [(ngModel)]="jurisdiction">
+            <option value="" disabled selected>Select Jurisdiction</option>
+            <option value="mainland">World</option>
+            <option value="difc">DIFC</option>
+            <option value="adgm">ADGM</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Contract Type<span class="req">*</span></label>
+          <select [(ngModel)]="contractType">
+            <option value="" disabled selected>Select Contract Type</option>
+            <option value="unlimited">Unlimited Contract</option>
+            <option value="limited">Limited Contract</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Reason for Exit<span class="req">*</span></label>
+          <select [(ngModel)]="reasonForExit">
+            <option value="" disabled selected>Select Reason</option>
+            <option value="resignation">Resignation</option>
+            <option value="termination">Termination</option>
+            <option value="end_of_contract">End of Contract</option>
+            <option value="retirement">Retirement</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Latest Basic Salary (AED)<span class="req">*</span></label>
+          <input type="number" [(ngModel)]="basicSalary" placeholder="Enter basic salary">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Number of Unpaid Leave Days</label>
+          <input type="number" [(ngModel)]="unpaidLeaveDays" placeholder="0">
+        </div>
+
+        <div class="form-group">
+          <label>Date of Joining<span class="req">*</span></label>
+          <input type="date" [(ngModel)]="dateOfJoining">
+        </div>
+      </div>
+
+      <div class="form-row single">
+        <div class="form-group">
+          <label>Exit Date<span class="req">*</span></label>
+          <input type="date" [(ngModel)]="exitDate">
+        </div>
+      </div>
+
+      <button class="calc-btn" (click)="calculate()">Calculate</button>
+
+      <div class="calc-result" *ngIf="result !== null">
+        <span>Estimated Gratuity</span>
+        <h2>AED {{ result | number }}</h2>
+        <p class="result-note" *ngIf="resultNote">{{ resultNote }}</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="gratuity-info">
+  <div class="container">
+
+    <div class="info-block">
+      <h2>Disclaimer</h2>
+      <p>
+        This calculator is intended for informational purposes only. It provides an estimate based on standard
+        calculations for the World and should not be considered legal advice. Actual entitlements may vary
+        based on your employment contract, company policy, and final settlement terms. For official advice, we
+        recommend consulting with an HR or legal professional.
+      </p>
+    </div>
+
+    <div class="info-block">
+      <h2>Want to Understand Gratuity in More Detail?</h2>
+      <p>
+        Our comprehensive blog post covers everything you need to know, from eligibility to exceptions, calculations, and
+        frequently asked scenarios.
+      </p>
+      <a routerLink="/resources/blog/complete-guide-to-gratuity-World" class="guide-link">Read the Full Gratuity Guide Here</a>
+    </div>
+
+    <div class="info-block">
+      <h2>Frequently Asked Questions (FAQs)</h2>
+      <div class="faq-list">
+        <div class="faq-item" *ngFor="let faq of faqs; let i = index" [class.open]="openFaqIndex === i">
+          <button class="faq-question" (click)="toggleFaq(i)">
+            {{ faq.question }}
+            <span class="faq-arrow">▾</span>
+          </button>
+          <div class="faq-answer" *ngIf="openFaqIndex === i">
+            <p>{{ faq.answer }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<app-footer></app-footer>

@@ -1,0 +1,105 @@
+<footer class="footer">
+
+    <div class="container">
+
+        <div class="row gy-5">
+
+            <!-- Company -->
+          <div class="col-lg-3 reveal-up" #revealEl>
+
+    <a routerLink="/" class="footer-logo-link">
+      <img src="/nayan-logo-transparent.png" alt="NayanTech Solutions logo" class="footer-logo">
+
+    </a>
+
+
+
+    <p>
+        NayanTech Solutions delivers end-to-end IT services, staffing and workforce
+        solutions, helping businesses hire, manage and scale with confidence.
+    </p>
+
+    <div class="social-icons">
+        <a href="#"><i class="bi bi-facebook"></i></a>
+        <a href="#"><i class="bi bi-instagram"></i></a>
+        <a href="#"><i class="bi bi-linkedin"></i></a>
+        <a href="#"><i class="bi bi-twitter-x"></i></a>
+    </div>
+
+</div>
+
+            <!-- Quick Links -->
+            <div class="col-lg-2 reveal-up" #revealEl>
+
+                <h5>Quick Links</h5>
+
+                <ul>
+                    <li><a routerLink="/">Home</a></li>
+                    <li><a routerLink="/about">About</a></li>
+                    <li><a routerLink="/careers">Careers</a></li>
+                    <li><a routerLink="/clients">Our Clients</a></li>
+                    <li><a routerLink="/contact">Contact</a></li>
+                </ul>
+
+            </div>
+
+            <!-- Services -->
+            <div class="col-lg-2 reveal-up" #revealEl>
+
+                <h5>Our Services</h5>
+
+                <ul>
+                    <li><a routerLink="/services/staffing">Staffing & Recruiting</a></li>
+                    <li><a routerLink="/services/managed-hr">Managed HR</a></li>
+                    <li><a routerLink="/services/peo-eor">PEO & EOR</a></li>
+                    <li><a routerLink="/services/hr-technology">HR Technology</a></li>
+                    <li><a routerLink="/services/consulting">Consulting</a></li>
+                </ul>
+
+            </div>
+
+            <!-- Offices -->
+            <div class="col-lg-3 reveal-up" #revealEl>
+
+                <h5>Our Offices</h5>
+
+                <div class="office-block" *ngFor="let office of offices">
+                    <p class="office-city">{{ office.city }}</p>
+                    <p class="office-address">
+                        <i class="bi bi-geo-alt-fill me-2"></i>
+                        {{ office.address }}
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Contact -->
+            <div class="col-lg-2 reveal-up" #revealEl>
+
+                <h5>Contact Us</h5>
+
+                <p>
+                    <i class="bi bi-envelope-fill me-2"></i>
+                    nayantechsolution@gmail.com
+                </p>
+
+                <p>
+                    <i class="bi bi-telephone-fill me-2"></i>
+                    +91 98765 43210
+                </p>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="copyright">
+            © {{year}}
+            NayanTech Solutions.
+            All Rights Reserved.
+        </div>
+
+    </div>
+
+</footer>

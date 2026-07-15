@@ -1,0 +1,145 @@
+.services-fullbleed {
+  width: 100%;
+}
+
+.services-heading {
+  padding: 60px 20px 0;
+}
+
+/* FULL-BLEED ROW: no container, no max-width, edges touch viewport */
+.service-row {
+  display: flex;
+  width: 100%;
+  min-height: 520px;
+  margin-bottom: 0; /* rows sit flush against each other, like the reference */
+}
+
+.service-row.reverse {
+  flex-direction: row-reverse;
+}
+
+/* IMAGE HALF: exactly 50%, full height, no rounding, no shadow */
+.service-visual {
+  position: relative;
+  flex: 0 0 50%;
+  overflow: hidden;
+}
+
+.service-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Color-tint overlay to match the navy-blue wash in the reference */
+.tint-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(10, 30, 70, 0.55), rgba(13, 71, 161, 0.35));
+}
+
+/* TEXT HALF: light background, generous padding, vertically centered */
+.service-text {
+  flex: 0 0 50%;
+  background: #f4f7fc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+
+.service-text-inner {
+  width: 100%;
+  max-width: 680px;
+  padding: 50px 70px;
+  margin: 0 auto;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.service-text h3 {
+  font-weight: 800;
+  font-size: 34px;
+  color: #10254a;
+  margin-bottom: 20px;
+}
+
+.service-text p {
+  color: #4a5568;
+  line-height: 1.7;
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+/* Solid pill button, matching reference */
+.explore-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #0d3b7a;
+  color: #fff;
+  font-weight: 600;
+  padding: 14px 26px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.explore-btn:hover {
+  background: #0d6efd;
+  color: #fff;
+}
+
+/* RESPONSIVE: stack vertically on smaller screens */
+@media (max-width: 900px) {
+  .service-row,
+  .service-row.reverse {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .service-visual,
+  .service-text {
+    flex: 0 0 100%;
+  }
+
+  .service-visual {
+    height: 320px;
+  }
+
+  .service-text-inner {
+    padding: 40px 30px;
+    max-width: 100%;
+  }
+
+  .service-text h3 {
+    font-size: 26px;
+  }
+}
+
+.reveal-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.reveal-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.tint-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(10, 30, 70, 0.12), rgba(13, 71, 161, 0.08));
+}
+
+.tint-overlay {
+  display: none;
+}
+
+.tint-overlay {
+  background: transparent;
+}

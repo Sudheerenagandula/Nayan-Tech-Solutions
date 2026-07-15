@@ -1,0 +1,105 @@
+<section class="py-5 bg-light">
+
+<div class="container">
+
+<div class="text-center mb-5">
+
+<h2 class="fw-bold">
+
+Featured Jobs
+
+</h2>
+
+<p class="text-muted">
+
+Discover the latest opportunities from top companies.
+
+</p>
+
+</div>
+
+<div class="row g-4">
+
+<div
+class="col-lg-4 col-md-6"
+*ngFor="let job of jobs">
+
+<div class="job-card">
+
+<div class="d-flex align-items-center">
+
+<img
+[src]="job.logo"
+class="company-logo">
+
+<div class="ms-3">
+
+<h5 class="mb-0">
+
+{{job.title}}
+
+</h5>
+
+<small class="text-muted">
+
+{{job.company}}
+
+</small>
+
+</div>
+
+</div>
+
+<div class="mt-4">
+
+<p>
+
+<i class="bi bi-geo-alt"></i>
+
+{{job.location}}
+
+</p>
+
+<p>
+
+<i class="bi bi-cash-stack"></i>
+
+{{job.salary}}
+
+</p>
+
+<p>
+
+<i class="bi bi-briefcase"></i>
+
+{{job.experience}}
+
+</p>
+
+<span class="badge bg-primary">
+
+{{job.type}}
+
+</span>
+
+</div>
+
+<div class="mt-4">
+
+<button class="btn btn-primary w-100">
+
+Apply Now
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>

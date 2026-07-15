@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+
+<!-- SECTION 1 — HERO -->
+<section class="hero" [style.backgroundImage]="'url(' + heroImage + ')'">
+  <div class="hero-content">
+    <h1 class="hero-headline reveal-up" #revealEl>{{ heroHeadline }}</h1>
+    <p class="hero-subtext reveal-up" #revealEl>{{ heroSubtext }}</p>
+  </div>
+</section>
+
+<!-- SECTION 2 — CLIENT LOGO GRID -->
+<section class="clients-section">
+  <h2 class="section-title reveal-up" #revealEl>Some of our Valued Clients</h2>
+
+  <div class="clients-grid">
+    <div class="client-card reveal-up" #revealEl *ngFor="let client of clients">
+      <img [src]="client.logo" [alt]="client.name + ' logo'" class="client-logo">
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3 — CTA BANNER -->
+<section class="cta-banner reveal-up" #revealEl>
+  <h2 class="cta-headline">{{ ctaHeadline }}</h2>
+  <a [routerLink]="ctaButtonPath" class="cta-button">
+    {{ ctaButtonLabel }}
+    <span class="arrow">&rarr;</span>
+  </a>
+</section>
+
+<app-footer></app-footer>

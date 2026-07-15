@@ -1,0 +1,99 @@
+<nav
+  class="navbar navbar-expand-lg sticky-top"
+  [class.navbar-transparent]="isHome && !isScrolled"
+  [class.navbar-solid]="!isHome || isScrolled"
+>
+
+  <div class="container">
+
+    <!-- Logo -->
+    <a class="navbar-brand" routerLink="/">
+      <img src="/nayan-logo-transparent.png" alt="NayanTech Solutions logo" class="brand-logo">
+      <span class="brand-name">
+        Nayan<span>Tech Solutions</span>
+      </span>
+      <small></small>
+    </a>
+
+    <!-- Mobile Toggle -->
+    <button class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Menu -->
+    <div class="collapse navbar-collapse" id="menu">
+
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+
+        <!-- SERVICES MEGA MENU -->
+        <li class="nav-item mega-menu-item"
+            (mouseenter)="openMega()"
+            (mouseleave)="closeMega()">
+
+          <a class="nav-link mega-trigger" href="javascript:void(0)" (click)="toggleMega()">
+            Services
+            <svg class="chevron" [class.rotated]="megaOpen" width="10" height="10" viewBox="0 0 10 6" fill="none">
+              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </a>
+
+          <div class="mega-panel" [class.show]="megaOpen">
+            <div class="mega-panel-inner">
+
+              <div class="mega-col" *ngFor="let group of serviceGroups">
+                <h6 class="mega-col-title">{{ group.title }}</h6>
+                <p class="mega-col-desc">{{ group.description }}</p>
+                <ul class="mega-col-links">
+                  <li *ngFor="let link of group.links">
+                    <a [routerLink]="link.path">{{ link.label }}</a>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+        </li>
+
+        <li class="nav-item">
+          <a routerLink="/about" routerLinkActive="active" class="nav-link">About</a>
+        </li>
+
+        <li class="nav-item">
+          <a routerLink="/our-clients" routerLinkActive="active" class="nav-link">Our Clients</a>
+        </li>
+
+      <!-- RESOURCES DROPDOWN -->
+<li class="nav-item resources-dropdown"
+    (mouseenter)="openResources()"
+    (mouseleave)="closeResources()">
+
+  <a class="nav-link resources-trigger" href="javascript:void(0)" (click)="toggleResources()">
+    Resources
+    <svg class="chevron" [class.rotated]="resourcesOpen" width="10" height="10" viewBox="0 0 10 6" fill="none">
+      <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+  </a>
+
+  <div class="resources-panel" [class.show]="resourcesOpen">
+    <a routerLink="/resources/blog" class="resources-link">Nayan Tech Blog</a>
+
+    <a routerLink="/resources/gratuity-calculator" class="resources-link">Gratuity Calculator</a>
+    <a routerLink="/resources/hr-templates" class="resources-link">HR Templates</a>
+  </div>
+
+</li>
+        <li class="nav-item">
+          <a routerLink="/contact" routerLinkActive="active" class="nav-link">Contact</a>
+        </li>
+
+      </ul>
+
+    </div>
+
+  </div>
+
+</nav>

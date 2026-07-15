@@ -1,0 +1,106 @@
+<app-navbar></app-navbar>
+
+<!-- Banner -->
+
+<section class="service-banner">
+  <div class="container text-center">
+    <h1>Our Services</h1>
+    <p>Professional recruitment solutions for job seekers and employers.</p>
+  </div>
+</section>
+
+<!-- Introduction -->
+
+<section class="py-5">
+  <div class="container text-center">
+
+    <h2>Why Choose NayanTech Solutions?</h2>
+
+    <p class="lead mt-3">
+      NayanTech Solutions offers end-to-end recruitment services designed to connect the right
+      talent with the right opportunities. Whether you are looking for your dream
+      job or hiring skilled professionals, we simplify every step of the process.
+    </p>
+
+  </div>
+</section>
+
+<!-- Services -->
+
+<section class="py-5 bg-light">
+
+  <div class="container">
+
+    <div class="row g-4">
+
+      <div class="col-lg-4 col-md-6" *ngFor="let service of services">
+
+        <div class="service-card">
+
+          <i [class]="service.icon"></i>
+
+          <h4>{{ service.title }}</h4>
+
+          <p>{{ service.description }}</p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- Process -->
+
+<section class="py-5">
+
+  <div class="container">
+
+    <h2 class="text-center mb-5">How We Work</h2>
+
+    <div class="row text-center g-4">
+
+      <div class="col-md-3">
+        <div class="process-box">
+          <h1>1</h1>
+          <h5>Register</h5>
+          <p>Create your account and complete your profile.</p>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="process-box">
+          <h1>2</h1>
+          <h5>Search Jobs</h5>
+          <p>Explore thousands of verified job opportunities.</p>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="process-box">
+          <h1>3</h1>
+          <h5>Apply</h5>
+          <p>Submit applications with just a few clicks.</p>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="process-box">
+          <h1>4</h1>
+          <h5>Get Hired</h5>
+          <p>Attend interviews and begin your new career.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<app-cta></app-cta>
+
+<app-footer></app-footer>

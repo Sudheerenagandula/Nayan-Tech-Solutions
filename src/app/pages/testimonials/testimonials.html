@@ -1,0 +1,107 @@
+<app-navbar></app-navbar>
+
+<!-- Banner -->
+
+<section class="testimonial-banner">
+
+    <div class="container text-center">
+
+        <h1>Success Stories</h1>
+
+        <p>Hear what our candidates and employers say about NayanTech Solutions.</p>
+
+    </div>
+
+</section>
+
+<!-- Intro -->
+
+<section class="py-5">
+
+    <div class="container text-center">
+
+        <h2>Trusted by Thousands</h2>
+
+        <p class="lead mt-3">
+            We are proud to help job seekers achieve their career goals and assist
+            organizations in finding the right talent. Here are some experiences
+            shared by our valued clients.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- Testimonials -->
+
+<section class="py-5 bg-light">
+
+    <div class="container">
+
+        <div class="row g-4">
+
+            <div class="col-lg-4 col-md-6" *ngFor="let item of testimonials">
+
+                <div class="testimonial-card">
+
+                    <img [src]="item.image" [alt]="item.name">
+
+                    <h4>{{ item.name }}</h4>
+
+                    <h6>{{ item.role }}</h6>
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+                    <p>
+                        "{{ item.message }}"
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Statistics -->
+
+<section class="py-5">
+
+    <div class="container">
+
+        <div class="row text-center">
+
+            <div class="col-md-3">
+                <h2>25K+</h2>
+                <p>Happy Candidates</p>
+            </div>
+
+            <div class="col-md-3">
+                <h2>1200+</h2>
+                <p>Partner Companies</p>
+            </div>
+
+            <div class="col-md-3">
+                <h2>15K+</h2>
+                <p>Successful Placements</p>
+            </div>
+
+            <div class="col-md-3">
+                <h2>98%</h2>
+                <p>Client Satisfaction</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<app-cta></app-cta>
+
+<app-footer></app-footer>

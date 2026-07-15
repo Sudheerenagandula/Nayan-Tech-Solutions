@@ -1,0 +1,51 @@
+.company-card{
+
+background:#fff;
+
+padding:30px;
+
+border-radius:18px;
+
+text-align:center;
+
+transition:.4s;
+
+height:100%;
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.company-card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:0 20px 40px rgba(0,0,0,.15);
+
+}
+
+.company-logo{
+
+width:80px;
+
+height:80px;
+
+object-fit:contain;
+
+margin-bottom:20px;
+
+}
+
+.company-card p{
+
+color:#777;
+
+}
+
+.company-card button{
+
+border-radius:10px;
+
+margin-top:10px;
+
+}

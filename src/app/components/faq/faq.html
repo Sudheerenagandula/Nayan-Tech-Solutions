@@ -1,0 +1,41 @@
+<section class="faq-section py-5">
+
+  <div class="container">
+
+    <div class="text-center mb-5 reveal-up" #revealEl>
+      <span class="section-eyebrow">What We Do</span>
+      <h2 class="fw-bold faq-heading">Recruiting Across Every Domain</h2>
+      <p class="text-muted">We place skilled professionals across a wide range of industries and roles</p>
+    </div>
+
+    <div class="staff-carousel reveal-up" #revealEl
+         (mouseenter)="stopSlideshow()"
+         (mouseleave)="startSlideshow()">
+
+      <div class="staff-track" [style.transform]="trackTransform">
+        <div class="staff-card" *ngFor="let staff of staffCategories" [style.flex]="'0 0 ' + (100 / cardsPerView) + '%'">
+          <div class="staff-card-inner">
+            <div class="staff-icon">
+              <i [class]="staff.icon"></i>
+            </div>
+            <h4>{{ staff.title }}</h4>
+            <p>{{ staff.description }}</p>
+            <span class="staff-experience">{{ staff.experience }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-dots">
+        <span
+          *ngFor="let dot of dotsArray; let i = index"
+          class="carousel-dot"
+          [class.active]="i === currentIndex"
+          (click)="goToSlide(i)">
+        </span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

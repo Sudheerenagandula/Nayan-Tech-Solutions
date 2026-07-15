@@ -1,0 +1,311 @@
+/* Force navbar to always be solid white, never transparent */
+.navbar-transparent,
+.navbar-solid,
+.navbar {
+    background-color: #ffffff !important;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease;
+}
+
+/* Since background is always white now, nav links and mega-trigger
+   must always be dark, even in the "transparent" state */
+.navbar-transparent .nav-link,
+.navbar-transparent .mega-trigger {
+    color: #1a1a3d !important;
+}
+
+.navbar-transparent .nav-link:hover,
+.navbar-solid .nav-link:hover {
+    color: #0d6efd !important;
+}
+
+.brand-name {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+    color: #1a1a3d;
+    line-height: 1.1;
+}
+
+.brand-name span {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #0d6efd;
+    margin-top: 2px;
+}
+
+/* Since navbar is always white now, no need for a separate
+   transparent-state brand color override */
+.navbar-brand:hover .brand-name {
+    color: #0d6efd;
+}
+
+/* Let the navbar container stretch closer to screen edges */
+.navbar .container {
+    max-width: 100%;
+    width: 100%;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+@media (max-width: 768px) {
+    .navbar .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+
+/* MEGA MENU */
+.mega-menu-item {
+  position: static; /* lets the panel span full width */
+}
+
+.mega-trigger {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.chevron {
+  transition: transform 0.25s ease;
+}
+
+.chevron.rotated {
+  transform: rotate(180deg);
+}
+
+.mega-panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  background: #fff;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+  z-index: 30;
+}
+
+.mega-panel.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.mega-panel-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 30px;
+}
+
+.mega-col-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 8px;
+}
+
+.mega-col-desc {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+
+.mega-col-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mega-col-links a {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.mega-col-links a:hover {
+  color: #0d6efd;
+}
+
+/* Transparent navbar: mega trigger and panel need solid readable state */
+.navbar-transparent .mega-trigger {
+  color: #fff;
+}
+
+.navbar-transparent .mega-panel {
+  background: #fff; /* panel itself always solid, regardless of navbar state */
+}
+
+.navbar-transparent .mega-col-title,
+.navbar-transparent .mega-col-links a {
+  color: #111; /* keep dropdown content dark/readable even when trigger is white */
+}
+
+/* Mobile: mega menu collapses into a stacked list */
+@media (max-width: 992px) {
+  .mega-panel {
+    position: static;
+    box-shadow: none;
+    border-top: none;
+    transform: none;
+    display: none;
+  }
+
+  .mega-panel.show {
+    display: block;
+  }
+
+  .mega-panel-inner {
+    grid-template-columns: 1fr;
+    padding: 10px 0;
+    gap: 20px;
+  }
+
+  .mega-col-links {
+    padding-left: 10px;
+  }
+}
+
+
+/* Fix brand name / tagline running together */
+.navbar-brand {
+  display: flex !important;
+  flex-direction: row !important; /* logo + text side by side, not stacked */
+  align-items: center;
+  gap: 10px;
+}
+
+/* Fix Login/Register buttons running together */
+.nav-actions {
+  display: flex !important;
+  gap: 10px !important;
+  align-items: center;
+}
+
+.login-btn,
+.register-btn {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+
+/* Prevent sticky navbar from covering page content */
+body {
+  scroll-padding-top: 80px;
+}
+
+
+/* ===============================
+   LOGO SIZE
+   Increased from 50px -> 70px. Adjust here only.
+=================================*/
+.navbar-brand img,
+.brand-logo {
+  height: 70px;
+  width: auto;
+  max-width: 120%;
+  object-fit: contain;
+}
+
+/* keep the navbar itself as a proper flex row: logo left, links right */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 8px 24px; /* reduced from 12px so the taller logo isn't cramped */
+}
+
+@media (max-width: 768px) {
+  .navbar-brand img,
+  .brand-logo {
+    height: 48px; /* smaller on mobile so it doesn't overwhelm the header */
+  }
+}
+
+/* ===============================
+   RESOURCES DROPDOWN
+=================================*/
+
+.resources-dropdown {
+  position: relative;
+}
+
+.resources-trigger {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.resources-panel {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 220px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  padding: 12px 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+  z-index: 30;
+}
+
+.resources-panel.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.resources-link {
+  display: block;
+  padding: 12px 22px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #1a1a3d;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.resources-link:hover {
+  background: #f4f7fc;
+  color: #0d6efd;
+}
+
+@media (max-width: 992px) {
+  .resources-panel {
+    position: static;
+    box-shadow: none;
+    transform: none;
+    display: none;
+    padding: 0;
+  }
+
+  .resources-panel.show {
+    display: block;
+  }
+
+  .resources-link {
+    padding: 10px 10px 10px 20px;
+  }
+}

@@ -1,0 +1,86 @@
+.statistics {
+  background: linear-gradient(135deg, #1a1a3d 0%, #2d2d5f 50%, #4a5b9e 100%);
+  color: #fff;
+  position: relative;
+  padding: 60px 0;
+}
+
+.statistics-heading h2 {
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1.25;
+  max-width: 750px;
+}
+
+.statistics-heading h2::first-line,
+.statistics-heading h2 {
+  color: #ffffff;
+}
+
+/* First line purple like the reference image, second line white */
+.statistics-heading h2 {
+  color: #c084f5;
+}
+
+.statistics-heading h2 br + br {
+  display: none;
+}
+
+.statistics-subtext {
+  font-size: 17px;
+  color: #cfcbe0;
+  max-width: 750px;
+  margin-top: 15px;
+  line-height: 1.5;
+}
+
+.stats-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 60px;
+  justify-content: space-between;
+}
+
+.stat-item {
+  min-width: 180px;
+}
+
+.stat-item h2 {
+  font-weight: 800;
+  font-size: 56px;
+  margin-bottom: 12px;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.stat-item p {
+  margin: 0;
+  font-size: 17px;
+  color: #b8b0cc;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .statistics-heading h2 {
+    font-size: 30px;
+  }
+  .stats-row {
+    gap: 35px;
+    justify-content: flex-start;
+  }
+  .stat-item h2 {
+    font-size: 42px;
+  }
+}
+
+
+.reveal-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.reveal-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

@@ -1,0 +1,68 @@
+<app-navbar></app-navbar>
+
+<!-- HR LIBRARY HERO -->
+<section class="hr-library">
+  <div class="container">
+    <div class="row align-items-center">
+
+      <div class="col-lg-6 hr-library-text">
+        <h1>HR Library</h1>
+        <p>
+          Access downloadable and ready-to-use HR Templates, tailored to the Acorss World
+          and wider GCC, that you can adapt instantly for your organization. Each is:
+        </p>
+
+        <div class="feature-grid">
+          <div class="feature-item" *ngFor="let feature of features">
+            <div class="feature-icon">
+              <i [class]="feature.icon"></i>
+            </div>
+            <span>{{ feature.text }}</span>
+          </div>
+        </div>
+
+        <a href="#template-grid" class="browse-btn">
+          Browse Templates
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+<div class="col-lg-6 hr-library-visual">
+  <img src="/Hr-Template.png" alt="HR Library">
+</div>
+
+    </div>
+  </div>
+</section>
+
+
+<hr class="controls-divider">
+
+<section class="templates-list">
+  <div class="container">
+
+
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4" *ngFor="let t of filteredTemplates">
+        <div class="template-card">
+          <img [src]="t.image" [alt]="t.title">
+          <div class="template-card-body">
+            <h3>{{ t.title }}</h3>
+            <p>{{ t.description | slice:0:140 }}{{ t.description.length > 140 ? '…' : '' }}</p>
+            <a [routerLink]="['/resources/hr-templates', t.slug]" class="view-template-link">
+              View Template
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<app-footer></app-footer>

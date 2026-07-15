@@ -1,0 +1,21 @@
+<section class="statistics py-5">
+  <div class="container">
+    <div class="statistics-heading mb-5">
+      <h2 class="fw-bold reveal-up" #revealEl>
+        Delivering Technology Solutions <br class="d-none d-md-block">
+        at Scale Across MENA
+      </h2>
+      <p class="statistics-subtext reveal-up" #revealEl>
+        AIQU is the technology execution layer behind some of MENA's most ambitious enterprises,
+        delivering intelligent solutions from strategy through to execution.
+      </p>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-item reveal-up" #revealEl *ngFor="let stat of statistics">
+        <h2>{{stat.value}}</h2>
+        <p>{{stat.title}}</p>
+      </div>
+    </div>
+  </div>
+</section>

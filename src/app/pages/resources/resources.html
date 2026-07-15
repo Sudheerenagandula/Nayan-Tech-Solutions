@@ -1,0 +1,39 @@
+<app-navbar></app-navbar>
+
+<section class="hr-library">
+  <div class="container">
+    <div class="row align-items-center">
+
+      <div class="col-lg-6 hr-library-text reveal-up" #revealEl>
+        <h1>HR Library</h1>
+        <p>
+          Access downloadable and ready-to-use HR Templates, tailored to the UAE
+          and wider GCC, that you can adapt instantly for your organization. Each is:
+        </p>
+
+        <div class="feature-grid">
+          <div class="feature-item" *ngFor="let feature of features">
+            <div class="feature-icon">
+              <i [class]="feature.icon"></i>
+            </div>
+            <span>{{ feature.text }}</span>
+          </div>
+        </div>
+
+        <a routerLink="/resources/hr-templates" class="browse-btn">
+          Browse Templates
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="col-lg-6 hr-library-visual reveal-up" #revealEl>
+        <img src="/hr-templates-woman-laptop.jpg" alt="HR Library">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

@@ -1,0 +1,32 @@
+<section class="hero-section">
+
+  <div class="hero-slideshow" [style.transform]="'translateX(-' + (currentSlide * (100 / slides.length)) + '%)'">
+    <div
+      class="hero-slide"
+      *ngFor="let slide of slides; let i = index"
+      [style.background-image]="'url(' + slide.image + ')'">
+    </div>
+  </div>
+
+  <div class="hero-overlay"></div>
+
+  <ng-container *ngFor="let slide of slides; let i = index">
+    <div class="hero-content" *ngIf="i === currentSlide">
+      <h1 class="reveal-up" #revealEl>{{ slide.heading }}</h1>
+      <p class="reveal-up" #revealEl>{{ slide.text }}</p>
+      <div class="hero-actions reveal-up" #revealEl>
+        <button class="btn-hero">{{ slide.buttonLabel }}</button>
+      </div>
+    </div>
+  </ng-container>
+
+  <div class="hero-dots">
+    <span
+      *ngFor="let slide of slides; let i = index"
+      class="hero-dot"
+      [class.active]="i === currentSlide"
+      (click)="goToSlide(i)">
+    </span>
+  </div>
+
+</section>

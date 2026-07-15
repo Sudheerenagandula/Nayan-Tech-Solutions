@@ -1,0 +1,25 @@
+<section class="blog-section">
+  <div class="container-fluid px-3">
+
+    <h2 class="blog-heading text-center reveal-up" #revealEl>Our Blog</h2>
+
+    <div class="blog-grid">
+      <a [routerLink]="post.path"
+         class="blog-tile reveal-up"
+         #revealEl
+         [class.tile-image]="post.image"
+         [class.tile-blue]="!post.image && post.tone === 'blue'"
+         [class.tile-dark]="!post.image && post.tone === 'dark'"
+         [style.background-image]="post.image ? 'url(' + post.image + ')' : null"
+         *ngFor="let post of posts">
+
+        <div class="tile-content">
+          <span class="tile-date">{{ post.date }}</span>
+          <h5>{{ post.title }}</h5>
+        </div>
+
+      </a>
+    </div>
+
+  </div>
+</section>

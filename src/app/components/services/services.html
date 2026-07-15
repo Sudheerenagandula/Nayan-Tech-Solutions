@@ -1,0 +1,32 @@
+<section class="services-fullbleed">
+
+  <div class="text-center mb-5 services-heading reveal-up" #revealEl>
+    <h2 class="fw-bold">Our HR Solutions</h2>
+    <p class="text-muted">End-to-end services to help you build and manage your workforce.</p>
+  </div>
+
+  <div class="service-row reveal-up" #revealEl
+       *ngFor="let service of services; let i = index"
+       [class.reverse]="i % 2 !== 0">
+
+    <div class="service-visual">
+      <img [src]="service.image" [alt]="service.title">
+      <div class="tint-overlay"></div>
+    </div>
+
+    <div class="service-text">
+      <div class="service-text-inner">
+        <h3>{{ service.title }}</h3>
+        <p>{{ service.description }}</p>
+        <a [routerLink]="service.path" class="explore-btn">
+          Explore
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+</section>

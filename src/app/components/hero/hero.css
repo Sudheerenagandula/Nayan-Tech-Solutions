@@ -1,0 +1,198 @@
+/* ==========================================
+   Hero Section
+========================================== */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh; /* handles mobile browser UI bars better */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: #071b46;
+}
+
+/* ==========================================
+   Background Slideshow (Right to Left Slide)
+========================================== */
+.hero-slideshow {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  width: 300%; /* total slides * 100% */
+  height: 100%;
+  z-index: 0;
+  transition: transform 0.8s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.hero-slide {
+  flex: 0 0 33.333%; /* 100% / total slides */
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ==========================================
+   Overlay
+========================================== */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    90deg,
+    rgba(6, 21, 61, 0.85) 0%,
+    rgba(10, 42, 112, 0.65) 40%,
+    rgba(10, 42, 112, 0.20) 75%,
+    rgba(10, 42, 112, 0.05) 100%
+  );
+}
+
+/* ==========================================
+   Hero Content & Down-to-Up Text Animations
+========================================== */
+.hero-content {
+  position: relative;
+  z-index: 5;
+  max-width: 620px;
+  margin-left: 90px;
+  color: #ffffff;
+}
+
+.hero-content h1 {
+  margin: 0;
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 700;
+  line-height: 1.15;
+  color: #ffffff;
+  opacity: 0;
+  animation: heroFadeUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.hero-content p {
+  margin-top: 24px;
+  max-width: 520px;
+  font-size: 20px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.92);
+  opacity: 0;
+  animation: heroFadeUp 0.8s 0.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.hero-actions {
+  margin-top: 35px;
+  opacity: 0;
+  animation: heroFadeUp 0.8s 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* ==========================================
+   Button
+========================================== */
+.btn-hero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 0;
+  background: #0099ff;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-hero:hover {
+  background: #007acc;
+}
+
+/* ==========================================
+   Slider Dots
+========================================== */
+.hero-dots {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 24px;
+  display: flex;
+  gap: 14px;
+  z-index: 999;
+}
+
+.hero-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #ffffff;
+  opacity: 0.5;
+  border: 2px solid #071b46;
+  cursor: pointer;
+  transition: opacity 0.3s, transform 0.3s;
+  padding: 0;
+}
+
+.hero-dot:hover {
+  opacity: 0.8;
+}
+
+.hero-dot.active {
+  opacity: 1;
+  transform: scale(1.3);
+}
+
+/* ==========================================
+   Keyframes (Down to Up Animation)
+========================================== */
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================
+   Responsive Breakpoints
+========================================== */
+@media (max-width: 992px) {
+  .hero-content {
+    margin-left: 50px;
+    max-width: 520px;
+  }
+  .hero-content h1 {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    margin: 0 25px;
+    max-width: 100%;
+  }
+  .hero-content h1 {
+    font-size: 36px;
+  }
+  .btn-hero {
+    width: 100%;
+  }
+}
+
+
+.reveal-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.reveal-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
