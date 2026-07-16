@@ -5,7 +5,7 @@ interface Slide {
   image: string;
   heading: string;
   text: string;
-  buttonLabel: string;
+
 }
 
 @Component({
@@ -22,19 +22,19 @@ export class Hero implements OnInit, OnDestroy, AfterViewInit {
       image: '/rrr.jpg',
       heading: 'Empowering businesses with tailored HR solutions',
       text: 'NayanTech Solutions connects skilled professionals with top companies across India.',
-      buttonLabel: 'MORE'
+
     },
     {
       image: '/office-business.jpg',
       heading: 'At the heart of India\'s hiring story',
       text: 'We have stood beside growing businesses and ambitious professionals for years.',
-      buttonLabel: 'MORE'
+
     },
     {
       image: '/Hiring-and-selection-scaled.jpeg',
       heading: 'Designed for what lies ahead',
       text: 'Our talent advisory enables organisations to scale with clarity and continuity',
-      buttonLabel: 'MORE'
+
     }
   ];
 
