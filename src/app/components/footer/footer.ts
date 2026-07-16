@@ -19,16 +19,25 @@ export class Footer implements AfterViewInit, OnDestroy {
   year = new Date().getFullYear();
 
   offices: Office[] = [
-    { city: 'Hyderabad (HQ)', address: 'Telangana, India' },
-    { city: 'Bengaluru', address: 'Karnataka, India' },
-    { city: 'Irvine', address: 'California, United States  of America' }
+    {
+      city: 'Hyderabad (HQ)',
+      address: 'Western Aqua, Kondapur, Whitefields, HITEC City, Hyderabad, Telangana 500081'
+    },
+    {
+      city: 'Bengaluru',
+      address: 'Balaji Arcade, 20th L Cross Rd, 4th Block, Koramangala, Bengaluru, Karnataka 560095'
+    },
+    {
+      city: 'United States',
+      address: '#9891 Irvine Center Drive, STE 200, Irvine, CA 92618'
+    }
   ];
 
   // ---------- SCROLL REVEAL ----------
   @ViewChildren('revealEl') revealEls!: QueryList<ElementRef>;
   private observer!: IntersectionObserver;
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     this.observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
@@ -44,7 +53,7 @@ export class Footer implements AfterViewInit, OnDestroy {
     this.revealEls.forEach(el => this.observer.observe(el.nativeElement));
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     if (this.observer) {
       this.observer.disconnect();
     }
