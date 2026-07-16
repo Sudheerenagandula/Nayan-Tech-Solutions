@@ -20,6 +20,33 @@ import { Cta } from '../../components/cta/cta';
 })
 export class Contact implements AfterViewInit, OnDestroy {
 
+  // ---------- FORM ----------
+  formData = {
+    name: '',
+    email: '',
+    service: 'Looking For Job',
+    subject: '',
+    message: ''
+  };
+
+  submitted = false;
+
+  onSubmit() {
+    if (!this.formData.name || !this.formData.email || !this.formData.message) {
+      return;
+    }
+
+    // TODO: wire this up to your backend / email service (e.g. EmailJS, an API endpoint, etc.)
+    console.log('Contact form submitted:', this.formData);
+
+    this.submitted = true;
+
+    setTimeout(() => {
+      this.submitted = false;
+      this.formData = { name: '', email: '', service: 'Looking For Job', subject: '', message: '' };
+    }, 3000);
+  }
+
   // ---------- SCROLL REVEAL ----------
   @ViewChildren('revealEl') revealEls!: QueryList<ElementRef>;
   private observer!: IntersectionObserver;

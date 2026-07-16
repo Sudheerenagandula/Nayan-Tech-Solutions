@@ -2,189 +2,262 @@
 
 <!-- Hero -->
 <section class="contact-banner">
-    <div class="container text-center reveal-up" #revealEl>
-        <h1>Contact Us</h1>
-    </div>
+  <div class="container text-center reveal-up" #revealEl>
+    <span class="banner-tag">Get In Touch</span>
+    <h1>Contact Us</h1>
+    <p>We're here to help you find the right talent — or the right role.</p>
+  </div>
 </section>
 
-<!-- Get In Touch + Form (dark panel) -->
+<!-- Get In Touch + Form -->
 <section class="get-in-touch-section">
-<div class="container">
-<div class="row g-5 align-items-start">
+  <div class="container">
+    <div class="row g-5 align-items-start">
 
-<!-- Left: heading + info -->
-<div class="col-lg-5 reveal-up" #revealEl>
-<h2>Let's Talk Results</h2>
-<p class="gt-note">📩 Our team will get back to you within 24 hours.</p>
+      <!-- Left Content -->
+      <div class="col-lg-5 reveal-up" #revealEl>
+        <h2>Let's Talk Results</h2>
 
-<p class="gt-subtext">
-Whether you're looking to hire exceptional talent, explore career
-opportunities, or learn more about our solutions — we'd love to connect.
-</p>
+        <p class="gt-note">📩 Our team will get back to you within 24 hours.</p>
 
-<div class="contact-card">
-<i class="bi bi-geo-alt-fill"></i>
-<div>
-<h5>Office Location</h5>
-<p>
-NayanTech Solutions Pvt Ltd
-<br>
-Anna Nagar, Chennai,
-Tamil Nadu - 600040
-</p>
-</div>
-</div>
+        <p class="gt-subtext">
+          Whether you're looking to hire exceptional talent, explore career
+          opportunities, or learn more about our solutions — we'd love to connect.
+        </p>
 
-<div class="contact-card">
-<i class="bi bi-telephone-fill"></i>
-<div>
-<h5>Call Us</h5>
-<p>
-+91 98765 43210
-<br>
-+91 87654 32109
-</p>
-</div>
-</div>
+        <!-- Office Locations -->
+        <div class="contact-card">
+          <i class="bi bi-geo-alt-fill"></i>
+          <div class="contact-item">
+            <h5>Office Locations</h5>
+            <p>
+              <strong>Hyderabad:</strong><br>
+              Western Aqua, Kondapur,<br>
+              Whitefields, HITEC City,<br>
+              Hyderabad, Telangana 500081
+            </p>
+            <p>
+              <strong>Bangalore:</strong><br>
+              Balaji Arcade,<br>
+              20th L Cross Rd, 4th Block,<br>
+              Koramangala, Bengaluru,<br>
+              Karnataka 560095
+            </p>
+            <p>
+              <strong>United States:</strong><br>
+              #9891 Irvine Center Drive,<br>
+              STE 200,<br>
+              Irvine, CA 92618
+            </p>
+          </div>
+        </div>
 
-<div class="contact-card">
-<i class="bi bi-envelope-fill"></i>
-<div>
-<h5>Email Support</h5>
-<p>nayantechsolution@gmail.com</p>
-</div>
-</div>
+        <!-- Phone -->
+        <div class="contact-card">
+          <i class="bi bi-telephone-fill"></i>
+          <div class="contact-item">
+            <h5>Call Us</h5>
+            <p><a class="contact-link" href="tel:+919052039196">+91 9052039196</a></p>
+          </div>
+        </div>
 
-<div class="contact-card">
-<i class="bi bi-clock-fill"></i>
-<div>
-<h5>Working Hours</h5>
-<p>
-Monday - Saturday
-<br>
-9:00 AM - 6:00 PM
-</p>
-</div>
-</div>
-</div>
+        <!-- Email -->
+        <div class="contact-card">
+          <i class="bi bi-envelope-fill"></i>
+          <div class="contact-item">
+            <h5>Email Support</h5>
+            <p><a class="contact-link" href="mailto:info@nayantechsolutions.com">info@nayantechsolutions.com</a></p>
+          </div>
+        </div>
 
-<!-- Right: dark form card -->
-<div class="col-lg-7 reveal-up" #revealEl>
-<div class="contact-form">
+        <!-- Working Hours -->
+        <div class="contact-card">
+          <i class="bi bi-clock-fill"></i>
+          <div class="contact-item">
+            <h5>Working Hours</h5>
+            <p>Monday - Saturday<br>9:00 AM - 6:00 PM</p>
+          </div>
+        </div>
+      </div>
 
-<h2>Send Us A Message</h2>
-<p>Have questions about jobs, hiring, or recruitment services? Drop us a message.</p>
+      <!-- Right Form -->
+      <div class="col-lg-7 reveal-up" #revealEl>
+        <div class="contact-form">
+          <h2>Send Us A Message</h2>
+          <p>Have questions about jobs, hiring, or recruitment services? Drop us a message.</p>
 
-<form>
+          <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
+            <div class="row">
+              <div class="col-md-6 mb-4">
+                <label for="name">Your Name</label>
+                <input
+                  id="name"
+                  type="text"
+                  class="form-control"
+                  placeholder="Your Name"
+                  name="name"
+                  [(ngModel)]="formData.name"
+                  required>
+              </div>
 
-<div class="row">
-<div class="col-md-6 mb-4">
-<label>Your Name</label>
-<input type="text" class="form-control" placeholder="Your Name">
-</div>
-<div class="col-md-6 mb-4">
-<label>Email Address</label>
-<input type="email" class="form-control" placeholder="Email Address">
-</div>
-</div>
+              <div class="col-md-6 mb-4">
+                <label for="email">Email Address</label>
+                <input
+                  id="email"
+                  type="email"
+                  class="form-control"
+                  placeholder="Email Address"
+                  name="email"
+                  [(ngModel)]="formData.email"
+                  required>
+              </div>
+            </div>
 
-<div class="row">
-<div class="col-md-6 mb-4">
-<label>Select Service</label>
-<select class="form-control">
-<option>Looking For Job</option>
-<option>Hiring Candidates</option>
-<option>Career Guidance</option>
-</select>
-</div>
-<div class="col-md-6 mb-4">
-<label>Subject</label>
-<input type="text" class="form-control" placeholder="Subject">
-</div>
-</div>
+            <div class="row">
+              <div class="col-md-6 mb-4">
+                <label for="service">Select Service</label>
+                <select
+                  id="service"
+                  class="form-control"
+                  name="service"
+                  [(ngModel)]="formData.service">
+                  <option>Looking For Job</option>
+                  <option>Hiring Candidates</option>
+                  <option>Career Guidance</option>
+                </select>
+              </div>
 
-<div class="mb-4">
-<label>Your Message</label>
-<textarea class="form-control" rows="5" placeholder="Your Message"></textarea>
-</div>
+              <div class="col-md-6 mb-4">
+                <label for="subject">Subject</label>
+                <input
+                  id="subject"
+                  type="text"
+                  class="form-control"
+                  placeholder="Subject"
+                  name="subject"
+                  [(ngModel)]="formData.subject">
+              </div>
+            </div>
 
-<button class="submit-btn">Send Message</button>
+            <div class="mb-4">
+              <label for="message">Your Message</label>
+              <textarea
+                id="message"
+                class="form-control"
+                rows="5"
+                placeholder="Your Message"
+                name="message"
+                [(ngModel)]="formData.message"
+                required></textarea>
+            </div>
 
-</form>
+            <button type="submit" class="submit-btn" [disabled]="submitted">
+              {{ submitted ? 'Message Sent ✓' : 'Send Message' }}
+            </button>
+          </form>
+        </div>
+      </div>
 
-</div>
-</div>
-
-</div>
-</div>
+    </div>
+  </div>
 </section>
 
-<!-- Why Contact NayanTech Solutions -->
+<!-- Why Contact -->
 <section class="why-section py-5">
-<div class="container">
+  <div class="container">
+    <h2 class="text-center mb-5 reveal-up" #revealEl>Why Connect With NayanTech Solutions?</h2>
 
-<h2 class="text-center mb-5 reveal-up" #revealEl>Why Connect With NayanTech Solutions?</h2>
+    <div class="row g-4">
+      <div class="col-lg-4 reveal-up" #revealEl>
+        <div class="why-card">
+          <i class="bi bi-person-check-fill"></i>
+          <h4>For Job Seekers</h4>
+          <p>Get access to verified jobs, career guidance, and professional growth opportunities.</p>
+        </div>
+      </div>
 
-<div class="row g-4">
+      <div class="col-lg-4 reveal-up" #revealEl>
+        <div class="why-card">
+          <i class="bi bi-building"></i>
+          <h4>For Employers</h4>
+          <p>Find skilled professionals through our efficient recruitment solutions.</p>
+        </div>
+      </div>
 
-<div class="col-lg-4 reveal-up" #revealEl>
-<div class="why-card">
-<i class="bi bi-person-check-fill"></i>
-<h4>For Job Seekers</h4>
-<p>
-Get access to verified jobs, career guidance,
-and professional growth opportunities.
-</p>
-</div>
-</div>
-
-<div class="col-lg-4 reveal-up" #revealEl>
-<div class="why-card">
-<i class="bi bi-building"></i>
-<h4>For Employers</h4>
-<p>
-Find skilled professionals through our
-efficient recruitment solutions.
-</p>
-</div>
-</div>
-
-<div class="col-lg-4 reveal-up" #revealEl>
-<div class="why-card">
-<i class="bi bi-headset"></i>
-<h4>Dedicated Support</h4>
-<p>
-Our recruitment specialists support you
-through every step.
-</p>
-</div>
-</div>
-
-</div>
-</div>
+      <div class="col-lg-4 reveal-up" #revealEl>
+        <div class="why-card">
+          <i class="bi bi-headset"></i>
+          <h4>Dedicated Support</h4>
+          <p>Our recruitment specialists support you through every step.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- Location -->
 <section class="location-section py-5">
-<div class="container text-center reveal-up" #revealEl>
-<h2>Our Office</h2>
-<div class="map-box">
-<i class="bi bi-map-fill"></i>
-<h4>NayanTech Solutions Office</h4>
-<p>Anna Nagar, Chennai, Tamil Nadu</p>
-</div>
-</div>
+  <div class="container text-center reveal-up" #revealEl>
+    <h2>Our Offices</h2>
+
+    <div class="row justify-content-center">
+      <div class="col-md-4 mb-4">
+        <div class="map-box">
+          <i class="bi bi-map-fill"></i>
+          <h4>Hyderabad Office</h4>
+          <p>
+            Western Aqua, Kondapur,<br>
+            Whitefields, HITEC City,<br>
+            Hyderabad, Telangana 500081
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <div class="map-box">
+          <i class="bi bi-map-fill"></i>
+          <h4>Bangalore Office</h4>
+          <p>
+            Balaji Arcade,<br>
+            20th L Cross Rd, 4th Block,<br>
+            Koramangala, Bengaluru,<br>
+            Karnataka 560095
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <div class="map-box">
+          <i class="bi bi-map-fill"></i>
+          <h4>United States Office</h4>
+          <p>
+            #9891 Irvine Center Drive,<br>
+            STE 200,<br>
+            Irvine, CA 92618
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- Still Have Questions -->
 <section class="still-questions-section">
-<div class="container text-center reveal-up" #revealEl>
-<h2>Still Have Questions?</h2>
-<div class="still-questions-links">
-<a href="tel:+919876543210"><i class="bi bi-telephone-fill"></i> Call us</a>
-<a href="mailto:nayantechsolution@gmail.com"><i class="bi bi-envelope-fill"></i> nayantechsolution@gmail.com</a>
-</div>
-</div>
+  <div class="container text-center reveal-up" #revealEl>
+    <h2>Still Have Questions?</h2>
+
+    <div class="still-questions-links">
+      <a href="tel:+919052039196">
+        <i class="bi bi-telephone-fill"></i>
+        Call us
+      </a>
+
+      <a href="mailto:info@nayantechsolutions.com">
+        <i class="bi bi-envelope-fill"></i>
+        info@nayantechsolutions.com
+      </a>
+    </div>
+  </div>
 </section>
 
 <app-footer></app-footer>

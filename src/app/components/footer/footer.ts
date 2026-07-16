@@ -21,7 +21,7 @@ export class Footer implements AfterViewInit, OnDestroy {
   offices: Office[] = [
     { city: 'Hyderabad (HQ)', address: 'Telangana, India' },
     { city: 'Bengaluru', address: 'Karnataka, India' },
-    { city: 'Pune', address: 'Maharashtra, India' }
+    { city: 'Irvine', address: 'California, United States  of America' }
   ];
 
   // ---------- SCROLL REVEAL ----------
