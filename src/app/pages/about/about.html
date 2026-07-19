@@ -1,34 +1,4 @@
- <!-- <app-navbar></app-navbar>
-
-
-
-<section class="about-banner">
-    <div class="container">
-
-        <h1 class="hover-text">
-            <span class="letter-line">
-                <span class="letter" #letterSpan *ngFor="let l of letters1">{{ l === ' ' ? '\u00A0' : l }}</span>
-            </span>
-            <br>
-            <span class="letter-line">
-                <span class="letter" #letterSpan *ngFor="let l of letters2">{{ l === ' ' ? '\u00A0' : l }}</span>
-            </span>
-            <br>
-            <span class="letter-line">
-                <span class="letter" #letterSpan *ngFor="let l of letters3">{{ l === ' ' ? '\u00A0' : l }}</span>
-            </span>
-        </h1>
-
-        <p>
-            Your Trusted Partner for Tomorrow's Tech Solution
-        </p>
-
-        <button class="btn-get-in-touch">Get in Touch</button>
-    </div>
-</section> -->
-
-<app-navbar></app-navbar>
-
+  <app-navbar></app-navbar>
 <!-- Hero Banner -->
 <section class="about-banner">
     <div class="container">
@@ -46,138 +16,219 @@
      <button class="btn-get-in-touch" routerLink="/contact">Get in Touch</button>
     </div>
 </section>
-
-<!-- Company Intro -->
-<section class="company-intro py-5">
-    <div class="container text-center">
-        <h2 class="reveal-up" #revealEl>
-            NayanTech Solutions was first established in 2018 and has quickly grown to be a market leader in recruitment technology across India.
-        </h2>
-        <p class="reveal-up" #revealEl>
-            NayanTech Solutions has transformed the recruitment services market and leads in product and service innovation.
-            With a focus on innovation and technology, we have developed various platforms and solutions that have
-            been widely adopted by professionals and organizations throughout India. Our approach includes the
-            latest technology, top industry talent, and a modern, inclusive approach to hiring. The success of this
-            approach can be witnessed through our fast-growing base of over 1,200+ companies comprising private and
-            government entities who hire across India.
-        </p>
-    </div>
-</section>
-
-<section class="stats-bar">
-    <div class="container">
-        <div class="row text-center">
-            <div class="col-md-4 stats-bar-item reveal-up" #revealEl>
-                <h3>25K+</h3>
-                <p>Candidates</p>
-            </div>
-            <div class="col-md-4 stats-bar-item reveal-up" #revealEl>
-                <h3>1,200+</h3>
-                <p>Companies</p>
-            </div>
-            <div class="col-md-4 stats-bar-item reveal-up" #revealEl>
-                <h3>8,500+</h3>
-                <p>Jobs Posted</p>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Core Values: TARGET -->
-
-<section class="target-section py-5">
+<section class="mv-about py-5">
     <div class="container">
         <div class="row align-items-center g-5">
             <div class="col-lg-5">
-                <div class="target-image-wrap reveal-up" #revealEl>
-                    <img src="/Screenshot 2026-07-02 201232.png" alt="Target Core Values" class="img-fluid">
+                <div class="mv-circle-wrap reveal-up" #revealEl>
+                    <span class="deco-ring"></span>
+                    <img src="/diverse-team-meeting-stockcake.jpg" alt="About NayanTech Solutions" class="mv-circle-img">
+                    <span class="deco-stripes">
+                        <span></span><span></span>
+                    </span>
+                    <span class="deco-dots"></span>
                 </div>
             </div>
 
             <div class="col-lg-7">
-                <h2 class="target-heading reveal-up" #revealEl>
-                    Our Core Values: <span class="highlight">TARGET</span>
-                </h2>
-                <p class="target-subtext reveal-up" #revealEl>
-                    TARGET is more than an acronym — it's how we operate.
-                </p>
+                <h2 class="mv-about-heading reveal-up" #revealEl>About NayanTech Solutions</h2>
 
-                <ul class="target-list reveal-up" #revealEl>
-                    <li><strong>T</strong> – Team Collaboration</li>
-                    <li><strong>A</strong> – Accountability in Action</li>
-                    <li><strong>R</strong> – Results That Matter</li>
-                    <li><strong>G</strong> – Growth-Driven Culture</li>
-                    <li><strong>E</strong> – Empowered People</li>
-                    <li><strong>T</strong> – Transparent Communication</li>
-                </ul>
+                <p class="reveal-up" #revealEl>
+                    We build our hiring technology on the same principle every time: keep it simple. A
+                    complicated recruitment process doesn't mean a better outcome — it usually means more
+                    friction for candidates and slower results for the companies hiring them. So we design
+                    lean, dependable systems that get the right people in front of the right roles, fast.
+                </p>
+                <p class="reveal-up" #revealEl>
+                    Customer-centricity isn't a line on a slide for us — it's the standard we hold ourselves
+                    to on every placement. We only recommend what we'd want recommended to us, and that
+                    partnership mindset is what pushes us to look past the obvious shortlist and find the
+                    candidates and solutions that actually move a business forward.
+                </p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Mission and Vision -->
-<section class="mission-vision py-5">
+<!-- CTA Banner -->
+<section class="mv-cta-banner">
+    <div class="container text-center">
+        <p class="mv-cta-eyebrow reveal-up" #revealEl>LET'S TALK</p>
+        <h2 class="mv-cta-heading reveal-up" #revealEl>Smarter Hiring Solutions at Your Fingertips</h2>
+        <p class="mv-cta-sub reveal-up" #revealEl>
+            In a talent-driven economy, the right hire is the growth lever. We help you pull it by designing
+            recruitment technology and processes that solve real hiring problems, not just fill seats.
+        </p>
+        <button class="btn-know-more reveal-up" #revealEl routerLink="/contact">Know More</button>
+    </div>
+</section>
+
+<!-- Trusted Worldwide + Mission / Vision / Values -->
+<section class="mv-trusted py-5">
     <div class="container">
-        <div class="text-center mb-5">
-            <h2 class="reveal-up" #revealEl>Our Mission and Vision</h2>
-            <p class="mv-subtext reveal-up" #revealEl>
-                Our mission is to be world leaders in hiring management-level talent and ensure our candidates
-                and clients are perfectly matched to drive the business forward towards a bright future. We work
-                with a vision to help companies thrive through people power.
-            </p>
-        </div>
+        <div class="row g-5 align-items-start">
+            <div class="col-lg-5">
+                <h2 class="reveal-up" #revealEl>We Are Trusted Worldwide Peoples</h2>
+                <p class="mv-trusted-text reveal-up" #revealEl>
+                    We view technology as an enabler and not a solution by itself.
+                    Customers pay for the solution, not for the proliferated technology.
+                    Experience lies in understanding carefully and correctly the customer’s requirement and choosing the technology that provides the desired solution,
+                    supported by a clean and transparent governance and highest form of integrity.
+                </p>
 
-        <div class="mv-card">
-
-            <!-- Row 1: Our Team -->
-            <div class="mv-row reveal-up" #revealEl>
-                <div class="row align-items-center g-0">
-                    <div class="col-lg-5">
-                        <img src="/diverse-team-meeting-stockcake.jpg" alt="Our Team" class="mv-image">
+                <div class="mv-stats reveal-up" #revealEl>
+                    <div class="mv-stat">
+                        <span class="mv-stat-num">1,200<span class="mv-stat-plus">+</span></span>
+                        <span class="mv-stat-label">Companies</span>
                     </div>
-                    <div class="col-lg-7">
-                        <div class="mv-content">
-                            <h1>Our Team</h1>
+                    <div class="mv-stat">
+                        <span class="mv-stat-num">100<span class="mv-stat-plus">+</span></span>
+                        <span class="mv-stat-label">Best Quality</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-7">
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="mv-value-card reveal-up" #revealEl>
+                            <span class="mv-icon mv-icon-orange">
+                                <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.6">
+                                    <rect x="3" y="3" width="14" height="14" rx="2" transform="rotate(-15 10 10)"/>
+                                    <path d="M8 11l2 2 4-4" transform="rotate(-15 10 10)"/>
+                                </svg>
+                            </span>
+                            <h3>Our Mission</h3>
+                            <p>Promoting quality through innovation and solving evolving hiring needs with modern, cloud-first recruitment tools.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="mv-value-card reveal-up" #revealEl>
+                            <span class="mv-icon mv-icon-gold">
+                                <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.6">
+                                    <path d="M12 2v20M2 12h20M5 5l14 14M19 5L5 19"/>
+                                </svg>
+                            </span>
+                            <h3>Our Vision</h3>
+                            <p>To help businesses improve their hiring process, increase retention, and build happier, better-matched teams.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="mv-value-card mv-value-card--wide reveal-up" #revealEl>
+                            <span class="mv-icon mv-icon-blue">
+                                <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.6">
+                                    <circle cx="12" cy="12" r="3"/>
+                                    <ellipse cx="12" cy="12" rx="10" ry="4.2"/>
+                                    <ellipse cx="12" cy="12" rx="10" ry="4.2" transform="rotate(60 12 12)"/>
+                                    <ellipse cx="12" cy="12" rx="10" ry="4.2" transform="rotate(120 12 12)"/>
+                                </svg>
+                            </span>
+                            <h3>Values</h3>
                             <p>
-                                While a single person can cause the failure of a project, the right individual will
-                                ensure its success. That's why we've put together a talented team of professionals,
-                                each uniquely skilled in his or her vertical, including recruitment, visa processing,
-                                executive search, staffing solutions, and localized headhunters in the UAE, giving us
-                                the benefit of each person's years of experience in their field.
+                               We source the best resources/technology to solve business problems.
+                               Manvision strives for client excellence through our Center of Excellence.
+                               When it comes to maintaining integrity we promote integrity through data protection and regulatory compliance.
+                               We focus on developing and deploying a multicultural team that can derive maximum synergies.
+                               And lastly, we have a transparent approach making bills without hidden costs working on well-defined SLAs.
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</section>
 
-            <hr class="mv-divider">
+<!-- Who We Are -->
+<section class="mv-who py-5">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-5 order-lg-1">
+                <div class="mv-circle-wrap mv-circle-wrap--alt reveal-up" #revealEl>
+                    <img src="/1000_F_544056854_nEMhWcVpycc2UkWHT28FwsFYZszoEkeW.jpg" alt="Who We Are" class="mv-circle-img">
+                    <span class="deco-dots deco-dots--tr"></span>
+                    <span class="deco-confetti"></span>
+                </div>
+            </div>
 
-            <!-- Row 2: Our Culture -->
-            <!-- <div class="mv-row">
-                ...
-            </div> -->
+            <div class="col-lg-7 order-lg-2">
+                <p class="mv-eyebrow reveal-up" #revealEl><span class="mv-eyebrow-bar"></span> WHO WE ARE</p>
+                <h2 class="mv-who-heading reveal-up" #revealEl>We Build People-First Hiring Solutions</h2>
+                <p class="reveal-up" #revealEl>
+                    NayanTech Solutions is a recruitment technology partner with teams working across India and
+                    the UAE. We've spent years modernizing how businesses find and hire talent, and that
+                    experience is proven and tested against the real hiring problems of over 1,200 organizations.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
 
+<!-- What We Are Doing -->
+<section class="mv-benefits py-5">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <p class="mv-eyebrow reveal-up" #revealEl><span class="mv-eyebrow-bar"></span> OUR BENEFITS</p>
+                <h2 class="mv-who-heading reveal-up" #revealEl>What We Are Doing</h2>
 
-            <!-- Row 2: Our Culture -->
-            <!-- <div class="mv-row">
-                <div class="row align-items-center g-0">
-                    <div class="col-lg-5">
-                        <img src="/diverse-team-meeting-stockcake.jpg" alt="Our Culture" class="mv-image">
-                    </div>
-                    <div class="col-lg-7">
-                        <div class="mv-content">
-                            <h3>Our Culture</h3>
-                            <p>
-                                The basis of our culture is commitment to exceptional service. We understand the fact
-                                that international recruitment as well as emiratisation recruitment can have more
-                                impact on a company's success - and on an individual's career - than any other
-                                business decision. We follow a "can do" approach and we are capable of finding a way
-                                to add value at every part of the recruitment process.
-                            </p>
+                <div class="mv-benefit-item reveal-up" #revealEl>
+                    <span class="mv-benefit-icon mv-benefit-icon--orange">
+                        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6">
+                            <rect x="3" y="4" width="18" height="12" rx="2"/>
+                            <path d="M8 20h8M12 16v4"/>
+                        </svg>
+                    </span>
+                    <p>Businesses rely on hiring technology to speed up processes, personalize the candidate
+                        experience, and grow. NayanTech Solutions makes that possible.</p>
+                </div>
+
+                <div class="mv-benefit-item reveal-up" #revealEl>
+                    <span class="mv-benefit-icon mv-benefit-icon--purple">
+                        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6">
+                            <path d="M8 6L2 12l6 6M16 6l6 6-6 6"/>
+                        </svg>
+                    </span>
+                    <p>We meet recruitment needs like applicant tracking, candidate screening, employer branding,
+                        and workforce analytics — and help maintain the hiring infrastructure behind it.</p>
+                </div>
+
+                <div class="mv-benefit-item reveal-up" #revealEl>
+                    <span class="mv-benefit-icon mv-benefit-icon--blue">
+                        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6">
+                            <path d="M6 4h9l4 4v12H6z"/>
+                            <path d="M9 10h6M9 14h6M9 18h3"/>
+                        </svg>
+                    </span>
+                    <p>We deliver future-ready hiring solutions built around market shifts and candidate
+                        expectations, helping firms globally implement new technology and stay ahead of change.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="mv-illustration reveal-up" #revealEl>
+                    <span class="deco-confetti deco-confetti--tl"></span>
+                    <div class="mv-window">
+                        <div class="mv-window-bar">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <div class="mv-window-lines">
+                            <span class="w-90 dark"></span>
+                            <span class="w-60 dark"></span>
+                            <span class="w-80 mid"></span>
+                            <span class="w-50 mid"></span>
+                            <span class="w-70 dark"></span>
+                            <span class="w-40 light"></span>
+                            <span class="w-60 light"></span>
                         </div>
                     </div>
+                    <span class="mv-badge mv-badge--1">PHP</span>
+                    <span class="mv-badge mv-badge--2">JS</span>
+                    <span class="deco-dots deco-dots--br"></span>
                 </div>
-            </div> -->
-
+            </div>
         </div>
     </div>
 </section>
