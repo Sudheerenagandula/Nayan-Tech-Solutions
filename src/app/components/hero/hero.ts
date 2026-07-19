@@ -1,17 +1,21 @@
-import { Component, OnInit, OnDestroy, AfterViewInit, ElementRef, ViewChildren, QueryList } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit, ElementRef, ViewChildren, QueryList, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 interface Slide {
   image: string;
+  ghostText: string;
   heading: string;
   text: string;
-
+  ctaText: string;
+  ctaLink?: string;
+  align: 'center' | 'left';
 }
 
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './hero.html',
   styleUrl: './hero.css'
 })
@@ -20,26 +24,37 @@ export class Hero implements OnInit, OnDestroy, AfterViewInit {
   slides: Slide[] = [
     {
       image: '/rrr.jpg',
-      heading: 'Empowering businesses with tailored HR solutions',
+      ghostText: 'Stay ahead of the curve',
+      heading: 'Empowering Businesses',
       text: 'NayanTech Solutions connects skilled professionals with top companies across India.',
-
+      ctaText: 'Free Consultation',
+      ctaLink: '/contact',
+      align: 'center'
     },
     {
       image: '/office-business.jpg',
-      heading: 'At the heart of India\'s hiring story',
+      ghostText: 'Built on trust and reach',
+      heading: "India's Hiring Story",
       text: 'We have stood beside growing businesses and ambitious professionals for years.',
-
+      ctaText: 'Free Consultation',
+      ctaLink: '/contact',
+      align: 'left'
     },
     {
       image: '/Hiring-and-selection-scaled.jpeg',
-      heading: 'Designed for what lies ahead',
-      text: 'Our talent advisory enables organisations to scale with clarity and continuity',
-
+      ghostText: 'Designed for what lies ahead',
+      heading: 'Scale With Clarity',
+      text: 'Our talent advisory enables organisations to scale with clarity and continuity.',
+      ctaText: 'Free Consultation',
+      ctaLink: '/contact',
+      align: 'left'
     }
   ];
 
   currentSlide: number = 0;
   private slideshowInterval!: ReturnType<typeof setInterval>;
+
+  constructor(private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
     this.startSlideshow();
@@ -56,6 +71,7 @@ export class Hero implements OnInit, OnDestroy, AfterViewInit {
     this.stopSlideshow();
     this.slideshowInterval = setInterval(() => {
       this.nextSlide();
+      this.cdr.markForCheck();
     }, 5000);
   }
 
@@ -74,12 +90,33 @@ export class Hero implements OnInit, OnDestroy, AfterViewInit {
       (this.currentSlide - 1 + this.slides.length) % this.slides.length;
   }
 
+  goToNext(): void {
+    this.nextSlide();
+    this.startSlideshow();
+  }
+
+  goToPrevious(): void {
+    this.previousSlide();
+    this.startSlideshow();
+  }
+
   goToSlide(index: number): void {
     this.currentSlide = index;
     this.startSlideshow();
   }
 
-  // ---------- SCROLL REVEAL ----------
+  scrollToNextSection(): void {
+    const heroEl = document.querySelector('.hero-section');
+    if (heroEl) {
+      const nextEl = heroEl.nextElementSibling;
+      nextEl?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  splitWords(text: string): string[] {
+    return text.split(' ');
+  }
+
   @ViewChildren('revealEl') revealEls!: QueryList<ElementRef>;
   private observer!: IntersectionObserver;
 
@@ -96,6 +133,13 @@ export class Hero implements OnInit, OnDestroy, AfterViewInit {
       { threshold: 0.2 }
     );
 
+    this.observeRevealEls();
+  }
+
+  private observeRevealEls(): void {
     this.revealEls.forEach(el => this.observer.observe(el.nativeElement));
+    this.revealEls.changes.subscribe((list: QueryList<ElementRef>) => {
+      list.forEach(el => this.observer.observe(el.nativeElement));
+    });
   }
 }

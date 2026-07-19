@@ -10,12 +10,38 @@
 
   <div class="hero-overlay"></div>
 
-  <ng-container *ngFor="let slide of slides; let i = index">
-    <div class="hero-content" *ngIf="i === currentSlide">
-      <h1 class="reveal-up" #revealEl>{{ slide.heading }}</h1>
-      <p class="reveal-up" #revealEl>{{ slide.text }}</p>
-      <div class="hero-actions reveal-up" #revealEl>
+  <button class="hero-arrow hero-arrow-left" (click)="goToPrevious()" aria-label="Previous slide">
+    <span>&#10094;</span>
+  </button>
+  <button class="hero-arrow hero-arrow-right" (click)="goToNext()" aria-label="Next slide">
+    <span>&#10095;</span>
+  </button>
 
+  <ng-container *ngFor="let slide of slides; let i = index">
+    <div
+      class="hero-content"
+      [class.hero-content--center]="slide.align === 'center'"
+      [class.hero-content--left]="slide.align === 'left'"
+      *ngIf="i === currentSlide">
+
+      <div class="hero-ghost-text">{{ slide.ghostText }}</div>
+
+      <h1 class="hero-heading">
+        <span
+          class="word-fall"
+          *ngFor="let word of splitWords(slide.heading); let wi = index"
+          [style.animation-delay.ms]="wi * 130">{{ word }}&nbsp;</span>
+      </h1>
+
+      <p class="hero-para">
+        <span
+          class="word-fall"
+          *ngFor="let word of splitWords(slide.text); let wi = index"
+          [style.animation-delay.ms]="250 + wi * 60">{{ word }}&nbsp;</span>
+      </p>
+
+      <div class="hero-actions" #revealEl [style.animation-delay.ms]="250 + splitWords(slide.text).length * 60 + 200">
+        <a [href]="slide.ctaLink || '#'" class="btn-hero">{{ slide.ctaText }}</a>
       </div>
     </div>
   </ng-container>
@@ -28,5 +54,9 @@
       (click)="goToSlide(i)">
     </span>
   </div>
+
+  <button class="hero-scroll-indicator" (click)="scrollToNextSection()" aria-label="Scroll down">
+    <span class="hero-scroll-chevron"></span>
+  </button>
 
 </section>

@@ -1,3 +1,126 @@
+/* ===============================
+   Technology Index
+=================================*/
+
+.tech-index-section{
+  background: radial-gradient(circle at 15% 20%, rgba(255,255,255,0.05) 0%, transparent 40%),
+              linear-gradient(160deg, #062a63 0%, #0d47a1 55%, #0d6efd 100%);
+  padding: 80px 0;
+}
+
+.tech-tag{
+  display: inline-block;
+  color: #cfe0ff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.tech-heading{
+  color: #fff;
+  font-weight: 800;
+  font-size: 32px;
+  margin-bottom: 50px;
+}
+
+.tech-grid{
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 40px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.tech-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tech-box{
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  transition: background .3s ease, transform .3s ease;
+}
+
+.tech-item:hover .tech-box{
+  background: rgba(255,255,255,0.18);
+  transform: translateY(-4px);
+}
+
+.tech-logo{
+  max-width: 100%;
+  max-height: 42px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.tech-icon-fallback{
+  font-size: 34px;
+  color: #fff;
+}
+
+.tech-connector{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 24px;
+  position: relative;
+}
+
+.tech-connector::before{
+  content: '';
+  width: 1px;
+  height: 18px;
+  background: rgba(255,255,255,0.35);
+}
+
+.tech-dot{
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  margin-top: -3px;
+  transition: .3s;
+}
+
+.tech-item:hover .tech-dot{
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(255,255,255,0.25);
+}
+
+.tech-label{
+  color: #fff;
+  font-weight: 700;
+  font-size: 13.5px;
+  letter-spacing: .5px;
+  text-align: center;
+  margin: 4px 0 0;
+}
+
+@media(max-width: 992px){
+  .tech-grid{ grid-template-columns: repeat(4, 1fr); }
+}
+
+@media(max-width: 576px){
+  .tech-grid{ grid-template-columns: repeat(3, 1fr); gap: 30px 14px; }
+  .tech-heading{ font-size: 24px; }
+}
+
+/* ===============================
+   Testimonials
+=================================*/
+
 .testimonial-card{
 
 max-width:750px;
@@ -53,4 +176,8 @@ border-radius:50%;
 
 padding:20px;
 
+}
+
+.force-white {
+  filter: brightness(0) invert(1);
 }

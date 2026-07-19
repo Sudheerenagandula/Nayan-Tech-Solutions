@@ -1,103 +1,20 @@
-<section class="py-5 bg-light">
+<!-- Technology Index -->
+<section class="tech-index-section py-5">
+  <div class="container text-center">
+    <span class="tech-tag">Technology Index</span>
+    <h2 class="tech-heading">Technologies We Recruit For</h2>
 
-<div class="container">
-
-<div class="text-center mb-5">
-
-<h2 class="fw-bold">
-
-Success Stories
-
-</h2>
-
-<p class="text-muted">
-
-Hear from candidates who found their dream careers through HireHub.
-
-</p>
-
-</div>
-
-<div
-id="testimonialCarousel"
-class="carousel slide"
-data-bs-ride="carousel">
-
-<div class="carousel-inner">
-
-<div
-class="carousel-item"
-*ngFor="let item of testimonials; let i=index"
-[class.active]="i===0">
-
-<div class="testimonial-card">
-
-<img
-[src]="item.image"
-class="testimonial-image"
-[alt]="item.name">
-
-<h4>
-
-{{item.name}}
-
-</h4>
-
-<p class="text-primary">
-
-{{item.role}}
-
-</p>
-
-<p class="text-muted">
-
-{{item.company}}
-
-</p>
-
-<div class="mb-3">
-
-<i
-class="bi bi-star-fill text-warning"
-*ngFor="let star of [1,2,3,4,5]">
-</i>
-
-</div>
-
-<p class="review">
-
-"{{item.review}}"
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-<button
-class="carousel-control-prev"
-type="button"
-data-bs-target="#testimonialCarousel"
-data-bs-slide="prev">
-
-<span class="carousel-control-prev-icon"></span>
-
-</button>
-
-<button
-class="carousel-control-next"
-type="button"
-data-bs-target="#testimonialCarousel"
-data-bs-slide="next">
-
-<span class="carousel-control-next-icon"></span>
-
-</button>
-
-</div>
-
-</div>
-
+    <div class="tech-grid">
+      <div class="tech-item" *ngFor="let tech of techStack">
+        <div class="tech-box">
+          <img *ngIf="tech.logo" [src]="tech.logo" [alt]="tech.name" class="tech-logo">
+          <i *ngIf="!tech.logo" class="bi {{tech.icon}} tech-icon-fallback"></i>
+        </div>
+        <div class="tech-connector">
+          <span class="tech-dot"></span>
+        </div>
+        <p class="tech-label">{{tech.name}}</p>
+      </div>
+    </div>
+  </div>
 </section>

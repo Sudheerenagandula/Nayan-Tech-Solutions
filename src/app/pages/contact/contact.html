@@ -2,245 +2,253 @@
 
 <!-- Hero -->
 <section class="contact-banner">
+  <div class="banner-overlay"></div>
   <div class="container text-center reveal-up" #revealEl>
-    <span class="banner-tag">Get In Touch</span>
     <h1>Contact Us</h1>
-    <p>We're here to help you find the right talent — or the right role.</p>
+    <p class="breadcrumb-line">
+      <a routerLink="/">NayanTech</a> <span>/</span> Contact Us
+    </p>
   </div>
 </section>
 
-<!-- Get In Touch + Form -->
-<section class="get-in-touch-section">
-  <div class="container">
-    <div class="row g-5 align-items-start">
-
-      <!-- Left Content -->
-      <div class="col-lg-5 reveal-up" #revealEl>
-        <h2>Let's Talk Results</h2>
-
-        <p class="gt-note">📩 Our team will get back to you within 24 hours.</p>
-
-        <p class="gt-subtext">
-          Whether you're looking to hire exceptional talent, explore career
-          opportunities, or learn more about our solutions — we'd love to connect.
-        </p>
-
-        <!-- Office Locations -->
-        <div class="contact-card">
-          <i class="bi bi-geo-alt-fill"></i>
-          <div class="contact-item">
-            <h5>Office Locations</h5>
-            <p>
-              <strong>Hyderabad:</strong><br>
-              Western Aqua, Kondapur,<br>
-              Whitefields, HITEC City,<br>
-              Hyderabad, Telangana 500081
-            </p>
-            <p>
-              <strong>Bangalore:</strong><br>
-              Balaji Arcade,<br>
-              20th L Cross Rd, 4th Block,<br>
-              Koramangala, Bengaluru,<br>
-              Karnataka 560095
-            </p>
-            <p>
-              <strong>United States:</strong><br>
-              #9891 Irvine Center Drive,<br>
-              STE 200,<br>
-              Irvine, CA 92618
-            </p>
-          </div>
-        </div>
-
-        <!-- Phone -->
-        <div class="contact-card">
-          <i class="bi bi-telephone-fill"></i>
-          <div class="contact-item">
-            <h5>Call Us</h5>
-            <p><a class="contact-link" href="tel:+919052039196">+91 9052039196</a></p>
-          </div>
-        </div>
-
-        <!-- Email -->
-        <div class="contact-card">
-          <i class="bi bi-envelope-fill"></i>
-          <div class="contact-item">
-            <h5>Email Support</h5>
-            <p><a class="contact-link" href="mailto:info@nayantechsolutions.com">info@nayantechsolutions.com</a></p>
-          </div>
-        </div>
-
-        <!-- Working Hours -->
-        <div class="contact-card">
-          <i class="bi bi-clock-fill"></i>
-          <div class="contact-item">
-            <h5>Working Hours</h5>
-            <p>Monday - Saturday<br>9:00 AM - 6:00 PM</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right Form -->
-      <div class="col-lg-7 reveal-up" #revealEl>
-        <div class="contact-form">
-          <h2>Send Us A Message</h2>
-          <p>Have questions about jobs, hiring, or recruitment services? Drop us a message.</p>
-
-          <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
-            <div class="row">
-              <div class="col-md-6 mb-4">
-                <label for="name">Your Name</label>
-                <input
-                  id="name"
-                  type="text"
-                  class="form-control"
-                  placeholder="Your Name"
-                  name="name"
-                  [(ngModel)]="formData.name"
-                  required>
-              </div>
-
-              <div class="col-md-6 mb-4">
-                <label for="email">Email Address</label>
-                <input
-                  id="email"
-                  type="email"
-                  class="form-control"
-                  placeholder="Email Address"
-                  name="email"
-                  [(ngModel)]="formData.email"
-                  required>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-md-6 mb-4">
-                <label for="service">Select Service</label>
-                <select
-                  id="service"
-                  class="form-control"
-                  name="service"
-                  [(ngModel)]="formData.service">
-                  <option>Looking For Job</option>
-                  <option>Hiring Candidates</option>
-                  <option>Career Guidance</option>
-                </select>
-              </div>
-
-              <div class="col-md-6 mb-4">
-                <label for="subject">Subject</label>
-                <input
-                  id="subject"
-                  type="text"
-                  class="form-control"
-                  placeholder="Subject"
-                  name="subject"
-                  [(ngModel)]="formData.subject">
-              </div>
-            </div>
-
-            <div class="mb-4">
-              <label for="message">Your Message</label>
-              <textarea
-                id="message"
-                class="form-control"
-                rows="5"
-                placeholder="Your Message"
-                name="message"
-                [(ngModel)]="formData.message"
-                required></textarea>
-            </div>
-
-            <button type="submit" class="submit-btn" [disabled]="submitted">
-              {{ submitted ? 'Message Sent ✓' : 'Send Message' }}
-            </button>
-          </form>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- Why Contact -->
-<section class="why-section py-5">
-  <div class="container">
-    <h2 class="text-center mb-5 reveal-up" #revealEl>Why Connect With NayanTech Solutions?</h2>
-
-    <div class="row g-4">
-      <div class="col-lg-4 reveal-up" #revealEl>
-        <div class="why-card">
-          <i class="bi bi-person-check-fill"></i>
-          <h4>For Job Seekers</h4>
-          <p>Get access to verified jobs, career guidance, and professional growth opportunities.</p>
-        </div>
-      </div>
-
-      <div class="col-lg-4 reveal-up" #revealEl>
-        <div class="why-card">
-          <i class="bi bi-building"></i>
-          <h4>For Employers</h4>
-          <p>Find skilled professionals through our efficient recruitment solutions.</p>
-        </div>
-      </div>
-
-      <div class="col-lg-4 reveal-up" #revealEl>
-        <div class="why-card">
-          <i class="bi bi-headset"></i>
-          <h4>Dedicated Support</h4>
-          <p>Our recruitment specialists support you through every step.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- Location -->
 <section class="location-section py-5">
   <div class="container text-center reveal-up" #revealEl>
     <h2>Our Offices</h2>
 
-    <div class="row justify-content-center">
+    <div class="row justify-content-center g-4 mt-3">
+
+      <!-- Australia -->
       <div class="col-md-4 mb-4">
-        <div class="map-box">
-          <i class="bi bi-map-fill"></i>
-          <h4>Hyderabad Office</h4>
-          <p>
-            Western Aqua, Kondapur,<br>
-            Whitefields, HITEC City,<br>
-            Hyderabad, Telangana 500081
-          </p>
+        <div class="office-card reveal-up" #revealEl>
+          <div class="office-card-inner">
+            <div class="office-card-front">
+              <img src="https://flagcdn.com/w160/au.png" alt="Australia flag" class="flag-img">
+              <h4>Australia</h4>
+              <span class="flip-hint">Suite A15, 24 Lexington Drive, Bella Vista, NSW 2153</span>
+            </div>
+            <div class="office-card-back">
+              <h4>Australia</h4>
+              <p>Suite A15, 24 Lexington Drive, Bella Vista, NSW 2153</p>
+            </div>
+          </div>
         </div>
       </div>
 
+      <!-- New Zealand -->
       <div class="col-md-4 mb-4">
-        <div class="map-box">
-          <i class="bi bi-map-fill"></i>
-          <h4>Bangalore Office</h4>
-          <p>
-            Balaji Arcade,<br>
-            20th L Cross Rd, 4th Block,<br>
-            Koramangala, Bengaluru,<br>
-            Karnataka 560095
-          </p>
+        <div class="office-card reveal-up" #revealEl>
+          <div class="office-card-inner">
+            <div class="office-card-front">
+              <img src="https://flagcdn.com/w160/nz.png" alt="New Zealand flag" class="flag-img">
+              <h4>New Zealand</h4>
+              <span class="flip-hint">108 Terry Street, Blockhouse Bay, Auckland 0600</span>
+            </div>
+            <div class="office-card-back">
+              <h4>New Zealand</h4>
+              <p>108 Terry Street, Blockhouse Bay, Auckland 0600</p>
+            </div>
+          </div>
         </div>
       </div>
 
+      <!-- India -->
       <div class="col-md-4 mb-4">
-        <div class="map-box">
-          <i class="bi bi-map-fill"></i>
-          <h4>United States Office</h4>
-          <p>
-            #9891 Irvine Center Drive,<br>
-            STE 200,<br>
-            Irvine, CA 92618
-          </p>
+        <div class="office-card reveal-up" #revealEl>
+          <div class="office-card-inner">
+            <div class="office-card-front">
+              <img src="https://flagcdn.com/w160/in.png" alt="India flag" class="flag-img">
+              <h4>India</h4>
+              <span class="flip-hint">Western Aqua, Kondapur, Whitefields, HITEC City, Hyderabad, Telangana 500081</span>
+            </div>
+            <div class="office-card-back">
+              <h4>India</h4>
+              <p>Western Aqua, Kondapur, Whitefields, HITEC City, Hyderabad, Telangana 500081</p>
+            </div>
+          </div>
         </div>
       </div>
+
+        <div class="col-md-4 mb-4">
+        <div class="office-card reveal-up" #revealEl>
+          <div class="office-card-inner">
+            <div class="office-card-front">
+              <img src="https://flagcdn.com/w160/in.png" alt="India flag" class="flag-img">
+              <h4>Bangalore</h4>
+              <span class="flip-hint">Balaji Arcade, 20th L Cross Rd, 4th Block, Koramangala, Bengaluru, Karnataka 560095</span>
+            </div>
+            <div class="office-card-back">
+              <h4>Bangalore Office</h4>
+              <p>Balaji Arcade, 20th L Cross Rd, 4th Block, Koramangala, Bengaluru, Karnataka 560095</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- United Kingdom -->
+      <div class="col-md-4 mb-4">
+        <div class="office-card reveal-up" #revealEl>
+          <div class="office-card-inner">
+            <div class="office-card-front">
+              <img src="https://flagcdn.com/w160/gb.png" alt="United Kingdom flag" class="flag-img">
+              <h4>United Kingdom</h4>
+              <span class="flip-hint">13 Oakington Ave, Little Chalfont, Amersham HP6 6SY</span>
+            </div>
+            <div class="office-card-back">
+              <h4>United Kingdom</h4>
+              <p>13 Oakington Ave, Little Chalfont, Amersham HP6 6SY</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- United States -->
+      <div class="col-md-4 mb-4">
+        <div class="office-card reveal-up" #revealEl>
+          <div class="office-card-inner">
+            <div class="office-card-front">
+              <img src="https://flagcdn.com/w160/us.png" alt="United States flag" class="flag-img">
+              <h4>United States</h4>
+              <span class="flip-hint">#9891 Irvine Center Drive, STE 200, Irvine, CA 92618</span>
+            </div>
+            <div class="office-card-back">
+              <h4>United States</h4>
+              <p>#9891 Irvine Center Drive, STE 200, Irvine, CA 92618</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
+
+<!-- Get In Touch + Form -->
+<section class="get-in-touch-section">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+
+      <!-- Left Panel -->
+      <div class="col-lg-5 reveal-up" #revealEl>
+        <div class="gt-panel">
+          <span class="gt-tag">Let's Talk</span>
+          <h2>Speak With Our Recruitment Experts.</h2>
+
+          <div class="gt-item">
+            <div class="gt-icon"><i class="bi bi-envelope-fill"></i></div>
+            <div>
+              <h6>Email:</h6>
+              <p><a href="mailto:info@nayantechsolutions.com">info@nayantechsolutions.com</a></p>
+            </div>
+          </div>
+
+          <div class="gt-item">
+            <div class="gt-icon"><i class="bi bi-telephone-fill"></i></div>
+            <div>
+              <h6>Phone:</h6>
+              <p><a href="tel:+919052039196">+91 9052039196</a></p>
+            </div>
+          </div>
+
+          <div class="gt-item">
+            <div class="gt-icon"><i class="bi bi-geo-alt-fill"></i></div>
+            <div>
+              <h6>Address:</h6>
+              <p>
+                Western Aqua, Kondapur, Whitefields,<br>
+                HITEC City, Hyderabad, Telangana 500081.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Form -->
+      <div class="col-lg-7 reveal-up" #revealEl>
+        <span class="gt-tag-outline">Get In Touch</span>
+        <h2 class="form-heading">Fill The Form Below</h2>
+
+        <form (ngSubmit)="onSubmit()" #contactForm="ngForm" class="contact-form">
+          <div class="row">
+            <div class="col-md-6 mb-4">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Name"
+                name="name"
+                [(ngModel)]="formData.name"
+                required>
+            </div>
+
+            <div class="col-md-6 mb-4">
+              <input
+                type="email"
+                class="form-control"
+                placeholder="E-Mail"
+                name="email"
+                [(ngModel)]="formData.email"
+                required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-4">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Phone Number"
+                name="subject"
+                [(ngModel)]="formData.subject">
+            </div>
+
+            <div class="col-md-6 mb-4">
+              <select
+                class="form-control"
+                name="service"
+                [(ngModel)]="formData.service">
+                <option>Looking For Job</option>
+                <option>Hiring Candidates</option>
+                <option>Career Guidance</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <textarea
+              class="form-control"
+              rows="5"
+              placeholder="Your Message Here"
+              name="message"
+              [(ngModel)]="formData.message"
+              required></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn" [disabled]="submitted">
+            {{ submitted ? 'Message Sent ✓' : 'Submit Now' }}
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Map -->
+<section class="map-section">
+  <div class="container-fluid px-0">
+    <div class="map-embed-wrap reveal-up" #revealEl>
+      <iframe
+        class="map-embed"
+        src="https://maps.google.com/maps?q=Western%20Aqua%2C%20Kondapur%2C%20Whitefields%2C%20HITEC%20City%2C%20Hyderabad%2C%20Telangana%20500081&t=&z=14&ie=UTF8&iwloc=&output=embed"
+        allowfullscreen="true"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
 <!-- Still Have Questions -->
 <section class="still-questions-section">
   <div class="container text-center reveal-up" #revealEl>
