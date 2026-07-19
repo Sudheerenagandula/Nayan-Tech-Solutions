@@ -14,7 +14,19 @@
 
   <div class="clients-grid">
     <div class="client-card reveal-up" #revealEl *ngFor="let client of clients">
-      <img [src]="client.logo" [alt]="client.name + ' logo'" class="client-logo">
+      <img
+        *ngIf="!brokenLogos.has(client.name)"
+        [src]="client.logo"
+        [alt]="client.name + ' logo'"
+        class="client-logo"
+        (error)="onLogoError(client.name)">
+
+      <div *ngIf="brokenLogos.has(client.name)" class="client-badge">
+        <div class="client-badge-mark" [style.background]="getBadgeColor(client.name)">
+          {{ getInitials(client.name) }}
+        </div>
+        <span class="client-badge-name">{{ client.name }}</span>
+      </div>
     </div>
   </div>
 </section>
