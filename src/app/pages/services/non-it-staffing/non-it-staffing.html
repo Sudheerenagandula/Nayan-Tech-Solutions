@@ -5,7 +5,7 @@
   <div class="hero-overlay"></div>
   <div class="container hero-inner">
     <div class="row align-items-center">
-      <div class="col-lg-7 hero-text">
+      <div class="col-lg-7 hero-text reveal" #revealEl>
         <h1>Non-IT Staffing Services Across Hyderabad, Bangalore &amp; Irvine – NayanTech</h1>
         <p>
           NayanTech offers reliable <strong>non-IT staffing services</strong> across India and the
@@ -17,7 +17,7 @@
       </div>
 
       <div class="col-lg-5">
-        <div class="quote-card">
+        <div class="quote-card reveal" #revealEl>
           <h3>GET YOUR QUOTE</h3>
 
           <form (ngSubmit)="onQuoteSubmit()" #quoteFormRef="ngForm">
@@ -83,15 +83,15 @@
 <section class="about-section">
   <div class="container">
     <div class="row align-items-center">
-      <div class="col-lg-5">
-       <div class="about-img-wrap">
-  <div class="about-decor-stripe"></div>
-  <div class="about-decor-dots"></div>
-  <img src="/NonIt Staffing.webp" alt="NayanTech team collaboration" class="about-img" />
-</div>
+      <div class="col-lg-5 reveal" #revealEl>
+        <div class="about-img-wrap">
+          <div class="about-decor-stripe"></div>
+          <div class="about-decor-dots"></div>
+          <img src="/NonIt Staffing.webp" alt="NayanTech team collaboration" class="about-img" />
+        </div>
       </div>
 
-      <div class="col-lg-7">
+      <div class="col-lg-7 reveal" #revealEl>
         <h2>Broadening Our Horizons: Non-IT Staffing Solutions by NayanTech Solutions</h2>
         <p>
           For over a decade, NayanTech Solutions has been a trusted name in IT staffing,
@@ -115,7 +115,7 @@
 <section class="why-choose-section">
   <div class="container">
     <div class="row">
-      <div class="col-lg-4">
+      <div class="col-lg-4 reveal" #revealEl>
         <div class="why-choose-card">
           <span class="eyebrow">WHY CHOOSE US</span>
           <h2>Why Partner with NayanTech for Non-IT Staffing?</h2>
@@ -126,7 +126,7 @@
       <div class="col-lg-8">
         <div class="row">
           @for (item of whyChooseItems; track item.number) {
-            <div class="col-md-6 why-choose-item">
+            <div class="col-md-6 why-choose-item reveal" #revealEl>
               <span class="item-number">{{ item.number }}</span>
               <h4>{{ item.title }}</h4>
               <p>{{ item.description }}</p>
@@ -145,10 +145,10 @@
 
     <div class="row">
       @for (sector of sectors; track sector.title) {
-        <div class="col-lg-6 sector-col">
+        <div class="col-lg-6 sector-col reveal" #revealEl>
           <div class="sector-card" [class.highlighted]="sector.highlighted">
             <div class="sector-icon">
-              <img src="/icons/{{ sector.icon }}.svg" [alt]="sector.title" />
+              <img src="/images/icons/{{ sector.icon }}.svg" [alt]="sector.title" />
             </div>
             <div class="sector-content">
               <h4>{{ sector.title }}</h4>
@@ -165,7 +165,7 @@
 <section class="contact-section" id="contact-section">
   <div class="container">
     <div class="row">
-      <div class="col-lg-6">
+      <div class="col-lg-6 reveal" #revealEl>
         <div class="lets-talk-tag">
           <span class="tag-line"></span>
           <span class="tag-text">LET'S TALK</span>
@@ -199,7 +199,7 @@
         </div>
       </div>
 
-      <div class="col-lg-6">
+      <div class="col-lg-6 reveal" #revealEl>
         <div class="appointment-card">
           <h3>Schedule Appointment</h3>
           <p class="sub-text">We're here to help you 24/7 with experts</p>
