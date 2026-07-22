@@ -1,12 +1,12 @@
 <section class="clients-section">
   <div class="clients-track">
-    <div
-      class="logo-card"
-      *ngFor="let logo of logos; let i = index"
-      [class.active]="logo.active"
-      (click)="onLogoClick(i)"
-    >
-      <img [src]="logo.src" [alt]="logo.name" class="logo-img" />
+    <div class="logo-card" *ngFor="let logo of logos">
+      <img
+        [src]="logo.src"
+        [alt]="logo.name"
+        class="logo-img"
+        (error)="onImgError($event, logo)"
+      />
     </div>
   </div>
 </section>

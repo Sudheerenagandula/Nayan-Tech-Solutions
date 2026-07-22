@@ -1,11 +1,12 @@
-import {  Component, OnInit, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 interface ClientLogo {
   name: string;
   src: string;
-  active: boolean;
 }
+
+const LOGO_DEV_TOKEN = 'pk_YOUR_PUBLIC_TOKEN'; // ⚠️ replace with your real token from logo.dev
 
 @Component({
   selector: 'app-clients',
@@ -14,44 +15,26 @@ interface ClientLogo {
   templateUrl: './clients.html',
   styleUrls: ['./clients.css']
 })
-export class ClientsComponent implements OnInit, OnDestroy {
-  logos: ClientLogo[] = [
-    { name: 'Tata Consultancy Services', src: 'assets/logos/tata.svg', active: false },
-    { name: 'Wipro', src: 'assets/logos/wipro.svg', active: false },
-    { name: 'Citibank', src: 'assets/logos/citibank.svg', active: false },
-    { name: 'Tech Mahindra', src: 'assets/logos/techmahindra.svg', active: false },
-    { name: 'Electronic Arts', src: 'assets/logos/ea.svg', active: false },
-    { name: 'Acclaris', src: 'assets/logos/acclaris.svg', active: false }
+export class ClientsComponent {
+  private baseLogos: ClientLogo[] = [
+    { name: 'Tata Consultancy Services', src: `https://img.logo.dev/tcs.com?token=${LOGO_DEV_TOKEN}` },
+    { name: 'Wipro', src: `https://img.logo.dev/wipro.com?token=${LOGO_DEV_TOKEN}` },
+    { name: 'Citibank', src: `https://img.logo.dev/citibank.com?token=${LOGO_DEV_TOKEN}` },
+    { name: 'Tech Mahindra', src: `https://img.logo.dev/techmahindra.com?token=${LOGO_DEV_TOKEN}` },
+    { name: 'Electronic Arts', src: `https://img.logo.dev/ea.com?token=${LOGO_DEV_TOKEN}` },
+    { name: 'Acclaris', src: `https://img.logo.dev/acclaris.com?token=${LOGO_DEV_TOKEN}` }
   ];
 
-  activeIndex = 0;
-  private autoScrollTimer: any;
+  logos: ClientLogo[] = [...this.baseLogos, ...this.baseLogos];
 
-  ngOnInit(): void {
-    this.setActive(0);
-    this.startAutoScroll();
-  }
+  private readonly placeholder = '/public/icons/placeholder.svg';
 
-  ngOnDestroy(): void {
-    clearInterval(this.autoScrollTimer);
-  }
-
-  setActive(index: number): void {
-    this.logos.forEach((logo, i) => (logo.active = i === index));
-    this.activeIndex = index;
-  }
-
-  onLogoClick(index: number): void {
-    this.setActive(index);
-    // restart the timer so it doesn't jump right after a manual click
-    clearInterval(this.autoScrollTimer);
-    this.startAutoScroll();
-  }
-
-  private startAutoScroll(): void {
-    this.autoScrollTimer = setInterval(() => {
-      const next = (this.activeIndex + 1) % this.logos.length;
-      this.setActive(next);
-    }, 2500);
+  onImgError(event: Event, logo: ClientLogo): void {
+    const img = event.target as HTMLImageElement;
+    if (img.src.includes(this.placeholder)) {
+      return; // already showing the placeholder — stop, don't loop
+    }
+    img.src = this.placeholder;
+    console.warn(`Logo failed to load, using placeholder: ${logo.name}`);
   }
 }
