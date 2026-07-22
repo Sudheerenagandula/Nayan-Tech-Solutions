@@ -7,7 +7,7 @@
 /* HERO */
 .hero {
   position: relative;
-  background: url('/assets/images/management-services-hero.jpg') center/cover no-repeat;
+  background: url('/professional\ services\ Business\ Model.jpg') center/cover no-repeat;
   padding: 100px 0;
   color: #fff;
 }
@@ -33,7 +33,7 @@
 
 .hero-text h1 {
   font-size: 2.2rem;
-  font-weight: 700;
+  font-weight: 800;
   margin-bottom: 20px;
 }
 
@@ -43,15 +43,26 @@
   opacity: 0.9;
 }
 
+/* Transparent glass "Get Your Quote" card */
 .quote-card {
-  background: rgba(20, 30, 50, 0.75);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 30px;
   border-radius: 6px;
   width: 100%;
   max-width: 380px;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.quote-card:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.35);
 }
 
 .quote-card h3 {
+  font-weight: 700;
   margin-bottom: 20px;
   letter-spacing: 1px;
 }
@@ -63,8 +74,15 @@
   margin-bottom: 14px;
   border: none;
   border-radius: 4px;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.92);
   font-size: 0.9rem;
+}
+
+.quote-card input:focus,
+.quote-card textarea:focus {
+  background: #fff;
+  outline: none;
+  box-shadow: 0 0 0 2px #1a6dd8;
 }
 
 .quote-card button {
@@ -75,6 +93,12 @@
   border-radius: 4px;
   cursor: pointer;
   font-weight: 600;
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.quote-card button:hover:not(:disabled) {
+  background: #14549e;
+  transform: translateY(-2px);
 }
 
 .quote-card button:disabled {
@@ -101,6 +125,7 @@
 
 .features-text h2 {
   font-size: 1.7rem;
+  font-weight: 800;
   margin-bottom: 20px;
 }
 
@@ -183,6 +208,7 @@
 
 .contact-info h2 {
   font-size: 2rem;
+  font-weight: 800;
   margin-bottom: 10px;
 }
 
@@ -219,6 +245,7 @@
 
 .appointment-card h3 {
   font-size: 1.4rem;
+  font-weight: 700;
   margin-bottom: 6px;
 }
 
