@@ -4,7 +4,7 @@
   <div class="hero-overlay"></div>
 
   <div class="container hero-content">
-    <div class="hero-text">
+    <div class="hero-text reveal" #revealEl>
       <h1>Professional Management Services in Sydney &amp; Across Australia</h1>
       <p>
         We provide comprehensive <strong>management services</strong> in Sydney and across
@@ -14,7 +14,7 @@
       </p>
     </div>
 
-    <div class="quote-card">
+    <div class="quote-card reveal" #revealEl>
       <h3>GET YOUR QUOTE</h3>
 
       <form #qForm="ngForm" (ngSubmit)="submitQuote(qForm)" novalidate>
@@ -62,7 +62,7 @@
 <!-- FEATURES SECTION -->
 <section class="features">
   <div class="container features-grid">
-    <div class="features-text">
+    <div class="features-text reveal" #revealEl>
       <h2>Focus on Your Core Business, Put Customers First with Management Services</h2>
 
       <ul>
@@ -84,7 +84,7 @@
       </ul>
     </div>
 
-    <div class="features-image">
+    <div class="features-image reveal" #revealEl>
       <img src="/Manager.png" alt="Management services team" />
     </div>
   </div>
@@ -94,7 +94,7 @@
 <section class="contact">
   <div class="container contact-grid">
 
-    <div class="contact-info">
+    <div class="contact-info reveal" #revealEl>
       <div class="eyebrow">
         <span class="line"></span>
         <span class="line short"></span>
@@ -129,7 +129,7 @@
       </div>
     </div>
 
-    <div class="appointment-card">
+    <div class="appointment-card reveal" #revealEl>
       <h3>Schedule Appointment</h3>
       <p>We're here to help you 24/7 with experts</p>
 

@@ -306,3 +306,21 @@
   .btn-hero { width: 100%; max-width: 280px; }
   .hero-arrow { display: none; }
 }
+/* ==========================================
+   Bottom Curve Divider
+========================================== */
+.hero-curve {
+  position: absolute;
+  bottom: -1px;
+  left: 100;
+  width: 100%;
+  height: 100px;
+  z-index: 4;
+  pointer-events: none;
+}
+
+@media (max-width: 950px) {
+  .hero-curve {
+    height: 200px;
+  }
+}

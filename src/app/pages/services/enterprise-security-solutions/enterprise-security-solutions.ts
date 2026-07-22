@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy, ViewChildren, ElementRef, QueryList } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Footer } from "../../../components/footer/footer";
@@ -10,7 +10,10 @@ import { Navbar } from "../../../components/navbar/navbar";
   templateUrl: './enterprise-security-solutions.html',
   styleUrl: './enterprise-security-solutions.css',
 })
-export class EnterpriseSecuritySolutions {
+export class EnterpriseSecuritySolutions implements AfterViewInit, OnDestroy {
+
+  @ViewChildren('revealEl') revealEls!: QueryList<ElementRef<HTMLElement>>;
+  private observer!: IntersectionObserver;
 
   // Hero "Get Your Quote" form
   quoteForm = {
@@ -62,5 +65,27 @@ export class EnterpriseSecuritySolutions {
 
   scrollToTop(): void {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  ngAfterViewInit(): void {
+    this.observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            this.observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    this.revealEls.forEach((el) => this.observer.observe(el.nativeElement));
+  }
+
+  ngOnDestroy(): void {
+    if (this.observer) {
+      this.observer.disconnect();
+    }
   }
 }

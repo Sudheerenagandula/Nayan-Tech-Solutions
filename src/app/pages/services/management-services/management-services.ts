@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy, ViewChildren, ElementRef, QueryList } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Navbar } from "../../../components/navbar/navbar";
@@ -11,7 +11,10 @@ import { Footer } from "../../../components/footer/footer";
   templateUrl: './management-services.html',
   styleUrl: './management-services.css'
 })
-export class ManagementServices {
+export class ManagementServices implements AfterViewInit, OnDestroy {
+
+  @ViewChildren('revealEl') revealEls!: QueryList<ElementRef<HTMLElement>>;
+  private observer!: IntersectionObserver;
 
   quoteForm = {
     name: '',
@@ -60,5 +63,27 @@ export class ManagementServices {
       this.isSubmittingAppointment = false;
       form.resetForm();
     }, 800);
+  }
+
+  ngAfterViewInit(): void {
+    this.observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            this.observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    this.revealEls.forEach((el) => this.observer.observe(el.nativeElement));
+  }
+
+  ngOnDestroy(): void {
+    if (this.observer) {
+      this.observer.disconnect();
+    }
   }
 }
