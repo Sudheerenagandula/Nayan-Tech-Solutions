@@ -1,0 +1,553 @@
+/* ===== HERO SECTION ===== */
+.hero-section {
+  position: relative;
+  min-height: 650px;
+  background: url('/business-start-up-consultant.png') center center / cover no-repeat;
+  display: flex;
+  align-items: center;
+  padding: 80px 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 10, 20, 0.55);
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-text {
+  color: #fff;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.hero-text p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #e5e5e5;
+}
+
+.hero-text p strong {
+  color: #fff;
+}
+
+/* Transparent glass "Get Your Quote" card */
+.quote-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 32px;
+  border-radius: 6px;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.quote-card:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.quote-card h3 {
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.quote-card .form-control {
+  background: rgba(255, 255, 255, 0.92);
+  border: none;
+  border-radius: 4px;
+  padding: 14px 16px;
+  font-size: 0.95rem;
+}
+
+.quote-card .form-control:focus {
+  box-shadow: 0 0 0 2px #0B70E1;
+  outline: none;
+  background: #fff;
+}
+
+.quote-card .btn-send {
+  background: #0B70E1;
+  color: #fff;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 4px;
+  font-weight: 600;
+  width: 100%;
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.quote-card .btn-send:hover:not(:disabled) {
+  background: #0958b3;
+  transform: translateY(-2px);
+}
+
+.quote-card .btn-send:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.quote-card .success-msg {
+  color: #4caf50;
+  margin-top: 12px;
+  font-size: 0.9rem;
+}
+
+/* ===== ABOUT SECTION ===== */
+.about-section {
+  padding: 90px 0;
+  overflow: hidden;
+}
+
+.about-img-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.about-img {
+  width: 85%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+}
+
+/* Animated decorative dot grid (bottom-right of photo) */
+.about-decor-dots {
+  position: absolute;
+  bottom: 0;
+  right: 6%;
+  width: 130px;
+  height: 130px;
+  background-image: radial-gradient(#c7d7fb 2.5px, transparent 2.5px);
+  background-size: 16px 16px;
+  z-index: 0;
+  animation: floatDots 4s ease-in-out infinite;
+}
+
+/* Animated diagonal accent stripe (top-left of photo) */
+.about-decor-stripe {
+  position: absolute;
+  top: 8%;
+  left: 2%;
+  width: 100px;
+  height: 8px;
+  background: linear-gradient(90deg, #0B70E1, #6a9bff);
+  border-radius: 4px;
+  transform: rotate(-42deg);
+  z-index: 0;
+  animation: floatStripe 3.5s ease-in-out infinite;
+}
+
+.about-decor-stripe::after {
+  content: '';
+  position: absolute;
+  top: 16px;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(90deg, #0B70E1, #6a9bff);
+  border-radius: 4px;
+  opacity: 0.5;
+}
+
+@keyframes floatDots {
+  0%, 100% { transform: translateY(0); opacity: 0.7; }
+  50% { transform: translateY(-12px); opacity: 1; }
+}
+
+@keyframes floatStripe {
+  0%, 100% { transform: rotate(-42deg) translateY(0); }
+  50% { transform: rotate(-42deg) translateY(-10px); }
+}
+
+.about-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  line-height: 1.3;
+}
+
+.about-section p {
+  color: #4a4a4a;
+  line-height: 1.75;
+  margin-bottom: 20px;
+}
+
+/* ===== WHY CHOOSE US SECTION ===== */
+.why-choose-section {
+  background: linear-gradient(135deg, #0a1a4a 0%, #0B70E1 100%);
+  padding: 80px 0;
+  color: #fff;
+}
+
+.why-choose-card {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 40px 32px;
+  border-radius: 8px;
+  height: 100%;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.why-choose-card:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+}
+
+.why-choose-card .eyebrow {
+  display: block;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  color: #b8c8f5;
+  margin-bottom: 16px;
+}
+
+.why-choose-card h2 {
+  font-size: 1.9rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 28px;
+}
+
+.btn-contact {
+  background: linear-gradient(90deg, #4a7ff5, #6a9bff);
+  color: #fff;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 24px;
+  font-weight: 600;
+  transition: opacity 0.25s ease, transform 0.2s ease;
+}
+
+.btn-contact:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.why-choose-item {
+  margin-bottom: 36px;
+  padding: 16px;
+  border-radius: 8px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.why-choose-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-3px);
+}
+
+.why-choose-item .item-number {
+  display: block;
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.why-choose-item h4 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.why-choose-item p {
+  color: #d5deff;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* ===== SECTORS SECTION ===== */
+.sectors-section {
+  padding: 80px 0;
+  background: #f4f6f9;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 48px;
+  color: #0a1a4a;
+}
+
+.sector-col {
+  margin-bottom: 24px;
+}
+
+.sector-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 28px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  height: 100%;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.sector-card:hover {
+  transform: translateY(-5px);
+  background: linear-gradient(135deg, #0B70E1, #4a90f5);
+  box-shadow: 0 10px 26px rgba(11, 112, 225, 0.3);
+}
+
+.sector-card:hover h4,
+.sector-card:hover p {
+  color: #fff;
+}
+
+.sector-card:hover .sector-icon img {
+  filter: brightness(0) invert(1);
+}
+
+.sector-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+}
+
+.sector-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: filter 0.25s ease;
+}
+
+.sector-content h4 {
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #0a1a4a;
+  transition: color 0.25s ease;
+}
+
+.sector-content p {
+  color: #5a6472;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  margin: 0;
+  transition: color 0.25s ease;
+}
+
+/* ===== CONTACT SECTION ===== */
+.contact-section {
+  background: #f7f8fa;
+  padding: 80px 0;
+}
+
+.contact-section .lets-talk-tag {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.contact-section .tag-line {
+  width: 40px;
+  height: 3px;
+  background: #E86A1C;
+  display: inline-block;
+}
+
+.contact-section .tag-text {
+  color: #0B70E1;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+}
+
+.contact-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.contact-section .sub-text {
+  color: #6a6a6a;
+  margin-bottom: 32px;
+}
+
+.contact-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 28px;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.contact-info-item:hover {
+  background: rgba(11, 112, 225, 0.05);
+}
+
+.contact-info-item h4 {
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.contact-info-item p {
+  color: #4a4a4a;
+  margin: 0;
+}
+
+.icon-wrap {
+  width: 42px;
+  height: 42px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.icon-wrap.email-icon,
+.icon-wrap.call-icon {
+  background: rgba(11, 112, 225, 0.1);
+  color: #0B70E1;
+}
+
+.icon-wrap.address-icon {
+  background: rgba(232, 106, 28, 0.1);
+  color: #E86A1C;
+}
+
+.contact-info-item:hover .icon-wrap {
+  transform: scale(1.12);
+}
+
+.contact-info-item:hover .icon-wrap.email-icon,
+.contact-info-item:hover .icon-wrap.call-icon {
+  background: #0B70E1;
+  color: #fff;
+}
+
+.contact-info-item:hover .icon-wrap.address-icon {
+  background: #E86A1C;
+  color: #fff;
+}
+
+.appointment-card {
+  background: #fff;
+  padding: 32px;
+  border-radius: 6px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.3s ease;
+}
+
+.appointment-card:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.appointment-card h3 {
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.appointment-card .form-control {
+  background: #f7f8fa;
+  border: none;
+  border-radius: 4px;
+  padding: 14px 16px;
+  font-size: 0.95rem;
+}
+
+.appointment-card .form-control:focus {
+  box-shadow: 0 0 0 2px #0B70E1;
+  outline: none;
+}
+
+.appointment-card .btn-submit {
+  background: linear-gradient(90deg, #E86A1C, #c9560f);
+  color: #fff;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 4px;
+  font-weight: 600;
+  width: 100%;
+  transition: opacity 0.25s ease, transform 0.2s ease;
+}
+
+.appointment-card .btn-submit:hover:not(:disabled) {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.appointment-card .btn-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.appointment-card .success-msg {
+  color: #4caf50;
+  margin-top: 12px;
+  font-size: 0.9rem;
+}
+
+/* ===== SCROLL TO TOP ===== */
+.scroll-top-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #0B70E1;
+  color: #fff;
+  border: none;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.scroll-top-btn:hover {
+  background: #0958b3;
+  transform: translateY(-3px);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 991px) {
+  .hero-section {
+    min-height: auto;
+    padding: 60px 0;
+  }
+
+  .hero-text h1 {
+    font-size: 1.8rem;
+  }
+
+  .quote-card {
+    margin-top: 32px;
+  }
+
+  .about-img {
+    width: 70%;
+    margin-bottom: 32px;
+  }
+
+  .about-decor-dots,
+  .about-decor-stripe {
+    display: none;
+  }
+
+  .why-choose-card {
+    margin-bottom: 32px;
+  }
+}

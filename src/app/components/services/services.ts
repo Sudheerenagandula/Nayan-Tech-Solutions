@@ -30,7 +30,7 @@ export class Services implements AfterViewInit, OnDestroy {
       title: 'PEO & EOR',
       description: 'Through our global mobility platform clients can effectively and easily deploy staff in over 45+ countries. Employer of Record services empower you to expand quickly, compliantly, and cost-effectively. As your trusted partner in Dubai, we serve as the legal employer., ensuring labor compliance and allowing you to hire talent seamlessly across borders—without the need for a local entity.',
       icon: 'bi bi-globe',
-      image: '/HR-and-payroll-transformation-meeting.png',
+      image: '/HR-and-payroll-transformation-meeting.jpg',
       path: '/services/peo-eor'
     },
     {

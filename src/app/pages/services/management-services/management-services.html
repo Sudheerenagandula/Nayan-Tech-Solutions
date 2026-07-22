@@ -1,0 +1,178 @@
+<app-navbar></app-navbar>
+<!-- HERO SECTION -->
+<section class="hero">
+  <div class="hero-overlay"></div>
+
+  <div class="container hero-content">
+    <div class="hero-text">
+      <h1>Professional Management Services in Sydney &amp; Across Australia</h1>
+      <p>
+        We provide comprehensive <strong>management services</strong> in Sydney and across
+        Australia, helping organizations streamline operations, optimize resources, and
+        improve decision-making. Our solutions enhance productivity, efficiency, and
+        organizational performance so you can achieve sustainable business growth.
+      </p>
+    </div>
+
+    <div class="quote-card">
+      <h3>GET YOUR QUOTE</h3>
+
+      <form #qForm="ngForm" (ngSubmit)="submitQuote(qForm)" novalidate>
+        <input
+          type="text"
+          name="name"
+          placeholder="Name*"
+          [(ngModel)]="quoteForm.name"
+          required
+        />
+
+        <input
+          type="email"
+          name="email"
+          placeholder="Email Address*"
+          [(ngModel)]="quoteForm.email"
+          required
+          email
+        />
+
+        <input
+          type="tel"
+          name="mobile"
+          placeholder="Mobile Number*"
+          [(ngModel)]="quoteForm.mobile"
+          required
+        />
+
+        <textarea
+          name="message"
+          placeholder="Message*"
+          rows="3"
+          [(ngModel)]="quoteForm.message"
+          required
+        ></textarea>
+
+        <button type="submit" [disabled]="isSubmittingQuote">
+          {{ isSubmittingQuote ? 'Sending...' : 'Send Message' }}
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES SECTION -->
+<section class="features">
+  <div class="container features-grid">
+    <div class="features-text">
+      <h2>Focus on Your Core Business, Put Customers First with Management Services</h2>
+
+      <ul>
+        <li>
+          <span class="check-icon">✔</span>
+          Firms can focus on their vision and mission when operations run smoothly. We
+          support you in making the improvements your business needs.
+        </li>
+        <li>
+          <span class="check-icon">✔</span>
+          We provide operational management, resource planning, process optimization, and
+          ensure your workflow stays seamless.
+        </li>
+        <li>
+          <span class="check-icon">✔</span>
+          Firms can also reach us for ongoing support, performance monitoring, and
+          strategic planning.
+        </li>
+      </ul>
+    </div>
+
+    <div class="features-image">
+      <img src="/Manager.png" alt="Management services team" />
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT / SCHEDULE APPOINTMENT SECTION -->
+<section class="contact">
+  <div class="container contact-grid">
+
+    <div class="contact-info">
+      <div class="eyebrow">
+        <span class="line"></span>
+        <span class="line short"></span>
+        <span class="eyebrow-text">LET'S TALK</span>
+      </div>
+
+      <h2>Contact with us</h2>
+      <p>When you need support, we're here to help</p>
+
+      <div class="info-item">
+        <div class="icon email-icon">✉</div>
+        <div>
+          <h4>Email</h4>
+          <p>info&#64;manvision.net</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="icon call-icon">☎</div>
+        <div>
+          <h4>Call Us</h4>
+          <p>1300 920 525</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="icon address-icon">⌂</div>
+        <div>
+          <h4>Office Address</h4>
+          <p>Suite A15, 24 Lexington Drive, Bella Vista, NSW 2153, Australia.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="appointment-card">
+      <h3>Schedule Appointment</h3>
+      <p>We're here to help you 24/7 with experts</p>
+
+      <form #aForm="ngForm" (ngSubmit)="submitAppointment(aForm)" novalidate>
+        <input
+          type="text"
+          name="name"
+          placeholder="Name"
+          [(ngModel)]="appointmentForm.name"
+          required
+        />
+
+        <input
+          type="email"
+          name="email"
+          placeholder="E-Mail"
+          [(ngModel)]="appointmentForm.email"
+          required
+          email
+        />
+
+        <input
+          type="tel"
+          name="phone"
+          placeholder="Phone Number"
+          [(ngModel)]="appointmentForm.phone"
+          required
+        />
+
+        <textarea
+          name="message"
+          placeholder="Your Message Here"
+          rows="3"
+          [(ngModel)]="appointmentForm.message"
+          required
+        ></textarea>
+
+        <button type="submit" [disabled]="isSubmittingAppointment">
+          {{ isSubmittingAppointment ? 'Submitting...' : 'Submit Now' }}
+        </button>
+      </form>
+    </div>
+
+  </div>
+</section>
+<app-footer></app-footer>

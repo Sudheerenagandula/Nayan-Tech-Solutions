@@ -309,3 +309,24 @@ body {
     padding: 10px 10px 10px 20px;
   }
 }
+
+
+.navbar {
+  transition: transform 0.3s ease-in-out;
+  transform: translateY(0);
+}
+
+.navbar-hidden {
+  transform: translateY(-100%);
+}
+
+
+.mega-col-title-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.mega-col-title-link:hover .mega-col-title {
+  color: var(--bs-primary, #0d6efd);
+}

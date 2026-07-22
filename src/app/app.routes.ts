@@ -11,19 +11,22 @@ import { ResourcesBlog } from './pages/resources-blog/resources-blog';
 
 import { GratuityCalculator } from './pages/gratuity-calculator/gratuity-calculator';
 import { HrTemplates } from './pages/hr-templates/hr-templates';
+import { ManagementServices } from './pages/services/management-services/management-services';
+import { EnterpriseSecuritySolutions } from './pages/services/enterprise-security-solutions/enterprise-security-solutions';
+import { ItStaffing } from './pages/services/it-staffing/it-staffing';
+import { NonItStaffing } from './pages/services/non-it-staffing/non-it-staffing';
 
 export const routes: Routes = [
 
-{
-path:'',
-component:Home
-},
+  {
+    path: '',
+    component: Home
+  },
 
-{
-path:'about',
-component:About
-},
-
+  {
+    path: 'about',
+    component: About
+  },
 
   {
     path: 'our-clients',
@@ -37,7 +40,6 @@ component:About
     path: 'resources/blog',
     component: ResourcesBlog
   },
-
   {
     path: 'resources/gratuity-calculator',
     component: GratuityCalculator
@@ -46,24 +48,31 @@ component:About
     path: 'resources/hr-templates',
     component: HrTemplates
   },
-{
-path:'services',
-component:Services
-},
 
-{
-path:'testimonials',
-component:Testimonials
-},
+  {
+    path: 'services',
+    component: Services
+  },
 
-{
-path:'contact',
-component:Contact
-},
+  { path: 'services/management-services', component: ManagementServices },
+  { path: 'services/enterprise-security-solutions', component: EnterpriseSecuritySolutions },
+  { path: 'services/it-staffing', component: ItStaffing },
+  { path: 'services/non-it-staffing', component: NonItStaffing },
 
-{
-path:'**',
-redirectTo:''
-}
+  {
+    path: 'testimonials',
+    component: Testimonials
+  },
+
+  {
+    path: 'contact',
+    component: Contact
+  },
+
+  // WILDCARD MUST ALWAYS BE LAST
+  {
+    path: '**',
+    redirectTo: ''
+  },
 
 ];

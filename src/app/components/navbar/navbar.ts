@@ -11,6 +11,7 @@ interface ServiceLink {
 interface ServiceGroup {
   title: string;
   description: string;
+  path: string; // route for the group itself
   links: ServiceLink[];
 }
 
@@ -26,49 +27,50 @@ export class Navbar {
   isHome = true;
   megaOpen = false;
   resourcesOpen = false;
+  hideNavbar = false;
+
+  private lastScrollY = 0;
+  private scrollThreshold = 80;
 
   serviceGroups: ServiceGroup[] = [
     {
-      title: 'Staffing & Recruiting',
-      description: 'Permanent, contract and temporary placements.',
+      title: 'Management Services',
+      description: 'End-to-end operational and workforce management support.',
+      path: '/services/management-services',
       links: [
-        { label: 'Permanent Recruitment', path: '/services/permanent-recruitment' },
-        { label: 'Temporary Staffing', path: '/services/temporary-staffing' },
-        { label: 'Executive Search', path: '/services/executive-search' }
+        { label: 'Vendor Management', path: '/services/vendor-management' },
+        { label: 'Project Management', path: '/services/project-management' },
+        { label: 'Managed Services', path: '/services/managed-services' }
       ]
     },
     {
-      title: 'Managed HR',
-      description: 'End-to-end HR administration and support.',
+      title: 'Enterprise Security Solutions',
+      description: 'Comprehensive security solutions to protect your business.',
+      path: '/services/enterprise-security-solutions',
       links: [
-        { label: 'HR Outsourcing', path: '/services/hr-outsourcing' },
-        { label: 'Payroll Processing', path: '/services/payroll' },
-        { label: 'Leave & Compliance', path: '/services/compliance' }
+        { label: 'Cybersecurity Consulting', path: '/services/cybersecurity-consulting' },
+        { label: 'Risk & Compliance', path: '/services/security-risk-compliance' },
+        { label: 'Managed Security Services', path: '/services/managed-security-services' }
       ]
     },
     {
-      title: 'PEO & EOR',
-      description: 'Hire and pay talent without a local entity.',
+      title: 'IT Staffing',
+      description: 'Skilled technology talent for contract, contract-to-hire and permanent roles.',
+      path: '/services/it-staffing',
       links: [
-        { label: 'Employer of Record', path: '/services/eor' },
-        { label: 'PEO Services', path: '/services/peo' },
-        { label: 'Visa & Onboarding', path: '/services/visa-onboarding' }
+        { label: 'Contract Staffing', path: '/services/it-contract-staffing' },
+        { label: 'Permanent Placement', path: '/services/it-permanent-placement' },
+        { label: 'Project-Based Teams', path: '/services/it-project-teams' }
       ]
     },
     {
-      title: 'HR Technology',
-      description: 'Tools to run HR operations digitally.',
+      title: 'Non-IT Staffing',
+      description: 'Qualified professionals across administrative, operational and business functions.',
+      path: '/services/non-it-staffing',
       links: [
-        { label: 'HRIS Platform', path: '/services/hris' },
-        { label: 'Automation Tools', path: '/services/automation' }
-      ]
-    },
-    {
-      title: 'Consulting',
-      description: 'Expert advisory for scaling teams.',
-      links: [
-        { label: 'HR Advisory', path: '/services/hr-advisory' },
-        { label: 'Workforce Planning', path: '/services/workforce-planning' }
+        { label: 'Administrative Staffing', path: '/services/non-it-admin-staffing' },
+        { label: 'Operations Staffing', path: '/services/non-it-operations-staffing' },
+        { label: 'Business Support Staffing', path: '/services/non-it-business-support' }
       ]
     }
   ];
@@ -83,12 +85,38 @@ export class Navbar {
         this.isScrolled = false;
         this.megaOpen = false;
         this.resourcesOpen = false;
+        this.hideNavbar = false;
+        this.lastScrollY = 0;
       });
   }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    this.isScrolled = window.scrollY > 60;
+    const currentScrollY = window.scrollY;
+
+    this.isScrolled = currentScrollY > 60;
+
+    // don't hide navbar while a menu is open
+    if (this.megaOpen || this.resourcesOpen) {
+      this.hideNavbar = false;
+      this.lastScrollY = currentScrollY;
+      return;
+    }
+
+    // ignore tiny scroll jitters
+    if (Math.abs(currentScrollY - this.lastScrollY) < 5) {
+      return;
+    }
+
+    if (currentScrollY > this.lastScrollY && currentScrollY > this.scrollThreshold) {
+      // scrolling down -> hide
+      this.hideNavbar = true;
+    } else {
+      // scrolling up -> show
+      this.hideNavbar = false;
+    }
+
+    this.lastScrollY = currentScrollY;
   }
 
   openMega() {
@@ -113,6 +141,23 @@ export class Navbar {
 
   toggleResources() {
     this.resourcesOpen = !this.resourcesOpen;
+  }
+
+  // Explicit navigation used by the mega menu (title + sub-links).
+  // Bypasses the routerLink click/mouseleave race that was blocking navigation.
+  goToService(path: string, event: Event) {
+    event.preventDefault();
+    event.stopPropagation();
+    this.megaOpen = false;
+    this.router.navigateByUrl(path);
+  }
+
+  // Explicit navigation used by the resources dropdown, for the same reason.
+  goToResource(path: string, event: Event) {
+    event.preventDefault();
+    event.stopPropagation();
+    this.resourcesOpen = false;
+    this.router.navigateByUrl(path);
   }
 
   @HostListener('document:keydown.escape')

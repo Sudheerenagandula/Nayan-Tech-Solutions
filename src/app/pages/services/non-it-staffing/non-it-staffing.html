@@ -1,0 +1,270 @@
+<app-navbar></app-navbar>
+
+<!-- HERO SECTION -->
+<section class="hero-section">
+  <div class="hero-overlay"></div>
+  <div class="container hero-inner">
+    <div class="row align-items-center">
+      <div class="col-lg-7 hero-text">
+        <h1>Non-IT Staffing Services Across Hyderabad, Bangalore &amp; Irvine – NayanTech</h1>
+        <p>
+          NayanTech offers reliable <strong>non-IT staffing services</strong> across India and the
+          US, helping businesses recruit skilled professionals across various non-technical roles.
+          Our solutions streamline hiring, reduce recruitment time, and ensure the right fit for
+          your organization. Partner with <strong>NayanTech</strong> to build a strong, efficient,
+          and capable workforce.
+        </p>
+      </div>
+
+      <div class="col-lg-5">
+        <div class="quote-card">
+          <h3>GET YOUR QUOTE</h3>
+
+          <form (ngSubmit)="onQuoteSubmit()" #quoteFormRef="ngForm">
+            <div class="mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Name*"
+                name="name"
+                [(ngModel)]="quoteForm.name"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Email Address*"
+                name="email"
+                [(ngModel)]="quoteForm.email"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+              <input
+                type="tel"
+                class="form-control"
+                placeholder="Mobile Number*"
+                name="mobile"
+                [(ngModel)]="quoteForm.mobile"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+              <textarea
+                class="form-control"
+                placeholder="Message*"
+                name="message"
+                rows="3"
+                [(ngModel)]="quoteForm.message"
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn-send" [disabled]="quoteFormRef.invalid">
+              Send Message
+            </button>
+
+            @if (quoteSubmitted) {
+              <p class="success-msg">Thanks! We'll get back to you shortly.</p>
+            }
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT / BROADENING HORIZONS SECTION -->
+<section class="about-section">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-5">
+       <div class="about-img-wrap">
+  <div class="about-decor-stripe"></div>
+  <div class="about-decor-dots"></div>
+  <img src="/NonIt Staffing.webp" alt="NayanTech team collaboration" class="about-img" />
+</div>
+      </div>
+
+      <div class="col-lg-7">
+        <h2>Broadening Our Horizons: Non-IT Staffing Solutions by NayanTech Solutions</h2>
+        <p>
+          For over a decade, NayanTech Solutions has been a trusted name in IT staffing,
+          delivering exceptional talent and bespoke recruitment strategies across India and the
+          US. Building on this legacy of success, we are now extending our capabilities to
+          Non-IT sectors, offering the same unwavering commitment to excellence, agility, and
+          client satisfaction.
+        </p>
+        <p>
+          Our newly launched Non-IT staffing division is strategically designed to meet the
+          evolving talent demands of a wide array of industries. Whether your requirement is
+          permanent, temporary, or contractual, NayanTech is primed to deliver the right people
+          at the right time.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US SECTION -->
+<section class="why-choose-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="why-choose-card">
+          <span class="eyebrow">WHY CHOOSE US</span>
+          <h2>Why Partner with NayanTech for Non-IT Staffing?</h2>
+          <button type="button" class="btn-contact" (click)="scrollToContact()">Contact Us</button>
+        </div>
+      </div>
+
+      <div class="col-lg-8">
+        <div class="row">
+          @for (item of whyChooseItems; track item.number) {
+            <div class="col-md-6 why-choose-item">
+              <span class="item-number">{{ item.number }}</span>
+              <h4>{{ item.title }}</h4>
+              <p>{{ item.description }}</p>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTORS WE SUPPORT SECTION -->
+<section class="sectors-section">
+  <div class="container">
+    <h2 class="section-title">Sectors We Support</h2>
+
+    <div class="row">
+      @for (sector of sectors; track sector.title) {
+        <div class="col-lg-6 sector-col">
+          <div class="sector-card" [class.highlighted]="sector.highlighted">
+            <div class="sector-icon">
+              <img src="/icons/{{ sector.icon }}.svg" [alt]="sector.title" />
+            </div>
+            <div class="sector-content">
+              <h4>{{ sector.title }}</h4>
+              <p>{{ sector.description }}</p>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="contact-section" id="contact-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="lets-talk-tag">
+          <span class="tag-line"></span>
+          <span class="tag-text">LET'S TALK</span>
+        </div>
+
+        <h2>Contact with us</h2>
+        <p class="sub-text">When you need support, we're here to help</p>
+
+        <div class="contact-info-item">
+          <div class="icon-wrap email-icon">✉</div>
+          <div>
+            <h4>Email</h4>
+            <p>info&#64;nayantechsolutions.com</p>
+          </div>
+        </div>
+
+        <div class="contact-info-item">
+          <div class="icon-wrap call-icon">☎</div>
+          <div>
+            <h4>Call Us</h4>
+            <p>+91 000 000 0000</p>
+          </div>
+        </div>
+
+        <div class="contact-info-item">
+          <div class="icon-wrap address-icon">⌂</div>
+          <div>
+            <h4>Office Address</h4>
+            <p>Hyderabad · Bangalore · Irvine, CA (US)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="appointment-card">
+          <h3>Schedule Appointment</h3>
+          <p class="sub-text">We're here to help you 24/7 with experts</p>
+
+          <form (ngSubmit)="onContactSubmit()" #contactFormRef="ngForm">
+            <div class="mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Name"
+                name="cname"
+                [(ngModel)]="contactForm.name"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+              <input
+                type="email"
+                class="form-control"
+                placeholder="E-Mail"
+                name="cemail"
+                [(ngModel)]="contactForm.email"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+              <input
+                type="tel"
+                class="form-control"
+                placeholder="Phone Number"
+                name="cphone"
+                [(ngModel)]="contactForm.phone"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+              <textarea
+                class="form-control"
+                placeholder="Your Message Here"
+                name="cmessage"
+                rows="3"
+                [(ngModel)]="contactForm.message"
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit" [disabled]="contactFormRef.invalid">
+              Submit Now
+            </button>
+
+            @if (contactSubmitted) {
+              <p class="success-msg">Thanks! Your appointment request has been sent.</p>
+            }
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCROLL TO TOP -->
+<button class="scroll-top-btn" (click)="scrollToTop()" aria-label="Scroll to top">
+  ↑
+</button>
+<app-footer></app-footer>
