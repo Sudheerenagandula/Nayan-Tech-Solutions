@@ -1,10 +1,10 @@
-import { Component, AfterViewInit, OnDestroy, ElementRef, ViewChildren, QueryList } from '@angular/core';
+import {  Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-interface Client {
+interface ClientLogo {
   name: string;
-  logo: string;
-  category?: string;
+  src: string;
+  active: boolean;
 }
 
 @Component({
@@ -12,60 +12,46 @@ interface Client {
   standalone: true,
   imports: [CommonModule],
   templateUrl: './clients.html',
-  styleUrl: './clients.css'
+  styleUrls: ['./clients.css']
 })
-export class Clients implements AfterViewInit, OnDestroy {
-
-  clients: Client[] = [
-    { name: 'Vantage Global Corp', logo: '/assets/clients/vantage-global.png', category: 'MNC' },
-    { name: 'Meridian Industries', logo: '/assets/clients/meridian-industries.png', category: 'MNC' },
-    { name: 'Orion Enterprises', logo: '/assets/clients/orion-enterprises.png', category: 'MNC' },
-
-    { name: 'NovaStart Technologies', logo: '/assets/clients/novastart.png', category: 'Startup' },
-    { name: 'Pulse Robotics', logo: '/assets/clients/pulse-robotics.png', category: 'Startup' },
-    { name: 'BrightLane Labs', logo: '/assets/clients/brightlane-labs.png', category: 'Startup' },
-
-    { name: 'MediCure Pharmaceuticals', logo: '/assets/clients/medicure-pharma.png', category: 'Pharma' },
-    { name: 'VitalCore Life Sciences', logo: '/assets/clients/vitalcore-life-sciences.png', category: 'Pharma' },
-    { name: 'Aurelia Biotech', logo: '/assets/clients/aurelia-biotech.png', category: 'Pharma' },
-
-    { name: 'Cortex IT Solutions', logo: '/assets/clients/cortex-it.png', category: 'IT' },
-    { name: 'Skyline Software Group', logo: '/assets/clients/skyline-software.png', category: 'IT' },
-
-    { name: 'Sterling Capital Partners', logo: '/assets/clients/sterling-capital.png', category: 'Finance' },
-    { name: 'Northgate Financial', logo: '/assets/clients/northgate-financial.png', category: 'Finance' },
-
-    { name: 'Ferrowell Manufacturing', logo: '/assets/clients/ferrowell-manufacturing.png', category: 'Manufacturing' },
-    { name: 'Titan Industrial Group', logo: '/assets/clients/titan-industrial.png', category: 'Manufacturing' }
+export class ClientsComponent implements OnInit, OnDestroy {
+  logos: ClientLogo[] = [
+    { name: 'Tata Consultancy Services', src: 'assets/logos/tata.svg', active: false },
+    { name: 'Wipro', src: 'assets/logos/wipro.svg', active: false },
+    { name: 'Citibank', src: 'assets/logos/citibank.svg', active: false },
+    { name: 'Tech Mahindra', src: 'assets/logos/techmahindra.svg', active: false },
+    { name: 'Electronic Arts', src: 'assets/logos/ea.svg', active: false },
+    { name: 'Acclaris', src: 'assets/logos/acclaris.svg', active: false }
   ];
 
-  get loopedClients(): Client[] {
-    return [...this.clients, ...this.clients];
+  activeIndex = 0;
+  private autoScrollTimer: any;
+
+  ngOnInit(): void {
+    this.setActive(0);
+    this.startAutoScroll();
   }
 
-  // ---------- SCROLL REVEAL ----------
-  @ViewChildren('revealEl') revealEls!: QueryList<ElementRef>;
-  private observer!: IntersectionObserver;
-
-  ngAfterViewInit() {
-    this.observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            this.observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    this.revealEls.forEach(el => this.observer.observe(el.nativeElement));
+  ngOnDestroy(): void {
+    clearInterval(this.autoScrollTimer);
   }
 
-  ngOnDestroy() {
-    if (this.observer) {
-      this.observer.disconnect();
-    }
+  setActive(index: number): void {
+    this.logos.forEach((logo, i) => (logo.active = i === index));
+    this.activeIndex = index;
+  }
+
+  onLogoClick(index: number): void {
+    this.setActive(index);
+    // restart the timer so it doesn't jump right after a manual click
+    clearInterval(this.autoScrollTimer);
+    this.startAutoScroll();
+  }
+
+  private startAutoScroll(): void {
+    this.autoScrollTimer = setInterval(() => {
+      const next = (this.activeIndex + 1) % this.logos.length;
+      this.setActive(next);
+    }, 2500);
   }
 }

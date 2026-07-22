@@ -1,13 +1,12 @@
 <section class="clients-section">
-  <div class="container">
-    <p class="clients-label reveal-up" #revealEl>Trusted by leading organisations</p>
-
-    <div class="clients-track-wrapper reveal-up" #revealEl>
-      <div class="clients-track">
-        <div class="client-logo" *ngFor="let client of loopedClients">
-          <span>{{ client.name }}</span>
-        </div>
-      </div>
+  <div class="clients-track">
+    <div
+      class="logo-card"
+      *ngFor="let logo of logos; let i = index"
+      [class.active]="logo.active"
+      (click)="onLogoClick(i)"
+    >
+      <img [src]="logo.src" [alt]="logo.name" class="logo-img" />
     </div>
   </div>
 </section>

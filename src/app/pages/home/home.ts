@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Hero } from "../../components/hero/hero";
-import { Clients } from "../../components/clients/clients";
+import {  ClientsComponent } from "../../components/clients/clients";
 import { Services } from "../../components/services/services";
 import { Statistics } from "../../components/statistics/statistics";
 import { ComplianceComponent } from "../../components/compliance/compliance";
@@ -16,7 +16,7 @@ import { Navbar } from '../../components/navbar/navbar';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [Navbar, Hero, Clients, Services, Statistics, Blog, TestimonialSlider, CareersTeaser, Cta, Footer, FaqComponent, ComplianceComponent],
+  imports: [Navbar, Hero,  Services, Statistics, Blog, TestimonialSlider, CareersTeaser, Cta, Footer, FaqComponent, ComplianceComponent, ClientsComponent],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
