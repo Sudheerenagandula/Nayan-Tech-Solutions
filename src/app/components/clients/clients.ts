@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule } from "@angular/common";
+import { Component } from "@angular/core";
 
 interface ClientLogo {
   name: string;
@@ -17,12 +17,13 @@ const LOGO_DEV_TOKEN = 'pk_YOUR_PUBLIC_TOKEN'; // ⚠️ replace with your real 
 })
 export class ClientsComponent {
   private baseLogos: ClientLogo[] = [
-    { name: 'Tata Consultancy Services', src: `https://img.logo.dev/tcs.com?token=${LOGO_DEV_TOKEN}` },
-    { name: 'Wipro', src: `https://img.logo.dev/wipro.com?token=${LOGO_DEV_TOKEN}` },
-    { name: 'Citibank', src: `https://img.logo.dev/citibank.com?token=${LOGO_DEV_TOKEN}` },
-    { name: 'Tech Mahindra', src: `https://img.logo.dev/techmahindra.com?token=${LOGO_DEV_TOKEN}` },
-    { name: 'Electronic Arts', src: `https://img.logo.dev/ea.com?token=${LOGO_DEV_TOKEN}` },
-    { name: 'Acclaris', src: `https://img.logo.dev/acclaris.com?token=${LOGO_DEV_TOKEN}` }
+    { name: 'TCS',            src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Tata_Consultancy_Services_Logo.svg' },
+    { name: 'Infosys',        src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Infosys_logo.svg' },
+    { name: 'Wipro',          src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Wipro_new_logo.svg' },
+    { name: 'Accenture',      src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Accenture.svg' },
+    { name: 'Cognizant',      src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Cognizant_logo_2022.svg' },
+    { name: 'Tech Mahindra',  src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Tech_Mahindra_New_Logo.svg' },
+    { name: 'EA',             src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Electronic-Arts-Logo.svg' },
   ];
 
   logos: ClientLogo[] = [...this.baseLogos, ...this.baseLogos];
