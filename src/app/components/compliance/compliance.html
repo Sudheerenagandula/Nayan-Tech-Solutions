@@ -1,27 +1,16 @@
-<section class="compliance-section py-5">
-  <div class="container">
+<section class="how-it-works-section">
+  <h2 class="hiw-title">How it works</h2>
+  <div class="hiw-underline">
+    <span class="hiw-line"></span>
+    <span class="hiw-dot"></span>
+    <span class="hiw-line"></span>
+  </div>
 
-    <div class="row align-items-center g-4">
-
-      <div class="col-lg-5 reveal-up" #revealEl>
-        <h2 class="fw-bold">Licensed, Certified, Trusted</h2>
-        <p class="text-muted">
-          We operate under full regulatory compliance, so your business stays protected at every step.
-        </p>
-      </div>
-
-      <div class="col-lg-7">
-        <div class="row g-4">
-          <div class="col-6 col-md-3 reveal-up" #revealEl *ngFor="let cert of certifications">
-            <div class="cert-badge">
-              <i [class]="cert.icon"></i>
-              <p>{{ cert.label }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
+  <div class="hiw-grid">
+    <div class="hiw-card" *ngFor="let card of cards">
+      <div class="hiw-icon" [innerHTML]="card.icon"></div>
+      <h3 class="hiw-card-title">{{ card.title }}</h3>
+      <p class="hiw-card-desc">{{ card.description }}</p>
     </div>
-
   </div>
 </section>
