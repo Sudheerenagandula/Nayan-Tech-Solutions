@@ -27,10 +27,6 @@ export class Navbar {
   isHome = true;
   megaOpen = false;
   resourcesOpen = false;
-  hideNavbar = false;
-
-  private lastScrollY = 0;
-  private scrollThreshold = 80;
 
   serviceGroups: ServiceGroup[] = [
     {
@@ -85,38 +81,12 @@ export class Navbar {
         this.isScrolled = false;
         this.megaOpen = false;
         this.resourcesOpen = false;
-        this.hideNavbar = false;
-        this.lastScrollY = 0;
       });
   }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    const currentScrollY = window.scrollY;
-
-    this.isScrolled = currentScrollY > 60;
-
-    // don't hide navbar while a menu is open
-    if (this.megaOpen || this.resourcesOpen) {
-      this.hideNavbar = false;
-      this.lastScrollY = currentScrollY;
-      return;
-    }
-
-    // ignore tiny scroll jitters
-    if (Math.abs(currentScrollY - this.lastScrollY) < 5) {
-      return;
-    }
-
-    if (currentScrollY > this.lastScrollY && currentScrollY > this.scrollThreshold) {
-      // scrolling down -> hide
-      this.hideNavbar = true;
-    } else {
-      // scrolling up -> show
-      this.hideNavbar = false;
-    }
-
-    this.lastScrollY = currentScrollY;
+    this.isScrolled = window.scrollY > 60;
   }
 
   openMega() {

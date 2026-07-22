@@ -311,16 +311,6 @@ body {
 }
 
 
-.navbar {
-  transition: transform 0.3s ease-in-out;
-  transform: translateY(0);
-}
-
-.navbar-hidden {
-  transform: translateY(-100%);
-}
-
-
 .mega-col-title-link {
   text-decoration: none;
   color: inherit;
@@ -329,4 +319,14 @@ body {
 
 .mega-col-title-link:hover .mega-col-title {
   color: var(--bs-primary, #0d6efd);
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 8px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 1030;
 }
