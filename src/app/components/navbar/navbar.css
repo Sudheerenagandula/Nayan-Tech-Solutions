@@ -330,3 +330,29 @@ body {
   top: 0;
   z-index: 1030;
 }
+
+/* ===============================
+   LOCK NAVBAR FONT — same on every page
+=================================*/
+.navbar,
+.navbar .nav-link,
+.navbar .mega-trigger,
+.navbar .resources-trigger,
+.navbar .brand-name,
+.navbar .brand-name span,
+.mega-panel,
+.mega-col-title,
+.mega-col-desc,
+.mega-col-links a,
+.resources-panel,
+.resources-link {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+}
+
+.navbar .nav-link,
+.navbar .mega-trigger,
+.navbar .resources-trigger {
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+}

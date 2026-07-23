@@ -123,3 +123,31 @@ hr{
   max-width: 160%;
   object-fit: contain;
 }
+.footer {
+  position: relative;
+  background: linear-gradient(180deg, #cfe0f5 0%, #eaf1fb 60%, #f7fafd 100%);
+  overflow: hidden;
+  padding-top: 60px;
+  padding-bottom: 30px;
+}
+
+/* faint world-map watermark, right side, like the screenshot */
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60%;
+  height: 100%;
+  background-image: url('/world-map.svg'); /* swap in your own map asset */
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: contain;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.footer .container {
+  position: relative;
+  z-index: 1;
+}

@@ -1,83 +1,189 @@
-.how-it-works-section {
-  text-align: center;
-  padding: 70px 40px 90px;
-  background: #f5f7fa;
-  font-family: 'Inter', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+.why-choose {
+  position: relative;
+  background: #ffffff;
+  padding: 90px 0;
+  overflow: hidden;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
 }
 
-.hiw-title {
-  font-family: 'Poppins', sans-serif;
-  font-size: 40px;
-  font-weight: 800;
-  color: #14161a;
+/* ===============================
+   DECORATIVE DIAGONAL LINE PATTERN
+   (bottom-left + top-right corners only, faded)
+=================================*/
+.pattern {
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(15, 23, 42, 0.08) 0px,
+    rgba(15, 23, 42, 0.08) 1px,
+    transparent 1px,
+    transparent 14px
+  );
+  z-index: 0;
+}
+
+.pattern-bottom-left {
+  left: 0;
+  bottom: 0;
+  -webkit-mask-image: linear-gradient(to top right, #000 30%, transparent 75%);
+  mask-image: linear-gradient(to top right, #000 30%, transparent 75%);
+}
+
+.pattern-top-right {
+  right: 0;
+  top: 0;
+  -webkit-mask-image: linear-gradient(to bottom left, #000 30%, transparent 75%);
+  mask-image: linear-gradient(to bottom left, #000 30%, transparent 75%);
+}
+
+/* ===============================
+   LAYOUT
+=================================*/
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.why-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 460px 1fr;
+  gap: 70px;
+  align-items: center;
+}
+
+/* ===============================
+   IMAGE WITH OFFSET GRADIENT RING
+=================================*/
+.image-col {
+  display: flex;
+  justify-content: center;
+}
+
+.circle-image {
+  position: relative;
+  width: 420px;
+  height: 420px;
+  max-width: 100%;
+}
+
+.circle-image::before {
+  content: '';
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1e63e9 0%, #3aa0ff 35%, #ff9a3c 75%, #ff7a1a 100%);
+  z-index: 0;
+}
+
+.circle-image img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  border: 8px solid #ffffff;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
+}
+
+/* ===============================
+   TEXT CONTENT
+=================================*/
+.content-col {
+  max-width: 620px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   margin-bottom: 18px;
 }
 
-.hiw-underline {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  margin-bottom: 50px;
-}
-
-.hiw-line {
-  width: 50px;
+.dash {
+  display: inline-block;
   height: 2px;
-  background: #1a2472;
+  background: #0d6efd;
+  border-radius: 2px;
 }
 
-.hiw-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #1a2472;
+.dash-short {
+  width: 16px;
 }
 
-.hiw-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  max-width: 1200px;
-  margin: 0 auto;
+.dash-long {
+  width: 34px;
 }
 
-.hiw-card {
-  background: #ffffff;
-  border-radius: 6px;
-  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.05);
-  padding: 45px 35px;
-  text-align: left;
+.eyebrow-text {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: #0d6efd;
+  text-transform: uppercase;
 }
 
-.hiw-icon {
-  width: 64px;
-  height: 64px;
-  margin-bottom: 24px;
-}
-
-.hiw-icon svg {
-  width: 100%;
-  height: 100%;
-}
-
-.hiw-card-title {
-  font-family: 'Poppins', sans-serif;
-  font-size: 22px;
+.heading {
+  font-size: 40px;
   font-weight: 700;
-  color: #14161a;
-  margin-bottom: 16px;
+  color: #0f172a;
+  line-height: 1.2;
+  margin: 0 0 24px;
 }
 
-.hiw-card-desc {
-  font-family: 'Inter', sans-serif;
-  font-size: 15px;
-  color: #5a5f6b;
-  line-height: 1.75;
+.content-col p {
+  font-size: 16px;
+  line-height: 1.9;
+  color: #64748b;
+  margin: 0 0 20px;
 }
 
-@media (max-width: 900px) {
-  .hiw-grid {
+.content-col p:last-child {
+  margin-bottom: 0;
+}
+
+/* ===============================
+   RESPONSIVE
+=================================*/
+@media (max-width: 992px) {
+  .why-grid {
     grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .image-col {
+    order: -1;
+  }
+
+  .content-col {
+    max-width: 100%;
+    text-align: left;
+  }
+}
+
+@media (max-width: 576px) {
+  .why-choose {
+    padding: 60px 0;
+  }
+
+  .circle-image {
+    width: 300px;
+    height: 300px;
+  }
+
+  .heading {
+    font-size: 30px;
   }
 }

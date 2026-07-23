@@ -1,16 +1,33 @@
-<section class="how-it-works-section">
-  <h2 class="hiw-title">How it works</h2>
-  <div class="hiw-underline">
-    <span class="hiw-line"></span>
-    <span class="hiw-dot"></span>
-    <span class="hiw-line"></span>
+<section class="why-choose">
+
+  <!-- decorative diagonal line pattern, corners only -->
+  <span class="pattern pattern-bottom-left" aria-hidden="true"></span>
+  <span class="pattern pattern-top-right" aria-hidden="true"></span>
+
+  <div class="container why-grid">
+
+    <!-- Image with offset gradient ring -->
+    <div class="image-col">
+      <div class="circle-image">
+        <img [src]="imageSrc" [alt]="imageAlt">
+      </div>
+    </div>
+
+    <!-- Text content -->
+    <div class="content-col">
+
+      <div class="eyebrow">
+        <span class="dash dash-short"></span>
+        <span class="dash dash-long"></span>
+        <span class="eyebrow-text">{{ eyebrow }}</span>
+      </div>
+
+      <h2 class="heading">{{ heading }}</h2>
+
+      <p *ngFor="let para of paragraphs">{{ para }}</p>
+
+    </div>
+
   </div>
 
-  <div class="hiw-grid">
-    <div class="hiw-card" *ngFor="let card of cards">
-      <div class="hiw-icon" [innerHTML]="card.icon"></div>
-      <h3 class="hiw-card-title">{{ card.title }}</h3>
-      <p class="hiw-card-desc">{{ card.description }}</p>
-    </div>
-  </div>
 </section>
