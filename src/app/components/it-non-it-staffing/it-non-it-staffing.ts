@@ -36,13 +36,13 @@ export class ItNonItStaffing {
 
   recentPosts: RecentPost[] = [
     {
-      title: 'Top Recruitment Companies in Australia: How to Choose the Best for Your Hiring Needs',
-      image: 'blog/blog-top-recruitment-companies-australia.jpg',
-      path: '/blog/top-recruitment-companies-australia',
+      title: 'Top Recruitment Companies in India: How to Choose the Best for Your Hiring Needs',
+      image: 'blog/blog-top-recruitment-companies-India.jpg',
+      path: '/blog/top-recruitment-companies-India',
       date: 'February 23, 2026',
     },
     {
-      title: 'Nayan Tech Solutions: Leading Recruitment Company in Australia for Skilled Talent',
+      title: 'Nayan Tech Solutions: Leading Recruitment Company in India for Skilled Talent',
       image: 'blog/blog-connecting-excellence-recruitment-solutions.jpg',
       path: '/blog/connecting-excellence-recruitment-solutions',
       date: 'February 19, 2026',

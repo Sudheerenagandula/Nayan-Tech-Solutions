@@ -6,10 +6,15 @@ import { Navbar } from '../navbar/navbar';
 import { Footer } from '../footer/footer';
 
 interface RecentPost {
-  title: string;
   image: string;
+  title: string;
   date: string;
-  path: string;
+  link: string;
+}
+
+interface Faq {
+  question: string;
+  answer: string;
 }
 
 @Component({
@@ -20,44 +25,90 @@ interface RecentPost {
   styleUrl: './onboarding-checklist.css',
 })
 export class OnboardingChecklist {
-  searchTerm = '';
+  // Search box
+  searchTerm: string = '';
 
+  // Comment form model
+  commentForm = {
+    name: '',
+    email: '',
+    comment: '',
+  };
+
+  // Sidebar recent posts
   recentPosts: RecentPost[] = [
     {
-      title: 'Top Recruitment Companies in India: How to Choose the Best for Your Hiring Needs',
-      image: 'blog/blog-pro-services.jpg',
-      date: 'July 20, 2026',
-      path: '/resources/blog/recruitment-trends'
+      image: 'assets/images/blog/top-recruitment-companies.jpg',
+      title:
+        'Top Recruitment Companies in India: How to Choose the Best for Your Hiring Needs',
+      date: 'February 23, 2026',
+      link: '/blog/top-recruitment-companies-in-India',
     },
     {
-      title: 'Building Strong Teams Through IT and Non-IT Staffing Expertise',
-      image: 'blog/blog-employee-retention.jpg',
-      date: 'July 15, 2026',
-      path: '/resources/blog/it-non-it-staffing'
+      image: 'assets/images/blog/leading-recruitment-company.jpg',
+      title:
+        'Nayan Tech: Leading Recruitment Company in India for Skilled Talent',
+      date: 'February 19, 2026',
+      link: '/blog/Nayan Tech-leading-recruitment-company',
     },
     {
+      image: 'assets/images/blog/bridging-the-gap.jpg',
+      title:
+        'Building Strong Teams Through IT and Non-IT Staffing Expertise from Nayan Tech',
+      date: 'January 22, 2026',
+      link: '/blog/building-strong-teams-it-non-it-staffing',
+    },
+    {
+      image: 'assets/images/blog/business-trusted.jpg',
       title: 'Strengthening Your Workforce with Trusted Non-IT Staffing Services',
-      image: 'blog/blog-top-hr-companies.jpg',
-      date: 'July 10, 2026',
-      path: '/resources/blog/remote-hiring'
+      date: 'January 13, 2026',
+      link: '/blog/strengthening-your-workforce-non-it-staffing',
     },
     {
-      title: 'The IT Skills That Guarantee a Job in 2026',
-      image: 'blog/blog-hr-outsourcing.jpg',
-      date: 'July 5, 2026',
-      path: '/resources/blog/payroll-compliance'
+      image: 'assets/images/blog/partner-it-staffing.jpg',
+      title: 'Building High-Performance Tech Teams with Expert IT Staffing',
+      date: 'January 8, 2026',
+      link: '/blog/building-high-performance-tech-teams',
     },
   ];
 
-  comment = { name: '', email: '', message: '' };
+  // FAQ list
+  faqs: Faq[] = [
+    {
+      question: '1. What specific IT Staffing Services in Sydney does Nayan Tech offer?',
+      answer:
+        'Nayan Tech provides a comprehensive range of staffing solutions tailored to the Sydney market. This includes permanent recruitment for long-term roles, contract staffing for project-based needs, and executive search for leadership positions. They specialize in finding talent for Software Development, Cloud Computing, DevOps, Data Analytics, and Cybersecurity.',
+    },
+    {
+      question: '2. How does Nayan Tech ensure the quality of IT candidates?',
+      answer:
+        'Unlike generalist agencies, Nayan Tech uses a rigorous, multi-layered screening process. This involves deep technical assessments often conducted by subject matter experts, behavioral interviews to assess cultural fit, and thorough background checks. Their background as a technology consulting firm allows them to validate technical claims more accurately than standard recruiters.',
+    },
+    {
+      question: '3. Why should I choose Nayan Tech over other recruitment agencies in Sydney?',
+      answer:
+        'Nayan Tech stands out because they combine local market expertise with global reach. Based in Bella Vista, they understand the Sydney business culture, but their global network allows them to source hard-to-find skills that may be scarce locally. Additionally, their "Study → Train → Get Placed" program ensures they have a continuous pipeline of upskilled, job-ready talent.',
+    },
+    {
+      question: '4. Can Nayan Tech help with rapid scaling for large projects?',
+      answer:
+        'Yes, Nayan Tech excels at volume hiring for large-scale digital transformation projects. Their database of pre-vetted "warm" candidates allows them to assemble full project teams (e.g., a squad of developers, a scrum master, and a QA tester) in a fraction of the time it would take to hire them individually.',
+    },
+    {
+      question: '5. Does Nayan Tech support businesses outside of Sydney?',
+      answer:
+        'While they are a leading provider of IT Staffing Services in Sydney, Nayan Tech operates across India and globally (including New Zealand, USA, and Canada). They have the infrastructure to support remote teams and place candidates in major cities like Melbourne, Brisbane, and Perth, ensuring consistent quality regardless of location.',
+    },
+  ];
 
-  submitComment() {
-    // Wire this up to your backend/API when ready
-    console.log('Comment submitted:', this.comment);
-    this.comment = { name: '', email: '', message: '' };
+  onSearch(): void {
+    console.log('Searching for:', this.searchTerm);
+    // TODO: hook up to real search logic
   }
 
-  scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  onSubmitComment(): void {
+    console.log('Comment submitted:', this.commentForm);
+    // TODO: hook up to real comment submission logic
+    this.commentForm = { name: '', email: '', comment: '' };
   }
 }
