@@ -1,0 +1,43 @@
+<app-navbar></app-navbar>
+
+<div class="page">
+  <div class="content">
+
+
+
+    <section class="hero reveal" #revealEl>
+      <p class="eyebrow">// NOW HIRING</p>
+      <h1 class="headline">We're Building<br /><span class="accent">Our Team.</span></h1>
+      <p class="subline">
+        Join {{ companyName }} — we're expanding across recruitment and
+        engineering. Explore the open roles below.
+      </p>
+    </section>
+
+    <section class="roles-block reveal" #revealEl>
+      <p class="roles-title">OPEN POSITIONS</p>
+
+      <div
+        class="role-row reveal"
+        #revealEl
+        *ngFor="let role of openings; let i = index"
+        [style.transition-delay.ms]="i * 90"
+      >
+        <div class="role-name">
+          <span class="role-index">{{ role.index }}</span>{{ role.title }}
+        </div>
+        <div class="role-tag">{{ role.category }}</div>
+      </div>
+    </section>
+
+    <footer class="footer reveal" #revealEl>
+      <div class="cta">
+        Ready to apply?
+        <span>Send your resume to {{ applyEmail }}</span>
+      </div>
+      <a class="apply-btn" href="mailto:{{ applyEmail }}">Apply Now →</a>
+    </footer>
+
+  </div>
+</div>
+<app-footer></app-footer>

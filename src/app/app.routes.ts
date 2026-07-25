@@ -8,6 +8,7 @@ import { Contact } from './pages/contact/contact';
 import { OurClients } from './pages/our-clients/our-clients';
 import { Resources } from './pages/resources/resources';
 import { ResourcesBlog } from './pages/resources-blog/resources-blog';
+// import{Careers} from './pages/careers';
 
 import { GratuityCalculator } from './pages/gratuity-calculator/gratuity-calculator';
 import { HrTemplates } from './pages/hr-templates/hr-templates';
@@ -23,6 +24,7 @@ import { PayrollCompliance } from './components/payroll-compliance/payroll-compl
 import { ItNonItStaffing } from './components/it-non-it-staffing/it-non-it-staffing';
 import { EorVsPeo } from './components/eor-vs-peo/eor-vs-peo';
 import { RecruitmentTrends } from './components/recruitment-trends/recruitment-trends';
+import { Careers } from './pages/careers/careers';
 
 export const routes: Routes = [
 
@@ -39,6 +41,10 @@ export const routes: Routes = [
   {
     path: 'our-clients',
     component: OurClients
+  },
+    {
+    path: 'careers',
+    component: Careers
   },
   {
     path: 'resources',
