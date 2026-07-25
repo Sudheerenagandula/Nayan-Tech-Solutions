@@ -1,5 +1,14 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {
+  Component,
+  AfterViewInit,
+  OnDestroy,
+  ElementRef,
+  QueryList,
+  ViewChildren,
+  PLATFORM_ID,
+  Inject,
+} from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { Footer } from "../footer/footer";
@@ -23,7 +32,7 @@ interface Faq {
   templateUrl: './eor-vs-peo.html',
   styleUrl: './eor-vs-peo.css',
 })
-export class EorVsPeo {
+export class EorVsPeo implements AfterViewInit, OnDestroy {
   // Search box
   searchTerm: string = '';
 
@@ -98,6 +107,52 @@ export class EorVsPeo {
       answer: 'Freshers typically earn a competitive entry-level salary, depending on role and city.',
     },
   ];
+
+  // Every element with #revealEl in the template gets picked up here
+  @ViewChildren('revealEl') revealEls!: QueryList<ElementRef<HTMLElement>>;
+
+  private observer?: IntersectionObserver;
+  private fallbackTimer?: ReturnType<typeof setTimeout>;
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
+  ngAfterViewInit(): void {
+    // Skip entirely on the server — IntersectionObserver doesn't exist there
+    if (!isPlatformBrowser(this.platformId) || typeof IntersectionObserver === 'undefined') {
+      this.revealAll();
+      return;
+    }
+
+    this.observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            this.observer?.unobserve(entry.target);
+          }
+        }
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -60px 0px' }
+    );
+
+    this.revealEls.forEach((el) => this.observer?.observe(el.nativeElement));
+
+    // Safety net: if anything is still hidden after 2s (observer missed it,
+    // FAQ/sidebar items rendered a tick late by *ngFor, etc.), reveal it
+    // instead of leaving it invisible forever.
+    this.fallbackTimer = setTimeout(() => this.revealAll(), 2000);
+  }
+
+  private revealAll(): void {
+    this.revealEls.forEach((el) => el.nativeElement.classList.add('is-visible'));
+  }
+
+  ngOnDestroy(): void {
+    this.observer?.disconnect();
+    if (this.fallbackTimer) {
+      clearTimeout(this.fallbackTimer);
+    }
+  }
 
   onSearch(): void {
     console.log('Searching for:', this.searchTerm);

@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 
 <section class="blog-hero" style="background-image: url('/Blog.jpg');">
-  <div class="container">
+  <div class="container reveal" #revealEl>
     <h1>Nayan Tech Blog</h1>
     <p>Insights, updates, and guidance on HR, staffing, and workforce management.</p>
   </div>
@@ -10,8 +10,12 @@
 <section class="blog-list">
   <div class="container">
     <div class="row g-4">
-      <div class="col-md-4" *ngFor="let post of posts">
-        <div class="blog-card">
+      <div class="col-md-4" *ngFor="let post of posts; let i = index">
+        <div
+          class="blog-card reveal"
+          #revealEl
+          [style.transition-delay.ms]="i * 90"
+        >
           <img [src]="post.image" [alt]="post.excerpt">
           <div class="blog-card-body">
             <p>{{ post.excerpt }}</p>

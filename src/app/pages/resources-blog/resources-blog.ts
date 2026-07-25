@@ -1,4 +1,11 @@
-import { Component } from '@angular/core';
+import {
+  Component,
+  AfterViewInit,
+  OnDestroy,
+  ElementRef,
+  QueryList,
+  ViewChildren,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Navbar } from '../../components/navbar/navbar';
@@ -17,7 +24,7 @@ interface BlogPost {
   templateUrl: './resources-blog.html',
   styleUrl: './resources-blog.css'
 })
-export class ResourcesBlog {
+export class ResourcesBlog implements AfterViewInit, OnDestroy {
   posts: BlogPost[] = [
     {
       excerpt: 'Top Recruitment Companies in India: How to Choose the Best for Your Hiring Needs',
@@ -50,4 +57,30 @@ export class ResourcesBlog {
       path: '/resources/blog/eor-vs-peo'
     },
   ];
+
+  // Every element with #revealEl in the template gets picked up here
+  @ViewChildren('revealEl') revealEls!: QueryList<ElementRef<HTMLElement>>;
+
+  private observer?: IntersectionObserver;
+
+  ngAfterViewInit(): void {
+    this.observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            // reveal once, then stop watching that element
+            this.observer?.unobserve(entry.target);
+          }
+        }
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -60px 0px' }
+    );
+
+    this.revealEls.forEach((el) => this.observer?.observe(el.nativeElement));
+  }
+
+  ngOnDestroy(): void {
+    this.observer?.disconnect();
+  }
 }
