@@ -71,3 +71,34 @@
 .read-more:hover {
   text-decoration: underline;
 }
+.blog-hero {
+  background-image: url('/Blog.jpg');
+  background-size: cover;
+  background-position: center 10%;
+  background-repeat: no-repeat;
+  position: relative;
+  color: #fff;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.blog-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 58, 143, 0.6);
+}
+
+.blog-hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.blog-hero h1,
+.blog-hero p {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
