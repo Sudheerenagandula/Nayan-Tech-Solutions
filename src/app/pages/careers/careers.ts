@@ -139,4 +139,10 @@ export class Careers implements AfterViewInit, OnDestroy {
   ngOnDestroy(): void {
     this.observer?.disconnect();
   }
+
+  scrollToRoles(): void {
+    document
+      .getElementById('open-positions')
+      ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 }
