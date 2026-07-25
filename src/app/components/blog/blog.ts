@@ -19,26 +19,28 @@ interface BlogPost {
 })
 export class Blog implements AfterViewInit, OnDestroy {
   posts: BlogPost[] = [
-    {
-      title: 'Top Recruitment Companies in India: How to Choose the Best for Your Hiring Needs',
-      date: 'Feb 4, 2026',
-      image: '/reporting-at-desk.jpg',
-      path: '/components/blog/recruitment-trends'
-    },
-    {
-      title: 'Building Strong Teams Through IT and Non-IT Staffing Expertise from a Leading Recruitment Company in India',
-      date: 'Jan 20, 2026',
-      image: '/people-in-the-off.jpg',
-      path: '/resources/eor-vs-peo'
-    },
-    {
-      title: 'Building High-Performance Tech Teams with Expert IT Staffing',
-      date: 'Feb 3, 2026',
-      image: '/Tech-Team.jpg',
-      path: '/resources/remote-hiring-strategy'
-    }
 
-  ];
+  {
+    title: 'Top Recruitment Companies in India: How to Choose the Best for Your Hiring Needs',
+    date: 'Feb 4, 2026',
+    image: '/reporting-at-desk.jpg',
+    path: '/resources/blog/recruitment-trends'
+  },
+  {
+    title: 'Building Strong Teams Through IT and Non-IT Staffing Expertise from a Leading Recruitment Company in India',
+    date: 'Jan 20, 2026',
+    image: '/people-in-the-off.jpg',
+    path: '/resources/blog/it-non-it-staffing'
+  },
+  {
+    title: 'Building High-Performance Tech Teams with Expert IT Staffing',
+    date: 'Feb 3, 2026',
+    image: '/Tech-Team.jpg',
+    path: '/resources/blog/onboarding-checklist'
+  }
+];
+
+
 
   // ---------- SCROLL REVEAL ----------
   @ViewChildren('revealEl') revealEls!: QueryList<ElementRef>;
