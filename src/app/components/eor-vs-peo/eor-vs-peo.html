@@ -4,21 +4,21 @@
   <!-- Main content -->
   <main class="main-content">
     <!-- Hero / Featured image -->
-    <div class="hero-banner">
+    <div class="hero-banner reveal" #revealEl>
       <img
         src="/It-main.png"
         alt="Study Train Get Placed: The Nayan Tech Roadmap to IT Jobs in India"
       />
     </div>
 
-    <div class="post-meta">
+    <div class="post-meta reveal" #revealEl>
       <span class="meta-item"><i class="fa fa-calendar"></i> November 19, 2025</span>
       <span class="meta-item"><i class="fa fa-user"></i> Nayan Tech</span>
       <span class="meta-item"><i class="fa fa-folder"></i> Nayan Tech</span>
       <span class="meta-item"><i class="fa fa-comment"></i> 0</span>
     </div>
 
-    <article class="post-content">
+    <article class="post-content reveal" #revealEl>
       <h1>Study &rarr; Train &rarr; Get Placed: The Nayan Tech Roadmap to IT Jobs in India</h1>
 
       <p><strong>Your Complete Guide to Starting a Successful Tech Career in India</strong></p>
@@ -295,7 +295,12 @@
       <h2>FAQs</h2>
 
       <div class="faq-list">
-        <div class="faq-item" *ngFor="let faq of faqs">
+        <div
+          class="faq-item reveal"
+          #revealEl
+          *ngFor="let faq of faqs; let i = index"
+          [style.transition-delay.ms]="i * 80"
+        >
           <h4 class="faq-question">{{ faq.question }}</h4>
           <p class="faq-answer">{{ faq.answer }}</p>
         </div>
@@ -303,7 +308,7 @@
     </article>
 
     <!-- Comment form -->
-    <section class="comment-form-section">
+    <section class="comment-form-section reveal" #revealEl>
       <h3>Leave a Reply</h3>
       <p class="comment-hint">
         Your email address will not be published. Required fields are marked <span class="required">*</span>
@@ -341,7 +346,7 @@
 
   <!-- Sidebar -->
   <aside class="sidebar">
-    <div class="search-widget">
+    <div class="search-widget reveal" #revealEl>
       <input
         type="text"
         placeholder="Searching..."
@@ -354,7 +359,7 @@
       </button>
     </div>
 
-    <div class="recent-posts-widget">
+    <div class="recent-posts-widget reveal" #revealEl>
       <h3>Recent Posts</h3>
       <ul>
         <li *ngFor="let post of recentPosts">

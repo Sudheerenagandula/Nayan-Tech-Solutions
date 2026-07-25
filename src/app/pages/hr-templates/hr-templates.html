@@ -6,62 +6,158 @@
     <div class="row align-items-center">
 
       <div class="col-lg-6 hr-library-text">
-        <h1>HR Library</h1>
-        <p>
-          Access downloadable and ready-to-use HR Templates, tailored to the Acorss World
-          and wider GCC, that you can adapt instantly for your organization. Each is:
+        <h1 class="reveal">HR Library</h1>
+        <p class="reveal reveal-delay-1">
+          A curated collection of recruitment and HR templates built for hiring teams across
+          Across World and the wider GCC. From job descriptions to onboarding letters, every
+          document is ready to download, customize, and put to work — no drafting from scratch.
         </p>
 
         <div class="feature-grid">
-          <div class="feature-item" *ngFor="let feature of features">
+          <div class="feature-item reveal reveal-delay-2">
             <div class="feature-icon">
-              <i [class]="feature.icon"></i>
+              <i class="bi bi-patch-check"></i>
             </div>
-            <span>{{ feature.text }}</span>
+            <span>Covers job descriptions, contracts & HR policies in detail</span>
+          </div>
+
+          <div class="feature-item reveal reveal-delay-3">
+            <div class="feature-icon">
+              <i class="bi bi-hand-thumbs-up"></i>
+            </div>
+            <span>Built on recruitment best practices and regional hiring standards</span>
+          </div>
+
+          <div class="feature-item reveal reveal-delay-2">
+            <div class="feature-icon">
+              <i class="bi bi-shield-check"></i>
+            </div>
+            <span>Professionally drafted, easy to brand and adapt for your team</span>
+          </div>
+
+          <div class="feature-item reveal reveal-delay-3">
+            <div class="feature-icon">
+              <i class="bi bi-download"></i>
+            </div>
+            <span>Instant download — no sign-up required to get started</span>
           </div>
         </div>
 
-        <a href="#template-grid" class="browse-btn">
-          Browse Templates
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
       </div>
-<div class="col-lg-6 hr-library-visual">
-  <img src="/Hr-Template.png" alt="HR Library">
-</div>
+
+      <div class="col-lg-6 hr-library-visual reveal reveal-delay-2">
+        <img src="/Hr-Template.png" alt="HR Library">
+      </div>
 
     </div>
   </div>
 </section>
 
-
-<hr class="controls-divider">
-
-<section class="templates-list">
+<!-- HR LIBRARY ABOUT / CONTENT SECTION -->
+<section class="py-5 bg-white">
   <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-9">
 
+        <h2 class="reveal fw-bold mb-4" style="color:#1a1a3d;">
+          Ready-to-Use HR Templates That Simplify Hiring for Every Business
+        </h2>
 
+        <p class="reveal reveal-delay-1 mb-4" style="color:#555; line-height:1.8;">
+          Hiring is one of the most time-consuming parts of running a business. Between drafting
+          job descriptions, preparing offer letters, structuring contracts, and setting HR
+          policies, teams often spend hours recreating documents that should already be ready to
+          use. Nayan Tech Solutions built the HR Library to solve exactly this problem.
+        </p>
 
-    <div class="row g-4">
-      <div class="col-md-6 col-lg-4" *ngFor="let t of filteredTemplates">
-        <div class="template-card">
-          <img [src]="t.image" [alt]="t.title">
-          <div class="template-card-body">
-            <h3>{{ t.title }}</h3>
-            <p>{{ t.description | slice:0:140 }}{{ t.description.length > 140 ? '…' : '' }}</p>
-            <a [routerLink]="['/resources/hr-templates', t.slug]" class="view-template-link">
-              View Template
-              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
+        <p class="reveal reveal-delay-2 mb-5" style="color:#555; line-height:1.8;">
+          The HR Library is a curated collection of recruitment and HR templates designed for
+          hiring teams, HR managers, and business owners who want professional, ready-to-use
+          documents without starting from scratch.
+        </p>
+
+        <h3 class="reveal fw-bold mb-3" style="color:#1a1a3d;">Why an HR Template Library Matters</h3>
+        <p class="reveal reveal-delay-1 mb-3" style="color:#555; line-height:1.8;">
+          Every hiring process depends on consistent, well-structured documentation. Poorly
+          written job descriptions attract the wrong candidates. Inconsistent contracts create
+          legal risk. Missing policies lead to confusion among employees. A reliable template
+          library helps businesses:
+        </p>
+        <ul class="reveal reveal-delay-2 mb-5" style="color:#555; line-height:2;">
+          <li>Save time during every hiring cycle</li>
+          <li>Maintain consistency across departments</li>
+          <li>Reduce legal and compliance risk</li>
+          <li>Present a professional image to candidates</li>
+          <li>Onboard new hires smoothly and confidently</li>
+        </ul>
+
+        <h3 class="reveal fw-bold mb-4" style="color:#1a1a3d;">What You'll Find in the HR Library</h3>
+        <div class="row g-4 mb-5">
+          <div class="col-md-6 reveal reveal-delay-1">
+            <h5 class="fw-bold mb-2" style="color:#0d6efd;">Job Descriptions</h5>
+            <p style="color:#555; line-height:1.7;">
+              Structured templates covering responsibilities, required skills, and qualifications
+              across technical and non-technical roles — built to attract the right candidates
+              from the start.
+            </p>
+          </div>
+          <div class="col-md-6 reveal reveal-delay-2">
+            <h5 class="fw-bold mb-2" style="color:#0d6efd;">Employment Contracts</h5>
+            <p style="color:#555; line-height:1.7;">
+              Clear, professionally drafted contracts covering compensation, probation periods,
+              confidentiality, and termination terms, ready to customize for permanent,
+              fixed-term, or contract hires.
+            </p>
+          </div>
+          <div class="col-md-6 reveal reveal-delay-3">
+            <h5 class="fw-bold mb-2" style="color:#0d6efd;">Offer and Onboarding Letters</h5>
+            <p style="color:#555; line-height:1.7;">
+              Polished letter templates that set the right tone from a candidate's first "yes"
+              through their first week on the job.
+            </p>
+          </div>
+          <div class="col-md-6 reveal reveal-delay-4">
+            <h5 class="fw-bold mb-2" style="color:#0d6efd;">HR Policies</h5>
+            <p style="color:#555; line-height:1.7;">
+              Practical policy templates covering leave, attendance, code of conduct, and remote
+              work — written to align with common regional labor standards.
+            </p>
           </div>
         </div>
+
+        <h3 class="reveal fw-bold mb-3" style="color:#1a1a3d;">Built on Real Recruitment Experience</h3>
+        <p class="reveal reveal-delay-1 mb-5" style="color:#555; line-height:1.8;">
+          Every template in the HR Library reflects practices developed through real hiring
+          engagements across IT and non-IT roles. Rather than generic legal boilerplate, the
+          documents are structured the way experienced recruiters and HR professionals actually
+          use them — clear, adaptable, and easy to brand for your own organization.
+        </p>
+
+        <h3 class="reveal fw-bold mb-3" style="color:#1a1a3d;">Instant Access, No Barriers</h3>
+        <p class="reveal reveal-delay-1 mb-5" style="color:#555; line-height:1.8;">
+          Templates in the HR Library are available for instant download. There's no sign-up
+          process and no waiting — browse by category, search for what you need, and download a
+          document ready to customize.
+        </p>
+
+        <h3 class="reveal fw-bold mb-3" style="color:#1a1a3d;">Who the HR Library Is For</h3>
+        <ul class="reveal reveal-delay-1 mb-5" style="color:#555; line-height:2;">
+          <li>Startups building their first HR processes</li>
+          <li>Growing companies scaling their hiring</li>
+          <li>HR teams standardizing documentation across departments</li>
+          <li>Recruitment agencies needing consistent client-ready templates</li>
+        </ul>
+
+        <h3 class="reveal fw-bold mb-3" style="color:#1a1a3d;">A Resource That Grows With Your Business</h3>
+        <p class="reveal reveal-delay-1" style="color:#555; line-height:1.8;">
+          As hiring needs evolve, so does the HR Library. New templates are added regularly to
+          reflect changing hiring practices, emerging roles, and updated compliance
+          considerations — so the library stays a resource you can return to, not a one-time
+          download.
+        </p>
+
       </div>
     </div>
-
   </div>
 </section>
 
