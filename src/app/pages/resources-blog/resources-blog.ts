@@ -36,17 +36,17 @@ export class ResourcesBlog {
     },
     {
       excerpt: 'Building High-Performance Tech Teams with Expert IT Staffing',
-      image: 'blog/blog-recruitment-outsourcing.jpg',
+      image: '/IT-team.jpg',
       path: '/resources/blog/onboarding-checklist'
     },
     {
       excerpt: 'The IT Skills That Guarantee a Job in 2026: Nayan Tech\u2019s Must-Learn List',
-      image: 'blog/blog-hr-outsourcing.jpg',
+      image: '/Required-Skills.jpg',
       path: '/resources/blog/payroll-compliance'
     },
     {
       excerpt: 'Study \u2192 Train \u2192 Get Placed: The Nayan Tech Roadmap to IT Jobs in India.',
-      image: 'blog/blog-switching-staffing.jpg',
+      image: '/It-main.png',
       path: '/resources/blog/eor-vs-peo'
     },
   ];

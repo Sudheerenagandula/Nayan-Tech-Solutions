@@ -23,7 +23,7 @@ export class Blog implements AfterViewInit, OnDestroy {
       title: 'Top Recruitment Companies in India: How to Choose the Best for Your Hiring Needs',
       date: 'Feb 4, 2026',
       image: '/reporting-at-desk.jpg',
-      path: '/resources/payroll-compliance-mistakes'
+      path: '/components/blog/recruitment-trends'
     },
     {
       title: 'Building Strong Teams Through IT and Non-IT Staffing Expertise from a Leading Recruitment Company in India',
