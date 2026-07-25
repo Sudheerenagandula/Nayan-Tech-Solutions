@@ -21,17 +21,17 @@ export class ResourcesBlog {
   posts: BlogPost[] = [
     {
       excerpt: 'Top Recruitment Companies in India: How to Choose the Best for Your Hiring Needs',
-      image: 'blog/blog-pro-services.jpg',
+      image: '/reporting-at-desk.jpg',
       path: '/resources/blog/recruitment-trends'
     },
     {
       excerpt: 'Building Strong Teams Through IT and Non-IT Staffing Expertise from Nayan Tech.',
-      image: 'blog/blog-employee-retention.jpg',
+      image: '/people-in-the-off.jpg',
       path: '/resources/blog/it-non-it-staffing'
     },
     {
       excerpt: 'Strengthening Your Workforce with Trusted Non-IT Staffing Services',
-      image: 'blog/blog-top-hr-companies.jpg',
+      image: '/Tech-Team.jpg',
       path: '/resources/blog/remote-hiring'
     },
     {
