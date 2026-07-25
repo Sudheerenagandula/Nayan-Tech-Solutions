@@ -16,6 +16,14 @@ import { EnterpriseSecuritySolutions } from './pages/services/enterprise-securit
 import { ItStaffing } from './pages/services/it-staffing/it-staffing';
 import { NonItStaffing } from './pages/services/non-it-staffing/non-it-staffing';
 
+// New blog detail pages — these are in components, not pages
+import { OnboardingChecklist } from './components/onboarding-checklist/onboarding-checklist';
+import { RemoteHiring } from './components/remote-hiring/remote-hiring';
+import { PayrollCompliance } from './components/payroll-compliance/payroll-compliance';
+import { ItNonItStaffing } from './components/it-non-it-staffing/it-non-it-staffing';
+import { EorVsPeo } from './components/eor-vs-peo/eor-vs-peo';
+import { RecruitmentTrends } from './components/recruitment-trends/recruitment-trends';
+
 export const routes: Routes = [
 
   {
@@ -47,6 +55,32 @@ export const routes: Routes = [
   {
     path: 'resources/hr-templates',
     component: HrTemplates
+  },
+
+  // New blog detail routes
+  {
+    path: 'resources/blog/onboarding-checklist',
+    component: OnboardingChecklist
+  },
+  {
+    path: 'resources/blog/remote-hiring',
+    component: RemoteHiring
+  },
+  {
+    path: 'resources/blog/payroll-compliance',
+    component: PayrollCompliance
+  },
+  {
+    path: 'resources/blog/it-non-it-staffing',
+    component: ItNonItStaffing
+  },
+  {
+    path: 'resources/blog/eor-vs-peo',
+    component: EorVsPeo
+  },
+  {
+    path: 'resources/blog/recruitment-trends',
+    component: RecruitmentTrends
   },
 
   {

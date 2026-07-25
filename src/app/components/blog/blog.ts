@@ -20,29 +20,24 @@ interface BlogPost {
 export class Blog implements AfterViewInit, OnDestroy {
   posts: BlogPost[] = [
     {
-      title: '5 Payroll Compliance Mistakes to Avoid',
+      title: 'Top Recruitment Companies in India: How to Choose the Best for Your Hiring Needs',
       date: 'Feb 4, 2026',
       image: '/reporting-at-desk.jpg',
       path: '/resources/payroll-compliance-mistakes'
     },
     {
-      title: 'EOR vs PEO: Which Is Right for You?',
+      title: 'Building Strong Teams Through IT and Non-IT Staffing Expertise from a Leading Recruitment Company in India',
       date: 'Jan 20, 2026',
-      tone: 'blue',
+      image: '/people-in-the-off.jpg',
       path: '/resources/eor-vs-peo'
     },
     {
-      title: 'Building a Remote-First Hiring Strategy',
+      title: 'Building High-Performance Tech Teams with Expert IT Staffing',
       date: 'Feb 3, 2026',
-      image: '/HR-and-payroll-transformation-meeting.jpg',
+      image: '/Tech-Team.jpg',
       path: '/resources/remote-hiring-strategy'
-    },
-    {
-      title: 'Onboarding Checklist for New Hires',
-      date: 'Dec 24, 2025',
-      tone: 'dark',
-      path: '/resources/onboarding-checklist'
     }
+
   ];
 
   // ---------- SCROLL REVEAL ----------

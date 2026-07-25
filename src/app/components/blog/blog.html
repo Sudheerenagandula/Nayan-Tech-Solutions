@@ -1,21 +1,24 @@
 <section class="blog-section">
   <div class="container-fluid px-3">
 
-    <h2 class="blog-heading text-center reveal-up" #revealEl>Our Blog</h2>
+    <h2 class="blog-heading text-center reveal-up" #revealEl>Blogs</h2>
 
     <div class="blog-grid">
       <a [routerLink]="post.path"
-         class="blog-tile reveal-up"
+         class="blog-card reveal-up"
          #revealEl
-         [class.tile-image]="post.image"
-         [class.tile-blue]="!post.image && post.tone === 'blue'"
-         [class.tile-dark]="!post.image && post.tone === 'dark'"
-         [style.background-image]="post.image ? 'url(' + post.image + ')' : null"
          *ngFor="let post of posts">
 
-        <div class="tile-content">
-          <span class="tile-date">{{ post.date }}</span>
+        <div class="card-thumb"
+             [class.thumb-blue]="!post.image && post.tone === 'blue'"
+             [class.thumb-dark]="!post.image && post.tone === 'dark'"
+             [style.background-image]="post.image ? 'url(' + post.image + ')' : null">
+          <span class="thumb-date" *ngIf="!post.image">{{ post.date }}</span>
+        </div>
+
+        <div class="card-body">
           <h5>{{ post.title }}</h5>
+          <span class="read-more">Read More <span class="arrow">&#8250;</span></span>
         </div>
 
       </a>
