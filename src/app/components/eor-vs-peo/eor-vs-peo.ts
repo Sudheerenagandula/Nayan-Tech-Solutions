@@ -46,37 +46,30 @@ export class EorVsPeo implements AfterViewInit, OnDestroy {
   // Sidebar recent posts
   recentPosts: RecentPost[] = [
     {
-      image: 'assets/images/blog/top-recruitment-companies.jpg',
+      image: '/reporting-at-desk.jpg',
       title:
         'Top Recruitment Companies in India: How to Choose the Best for Your Hiring Needs',
       date: 'February 23, 2026',
-      link: '/blog/top-recruitment-companies-in-India',
+      link: '/resources/blog/recruitment-trends',
     },
     {
-      image: 'assets/images/blog/leading-recruitment-company.jpg',
-      title:
-        'Nayan Tech: Leading Recruitment Company in India for Skilled Talent',
-      date: 'February 19, 2026',
-      link: '/blog/Nayan Tech-leading-recruitment-company',
-    },
-    {
-      image: 'assets/images/blog/bridging-the-gap.jpg',
+      image: '/people-in-the-off.jpg',
       title:
         'Building Strong Teams Through IT and Non-IT Staffing Expertise from Nayan Tech',
       date: 'January 22, 2026',
-      link: '/blog/building-strong-teams-it-non-it-staffing',
+      link: '/resources/blog/it-non-it-staffing',
     },
     {
-      image: 'assets/images/blog/business-trusted.jpg',
+      image: '/Tech-Team.jpg',
       title: 'Strengthening Your Workforce with Trusted Non-IT Staffing Services',
       date: 'January 13, 2026',
-      link: '/blog/strengthening-your-workforce-non-it-staffing',
+      link: '/resources/blog/remote-hiring',
     },
     {
-      image: 'assets/images/blog/partner-it-staffing.jpg',
+      image: '/IT-team.jpg',
       title: 'Building High-Performance Tech Teams with Expert IT Staffing',
       date: 'January 8, 2026',
-      link: '/blog/building-high-performance-tech-teams',
+      link: '/resources/blog/onboarding-checklist',
     },
   ];
 

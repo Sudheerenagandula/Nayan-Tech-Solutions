@@ -37,32 +37,27 @@ export class ItNonItStaffing {
   recentPosts: RecentPost[] = [
     {
       title: 'Top Recruitment Companies in India: How to Choose the Best for Your Hiring Needs',
-      image: 'blog/blog-top-recruitment-companies-India.jpg',
-      path: '/blog/top-recruitment-companies-India',
+      image: '/reporting-at-desk.jpg',
+      path: '/resources/blog/recruitment-trends',
       date: 'February 23, 2026',
     },
-    {
-      title: 'Nayan Tech Solutions: Leading Recruitment Company in India for Skilled Talent',
-      image: 'blog/blog-connecting-excellence-recruitment-solutions.jpg',
-      path: '/blog/connecting-excellence-recruitment-solutions',
-      date: 'February 19, 2026',
-    },
+
     {
       title: 'Building Strong Teams Through IT and Non-IT Staffing Expertise from Nayan Tech Solutions',
-      image: 'blog/blog-it-non-it-staffing-sydney.jpg',
-      path: '/blog/it-non-it-staffing',
+      image: '/people-in-the-off.jpg',
+      path: '/resources/blog/it-non-it-staffing',
       date: 'January 22, 2026',
     },
     {
       title: 'Strengthening Your Workforce with Trusted Non-IT Staffing Services',
-      image: 'blog/blog-non-it-staffing-services.jpg',
-      path: '/blog/non-it-staffing-services',
+      image: '/Tech-Team.jpg',
+      path: '/resources/blog/remote-hiring',
       date: 'January 13, 2026',
     },
     {
       title: 'Building High-Performance Tech Teams with Expert IT Staffing',
-      image: 'blog/blog-it-staffing-sydney.jpg',
-      path: '/blog/it-staffing-sydney',
+      image: '/IT-team.jpg',
+      path: '/resources/blog/onboarding-checklist',
       date: 'January 8, 2026',
     },
   ];
