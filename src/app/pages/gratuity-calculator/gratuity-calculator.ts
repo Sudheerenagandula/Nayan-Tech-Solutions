@@ -18,8 +18,8 @@ interface Faq {
   styleUrl: './gratuity-calculator.css'
 })
 export class GratuityCalculator {
-  jurisdiction: string = '';
-  contractType: string = '';
+  actCovered: string = '';
+  establishmentType: string = '';
   reasonForExit: string = '';
   basicSalary: number | null = null;
   unpaidLeaveDays: number = 0;
@@ -31,28 +31,28 @@ export class GratuityCalculator {
 
   faqs: Faq[] = [
     {
-      question: 'Who is eligible for gratuity in the UAE?',
-      answer: 'Any employee who has completed at least one year of continuous service with their employer under a valid UAE labour contract is generally eligible for end-of-service gratuity, regardless of whether the contract is limited or unlimited.'
+      question: 'Who is eligible for gratuity in India?',
+      answer: 'Any employee who has completed at least 5 years of continuous service with the same employer is generally eligible for gratuity under the Payment of Gratuity Act, 1972. This minimum service requirement is waived in cases of death or disablement.'
     },
     {
       question: 'When does an employee become eligible for gratuity?',
-      answer: 'Eligibility begins after completing one full year of continuous employment. Employees who leave before completing one year are typically not entitled to gratuity.'
+      answer: 'Eligibility is triggered upon completion of 5 years of continuous service, or immediately in the event of death or disablement of the employee, regardless of tenure.'
     },
     {
       question: 'Is there a cap on the amount of gratuity payable?',
-      answer: 'Yes, total gratuity payable is capped at two years\' worth of the employee\'s basic salary, regardless of how many additional years they have served beyond that point.'
+      answer: 'Yes, under the Payment of Gratuity Act, the maximum gratuity payable is currently capped at ₹20,00,000. Employers may pay more as an ex-gratia amount, but this is not mandated by law.'
     },
     {
-      question: 'How is gratuity calculated in the UAE?',
-      answer: 'Gratuity is calculated based on the basic salary only (excluding allowances). Employees earn 21 days of basic salary for each of the first five years of service, and 30 days of basic salary for each additional year beyond five.'
+      question: 'How is gratuity calculated in India?',
+      answer: 'For employees covered under the Act, gratuity is calculated as (Last drawn Basic Salary + DA) × 15 × number of years of service, divided by 26. For employees not covered under the Act, the divisor used is 30 instead of 26.'
     },
     {
-      question: 'Under what circumstances can an employer withhold gratuity payment?',
-      answer: 'An employer may withhold or reduce gratuity in specific cases, such as when an employee resigns before completing the minimum service period, or in cases of proven gross misconduct as defined under UAE Labour Law.'
+      question: 'What happens if an employee resigns before completing 5 years?',
+      answer: 'In most cases, an employee who resigns or is terminated before completing 5 years of continuous service is not entitled to gratuity, except in cases of death or disablement.'
     },
     {
-      question: 'Is there a penalty for not paying End of Service Benefits (EOSB) in the UAE?',
-      answer: 'Yes, employers who delay or fail to pay end-of-service benefits without valid justification can be liable for fines and may be required to pay the employee compensation for the delay, in addition to the original gratuity owed.'
+      question: 'Is there a penalty for not paying gratuity in India?',
+      answer: 'Yes, under the Payment of Gratuity Act, employers who fail to pay gratuity within the prescribed time can be liable for interest on the delayed amount, and in cases of willful non-payment, may face imprisonment and/or fines.'
     }
   ];
 
@@ -66,12 +66,7 @@ export class GratuityCalculator {
     this.result = null;
     this.resultNote = '';
 
-    if (!this.basicSalary || !this.dateOfJoining || !this.exitDate || !this.contractType || !this.reasonForExit || !this.jurisdiction) {
-      return;
-    }
-
-    if (this.jurisdiction !== 'mainland') {
-      this.resultNote = 'DIFC and ADGM follow different end-of-service schemes (e.g. DIFC\'s DEWS). Please consult an HR/legal professional for an accurate estimate in this jurisdiction.';
+    if (!this.basicSalary || !this.dateOfJoining || !this.exitDate || !this.actCovered || !this.establishmentType || !this.reasonForExit) {
       return;
     }
 
@@ -89,38 +84,34 @@ export class GratuityCalculator {
 
     const years = totalDays / 365;
 
-    if (years < 1) {
+    // Eligibility check (waived for death/disablement)
+    if (years < 5 && this.reasonForExit !== 'death_disablement') {
       this.result = 0;
-      this.resultNote = 'Employee has not completed one year of service, so no gratuity is payable.';
+      this.resultNote = 'Employee has not completed 5 years of continuous service, so no gratuity is payable (unless due to death or disablement).';
       return;
     }
 
-    const dailyWage = this.basicSalary / 30;
+    // Round years: 6+ months in the final year counts as a full year
+    const completedYears = Math.floor(years);
+    const remainderMonths = (years - completedYears) * 12;
+    const yearsForCalc = remainderMonths >= 6 ? completedYears + 1 : completedYears;
+
     let gratuity = 0;
 
-    if (years <= 5) {
-      gratuity = dailyWage * 21 * years;
+    if (this.establishmentType === 'seasonal') {
+      // Seasonal establishments: 7 days' wages for each season worked
+      gratuity = (this.basicSalary / 26) * 7 * yearsForCalc;
+    } else if (this.actCovered === 'covered') {
+      gratuity = (this.basicSalary * 15 * yearsForCalc) / 26;
     } else {
-      gratuity = (dailyWage * 21 * 5) + (dailyWage * 30 * (years - 5));
+      gratuity = (this.basicSalary * 15 * yearsForCalc) / 30;
     }
 
-    // Cap at 2 years' basic salary
-    const cap = this.basicSalary * 24;
+    // Statutory cap
+    const cap = 2000000; // ₹20,00,000
     if (gratuity > cap) {
       gratuity = cap;
-      this.resultNote = 'Result capped at 2 years\' basic salary, the maximum gratuity allowed under UAE Labour Law.';
-    }
-
-    if (this.reasonForExit === 'resignation') {
-      if (years < 1) {
-        gratuity = 0;
-      } else if (years < 3) {
-        gratuity = gratuity / 3;
-        this.resultNote = 'Reduced to 1/3 of full gratuity, as resignation occurred before completing 3 years of service.';
-      } else if (years < 5) {
-        gratuity = (gratuity * 2) / 3;
-        this.resultNote = 'Reduced to 2/3 of full gratuity, as resignation occurred before completing 5 years of service.';
-      }
+      this.resultNote = 'Result capped at ₹20,00,000, the maximum gratuity payable under the Payment of Gratuity Act.';
     }
 
     this.result = Math.round(gratuity);

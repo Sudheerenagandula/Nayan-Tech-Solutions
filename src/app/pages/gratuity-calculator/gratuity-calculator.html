@@ -12,21 +12,20 @@
 
       <div class="form-row">
         <div class="form-group">
-          <label>Jurisdiction<span class="req">*</span></label>
-          <select [(ngModel)]="jurisdiction">
-            <option value="" disabled selected>Select Jurisdiction</option>
-            <option value="mainland">World</option>
-            <option value="difc">DIFC</option>
-            <option value="adgm">ADGM</option>
+          <label>Covered under Payment of Gratuity Act, 1972?<span class="req">*</span></label>
+          <select [(ngModel)]="actCovered">
+            <option value="" disabled selected>Select Option</option>
+            <option value="covered">Yes, Covered</option>
+            <option value="not_covered">No, Not Covered</option>
           </select>
         </div>
 
         <div class="form-group">
-          <label>Contract Type<span class="req">*</span></label>
-          <select [(ngModel)]="contractType">
-            <option value="" disabled selected>Select Contract Type</option>
-            <option value="unlimited">Unlimited Contract</option>
-            <option value="limited">Limited Contract</option>
+          <label>Establishment Type<span class="req">*</span></label>
+          <select [(ngModel)]="establishmentType">
+            <option value="" disabled selected>Select Type</option>
+            <option value="regular">Regular Establishment</option>
+            <option value="seasonal">Seasonal Establishment</option>
           </select>
         </div>
       </div>
@@ -38,14 +37,14 @@
             <option value="" disabled selected>Select Reason</option>
             <option value="resignation">Resignation</option>
             <option value="termination">Termination</option>
-            <option value="end_of_contract">End of Contract</option>
             <option value="retirement">Retirement</option>
+            <option value="death_disablement">Death / Disablement</option>
           </select>
         </div>
 
         <div class="form-group">
-          <label>Latest Basic Salary (AED)<span class="req">*</span></label>
-          <input type="number" [(ngModel)]="basicSalary" placeholder="Enter basic salary">
+          <label>Latest Basic Salary + DA (₹)<span class="req">*</span></label>
+          <input type="number" [(ngModel)]="basicSalary" placeholder="Enter basic salary + DA">
         </div>
       </div>
 
@@ -72,7 +71,7 @@
 
       <div class="calc-result" *ngIf="result !== null">
         <span>Estimated Gratuity</span>
-        <h2>AED {{ result | number }}</h2>
+        <h2>₹ {{ result | number }}</h2>
         <p class="result-note" *ngIf="resultNote">{{ resultNote }}</p>
       </div>
 
@@ -86,9 +85,9 @@
     <div class="info-block">
       <h2>Disclaimer</h2>
       <p>
-        This calculator is intended for informational purposes only. It provides an estimate based on standard
-        calculations for the World and should not be considered legal advice. Actual entitlements may vary
-        based on your employment contract, company policy, and final settlement terms. For official advice, we
+        This calculator is intended for informational purposes only. It provides an estimate based on the
+        Payment of Gratuity Act, 1972 and should not be considered legal advice. Actual entitlements may vary
+        based on your employment contract, state-specific rules, and company policy. For official advice, we
         recommend consulting with an HR or legal professional.
       </p>
     </div>
@@ -99,7 +98,7 @@
         Our comprehensive blog post covers everything you need to know, from eligibility to exceptions, calculations, and
         frequently asked scenarios.
       </p>
-      <a routerLink="/resources/blog/complete-guide-to-gratuity-World" class="guide-link">Read the Full Gratuity Guide Here</a>
+      <a routerLink="/resources/blog/complete-guide-to-gratuity-india" class="guide-link">Read the Full Gratuity Guide Here</a>
     </div>
 
     <div class="info-block">
