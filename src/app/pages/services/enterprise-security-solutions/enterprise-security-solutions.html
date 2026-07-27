@@ -64,12 +64,15 @@
               ></textarea>
             </div>
 
-            <button type="submit" class="btn-send" [disabled]="quoteFormRef.invalid">
-              Send Message
+            <button type="submit" class="btn-send" [disabled]="quoteFormRef.invalid || quoteSending">
+              {{ quoteSending ? 'Sending...' : 'Send Message' }}
             </button>
 
             @if (quoteSubmitted) {
               <p class="success-msg">Thanks! We'll get back to you shortly.</p>
+            }
+            @if (quoteError) {
+              <p class="error-msg">{{ quoteError }}</p>
             }
           </form>
         </div>
@@ -196,12 +199,15 @@
               ></textarea>
             </div>
 
-            <button type="submit" class="btn-submit" [disabled]="contactFormRef.invalid">
-              Submit Now
+            <button type="submit" class="btn-submit" [disabled]="contactFormRef.invalid || contactSending">
+              {{ contactSending ? 'Submitting...' : 'Submit Now' }}
             </button>
 
             @if (contactSubmitted) {
               <p class="success-msg">Thanks! Your appointment request has been sent.</p>
+            }
+            @if (contactError) {
+              <p class="error-msg">{{ contactError }}</p>
             }
           </form>
         </div>
