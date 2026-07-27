@@ -94,7 +94,7 @@ export class FaqComponent {
       {
         icon: this.safe(this.icons.appDevelopment),
         title: 'Application Development',
-        description: 'ManVision Technologies helps you meet business goals, operational agility, and employee and customer...'
+        description: 'Nayan Tech Solutions helps you meet business goals, operational agility, and employee and customer...'
       },
       {
         icon: this.safe(this.icons.devops),
