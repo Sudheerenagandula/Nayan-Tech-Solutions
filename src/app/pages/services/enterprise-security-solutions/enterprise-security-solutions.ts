@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Footer } from "../../../components/footer/footer";
 import { Navbar } from "../../../components/navbar/navbar";
-import emailjs from '@emailjs/browser';
 
 @Component({
   selector: 'app-enterprise-security-solutions',
@@ -16,10 +15,9 @@ export class EnterpriseSecuritySolutions implements AfterViewInit, OnDestroy {
   @ViewChildren('revealEl') revealEls!: QueryList<ElementRef<HTMLElement>>;
   private observer!: IntersectionObserver;
 
-  // EmailJS config
-  private readonly EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';
-  private readonly EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
-  private readonly EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
+  // Web3Forms config
+  private readonly WEB3FORMS_ACCESS_KEY = '80fe204c-0ecd-4162-b5fc-c18fcc22319f';
+  private readonly WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
 
   // Hero "Get Your Quote" form
   quoteForm = {
@@ -41,32 +39,43 @@ export class EnterpriseSecuritySolutions implements AfterViewInit, OnDestroy {
     this.quoteSending = true;
     this.quoteError = '';
 
-    emailjs.send(
-      this.EMAILJS_SERVICE_ID,
-      this.EMAILJS_TEMPLATE_ID,
-      {
-        from_name: this.quoteForm.name,
-        from_email: this.quoteForm.email,
+    fetch(this.WEB3FORMS_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify({
+        access_key: this.WEB3FORMS_ACCESS_KEY,
+        subject: 'New Quote Request - NayanTech',
+        form_name: 'Get Your Quote',
+        name: this.quoteForm.name,
+        email: this.quoteForm.email,
         mobile: this.quoteForm.mobile,
         message: this.quoteForm.message
-      },
-      this.EMAILJS_PUBLIC_KEY
-    ).then(
-      () => {
+      })
+    })
+      .then(res => res.json())
+      .then(data => {
         this.quoteSending = false;
-        this.quoteSubmitted = true;
-        this.quoteForm = { name: '', email: '', mobile: '', message: '' };
 
-        setTimeout(() => {
-          this.quoteSubmitted = false;
-        }, 3000);
-      },
-      (error) => {
+        if (data.success) {
+          this.quoteSubmitted = true;
+          this.quoteForm = { name: '', email: '', mobile: '', message: '' };
+
+          setTimeout(() => {
+            this.quoteSubmitted = false;
+          }, 3000);
+        } else {
+          this.quoteError = 'Something went wrong. Please try again.';
+          console.error('Web3Forms error:', data);
+        }
+      })
+      .catch(error => {
         this.quoteSending = false;
         this.quoteError = 'Something went wrong. Please try again.';
-        console.error('EmailJS error:', error);
-      }
-    );
+        console.error('Submission failed:', error);
+      });
   }
 
   // "Schedule Appointment" contact form
@@ -89,32 +98,43 @@ export class EnterpriseSecuritySolutions implements AfterViewInit, OnDestroy {
     this.contactSending = true;
     this.contactError = '';
 
-    emailjs.send(
-      this.EMAILJS_SERVICE_ID,
-      this.EMAILJS_TEMPLATE_ID,
-      {
-        from_name: this.contactForm.name,
-        from_email: this.contactForm.email,
-        mobile: this.contactForm.phone,
+    fetch(this.WEB3FORMS_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify({
+        access_key: this.WEB3FORMS_ACCESS_KEY,
+        subject: 'New Appointment Request - NayanTech',
+        form_name: 'Schedule Appointment',
+        name: this.contactForm.name,
+        email: this.contactForm.email,
+        phone: this.contactForm.phone,
         message: this.contactForm.message
-      },
-      this.EMAILJS_PUBLIC_KEY
-    ).then(
-      () => {
+      })
+    })
+      .then(res => res.json())
+      .then(data => {
         this.contactSending = false;
-        this.contactSubmitted = true;
-        this.contactForm = { name: '', email: '', phone: '', message: '' };
 
-        setTimeout(() => {
-          this.contactSubmitted = false;
-        }, 3000);
-      },
-      (error) => {
+        if (data.success) {
+          this.contactSubmitted = true;
+          this.contactForm = { name: '', email: '', phone: '', message: '' };
+
+          setTimeout(() => {
+            this.contactSubmitted = false;
+          }, 3000);
+        } else {
+          this.contactError = 'Something went wrong. Please try again.';
+          console.error('Web3Forms error:', data);
+        }
+      })
+      .catch(error => {
         this.contactSending = false;
         this.contactError = 'Something went wrong. Please try again.';
-        console.error('EmailJS error:', error);
-      }
-    );
+        console.error('Submission failed:', error);
+      });
   }
 
   scrollToTop(): void {

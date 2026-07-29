@@ -25,26 +25,52 @@ export class Contact implements AfterViewInit, OnDestroy {
     name: '',
     email: '',
     service: 'Looking For Job',
-    subject: '',
+    subject: '', // holds phone number
     message: ''
   };
 
   submitted = false;
+  errorMsg = '';
 
   onSubmit() {
     if (!this.formData.name || !this.formData.email || !this.formData.message) {
       return;
     }
 
-    // TODO: wire this up to your backend / email service (e.g. EmailJS, an API endpoint, etc.)
-    console.log('Contact form submitted:', this.formData);
-
-    this.submitted = true;
-
-    setTimeout(() => {
-      this.submitted = false;
-      this.formData = { name: '', email: '', service: 'Looking For Job', subject: '', message: '' };
-    }, 3000);
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify({
+        access_key: '80fe204c-0ecd-4162-b5fc-c18fcc22319f', // <-- paste your Web3Forms Access Key here
+        subject: 'New Contact Form Submission - NayanTech',
+        name: this.formData.name,
+        email: this.formData.email,
+        phone: this.formData.subject,
+        looking_for: this.formData.service,
+        message: this.formData.message
+      })
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          this.submitted = true;
+          this.errorMsg = '';
+          setTimeout(() => {
+            this.submitted = false;
+            this.formData = { name: '', email: '', service: 'Looking For Job', subject: '', message: '' };
+          }, 3000);
+        } else {
+          this.errorMsg = 'Something went wrong. Please try again.';
+          console.error('Web3Forms error:', data);
+        }
+      })
+      .catch(err => {
+        this.errorMsg = 'Something went wrong. Please try again.';
+        console.error('Submission failed:', err);
+      });
   }
 
   // ---------- SCROLL REVEAL ----------
