@@ -8,6 +8,7 @@ import { Contact } from './pages/contact/contact';
 import { OurClients } from './pages/our-clients/our-clients';
 import { Resources } from './pages/resources/resources';
 import { ResourcesBlog } from './pages/resources-blog/resources-blog';
+import { ResourceAugmentation } from './pages/resource-augmentation/resource-augmentation';
 // import{Careers} from './pages/careers';
 
 import { GratuityCalculator } from './pages/gratuity-calculator/gratuity-calculator';
@@ -46,6 +47,10 @@ export const routes: Routes = [
     path: 'careers',
     component: Careers
   },
+   {
+  path: 'resource-augmentation',
+  component: ResourceAugmentation
+},
   {
     path: 'resources',
     component: Resources
