@@ -3,10 +3,12 @@ import {
    from '@angular/core';
 import { Footer } from "../../components/footer/footer";
 import { Navbar } from "../../components/navbar/navbar";
+import { RouterLink } from '@angular/router';
+
 
 @Component({
   selector: 'app-resource-augmentation',
-  imports: [Footer, Navbar],
+  imports: [Footer, Navbar, RouterLink],
   templateUrl: './resource-augmentation.html',
   styleUrl: './resource-augmentation.css',
 })
