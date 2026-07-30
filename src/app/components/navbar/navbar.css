@@ -218,9 +218,11 @@ body {
 =================================*/
 .navbar-brand img,
 .brand-logo {
-  height: 100px;
-  max-width: 300%;
+  height: 85px;        /* Keep height fixed */
+  width: 350px;        /* Increase width */
   object-fit: contain;
+  object-position: left center;
+
 }
 
 /* keep the navbar itself as a proper flex row: logo left, links right */
@@ -229,13 +231,14 @@ body {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding: 8px 24px; /* reduced from 12px so the taller logo isn't cramped */
+  padding: 15px 30px;
 }
 
 @media (max-width: 768px) {
   .navbar-brand img,
   .brand-logo {
-    height: 48px; /* smaller on mobile so it doesn't overwhelm the header */
+    height: 85px;
+    width: 350px;      /* smaller width on mobile */
   }
 }
 
