@@ -218,9 +218,8 @@ body {
 =================================*/
 .navbar-brand img,
 .brand-logo {
-  height: 70px;
-  width: auto;
-  max-width: 120%;
+  height: 100px;
+  max-width: 300%;
   object-fit: contain;
 }
 
