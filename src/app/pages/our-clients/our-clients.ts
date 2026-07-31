@@ -50,7 +50,7 @@ clients: ClientLogo[] = [
   { name: 'Cognizant',                       logo: 'https://commons.wikimedia.org/wiki/Special:FilePath/Cognizant_logo_2022.svg' },
 { name: 'Tech Mahindra',  logo: 'https://commons.wikimedia.org/wiki/Special:FilePath/Tech_Mahindra_New_Logo.svg' },
   { name: 'EA',             logo: 'https://commons.wikimedia.org/wiki/Special:FilePath/Electronic-Arts-Logo.svg' },
-  // ---- Electronics ----
+{ name: 'Publicis Sapient', logo: 'https://commons.wikimedia.org/wiki/Special:FilePath/PS_Logo_RGB.svg' },
  { name: 'Mivi',       logo: 'https://commons.wikimedia.org/wiki/Special:FilePath/Mivi_Logo.png' },
 { name: 'Noise',      logo: 'https://commons.wikimedia.org/wiki/Special:FilePath/Noise_Logo.png' },
 { name: 'boAt',       logo: 'https://commons.wikimedia.org/wiki/Special:FilePath/Boat_Logo.webp' },
@@ -71,6 +71,18 @@ clients: ClientLogo[] = [
   { name: 'ICICI Bank',                      logo: 'https://commons.wikimedia.org/wiki/Special:FilePath/ICICI_Bank_Logo.svg' },
   { name: 'State Bank of India',             logo: 'https://commons.wikimedia.org/wiki/Special:FilePath/SBI-logo.svg' },
 { name: 'Axis Bank', logo: 'https://commons.wikimedia.org/wiki/Special:FilePath/Axis_Bank_logo.svg' },
+{ name: 'Zendesk',      logo: 'https://commons.wikimedia.org/wiki/Special:FilePath/Zendesk_logo.svg' },
+{ name: 'HubSpot',      logo: 'https://commons.wikimedia.org/wiki/Special:FilePath/HubSpot_Logo.svg' },
+{ name: 'Squarespace',      logo: 'https://commons.wikimedia.org/wiki/Special:FilePath/Squarespace_Logo.png' },
+{ name: 'DocuSign',         logo: 'https://commons.wikimedia.org/wiki/Special:FilePath/Docusign_Full_Color.svg' },
+{ name: 'Wayfair',      logo: 'https://commons.wikimedia.org/wiki/Special:FilePath/Wayfair_logo.svg' },
+{ name: 'Chewy',            logo: 'https://commons.wikimedia.org/wiki/Special:FilePath/Chewy_pet_food_logo.svg' },
+{ name: 'Slack',      logo: 'https://commons.wikimedia.org/wiki/Special:FilePath/Slack_Technologies_Logo.svg' },
+{ name: 'Dropbox',    logo: 'https://commons.wikimedia.org/wiki/Special:FilePath/Dropbox_logo_2017.svg' },
+{ name: 'Airbnb',     logo: 'https://commons.wikimedia.org/wiki/Special:FilePath/Airbnb_Logo.svg' },
+{ name: 'Salesforce', logo: 'https://commons.wikimedia.org/wiki/Special:FilePath/Salesforce.com_logo.svg' },
+
+
 ];
 
   ctaHeadline = 'Experience the difference in reliability and service excellence';
