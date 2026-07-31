@@ -1,116 +1,131 @@
-.footer{
-  background:#ffffff;
-  color:#0f172a;
-  padding:70px 0 20px;
+.footer {
+  position: relative;
+  background: linear-gradient(180deg, #cfe0f5 0%, #eaf1fb 60%, #f7fafd 100%);
+  color: #0f172a;
+  overflow: hidden;
+  padding: 40px 0 18px;
   border-top: 1px solid #e2e8f0;
 }
 
-.logo{
-  font-size:38px;
-  font-weight:700;
-  margin-bottom:20px;
-  color:#0d6efd;
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 55%;
+  height: 100%;
+  background-image: url('/world-map.svg');
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: contain;
+  opacity: 0.1;
+  pointer-events: none;
 }
 
-.footer p{
-  color:#475569;
-  line-height:1.8;
+.footer .container {
+  position: relative;
+  z-index: 1;
 }
 
-.footer h5{
-  margin-bottom:20px;
-  font-weight:600;
-  color:#0f172a;
+.footer p {
+  color: #475569;
+  line-height: 1.6;
+  font-size: 14px;
+  margin-bottom: 12px;
 }
 
-.footer ul{
-  list-style:none;
-  padding:0;
+.footer h5 {
+  margin-bottom: 14px;
+  font-weight: 600;
+  font-size: 15px;
+  color: #0f172a;
 }
 
-.footer ul li{
-  margin-bottom:12px;
-  color:#475569;
-  cursor:pointer;
-  transition:.3s;
+.footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.footer ul li:hover{
-  color:#0d6efd;
-  padding-left:6px;
+.footer ul li {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #475569;
+  cursor: pointer;
+  transition: .25s;
 }
 
-.footer a{
-  color:#475569;
-  text-decoration:none;
+.footer ul li:hover {
+  color: #0d6efd;
+  padding-left: 4px;
 }
 
-.footer a:hover{
-  color:#0d6efd;
+.footer a {
+  color: #475569;
+  text-decoration: none;
 }
 
-.social-icons{
-  display:flex;
-  gap:15px;
-  margin-top:25px;
+.footer a:hover {
+  color: #0d6efd;
 }
 
-.social-icons a{
-  width:45px;
-  height:45px;
-  background:#f1f5f9;
-  color:#0f172a;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:50%;
-  transition:.3s;
-  font-size:20px;
+.social-icons {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
 }
 
-.social-icons a:hover{
-  background:#0d6efd;
-  color:white;
-  transform:translateY(-5px);
+.social-icons a {
+  width: 34px;
+  height: 34px;
+  background: #f1f5f9;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: .25s;
+  font-size: 15px;
 }
 
-hr{
-  margin:40px 0 20px;
-  border-color:#e2e8f0;
+.social-icons a:hover {
+  background: #0d6efd;
+  color: white;
+  transform: translateY(-3px);
 }
 
-.copyright{
-  text-align:center;
-  color:#64748b;
+hr {
+  margin: 24px 0 14px;
+  border-color: #e2e8f0;
+  opacity: 1;
+}
+
+.copyright {
+  text-align: center;
+  color: #64748b;
+  font-size: 13px;
 }
 
 .office-block {
-  margin-bottom: 18px;
+  margin-bottom: 6px;
 }
 
 .office-city {
-  font-weight: 600;
-  color: #0f172a;
-  margin-bottom: 4px;
-}
-
-.office-address {
-  font-size: 13px;
+  font-size: 14px;
   color: #475569;
-  line-height: 1.5;
+  margin: 0;
 }
 
 .reveal-up {
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .reveal-up.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
-
 
 .footer-logo-link {
   display: inline-block;
@@ -122,32 +137,4 @@ hr{
   width: auto;
   max-width: 160%;
   object-fit: contain;
-}
-.footer {
-  position: relative;
-  background: linear-gradient(180deg, #cfe0f5 0%, #eaf1fb 60%, #f7fafd 100%);
-  overflow: hidden;
-  padding-top: 60px;
-  padding-bottom: 30px;
-}
-
-/* faint world-map watermark, right side, like the screenshot */
-.footer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 60%;
-  height: 100%;
-  background-image: url('/world-map.svg'); /* swap in your own map asset */
-  background-repeat: no-repeat;
-  background-position: right center;
-  background-size: contain;
-  opacity: 0.15;
-  pointer-events: none;
-}
-
-.footer .container {
-  position: relative;
-  z-index: 1;
 }

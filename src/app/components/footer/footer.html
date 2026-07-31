@@ -2,92 +2,64 @@
 
     <div class="container">
 
-        <div class="row gy-5">
+        <div class="row gy-4">
 
             <!-- Company -->
-          <div class="col-lg-3 reveal-up" #revealEl>
+            <div class="col-lg-4 col-md-6 reveal-up" #revealEl>
 
-    <a routerLink="/" class="footer-logo-link">
-      <img src="/nayan-logo-transparent.png" alt="NayanTech Solutions logo" class="footer-logo">
+                <a routerLink="/" class="footer-logo-link">
+                    <img src="/nayan-logo-transparent.png" alt="NayanTech Solutions logo" class="footer-logo">
+                </a>
 
-    </a>
+                <p>
+                    NayanTech Solutions delivers end-to-end IT services, staffing and workforce
+                    solutions, helping businesses hire, manage and scale with confidence.
+                </p>
 
-
-
-    <p>
-        NayanTech Solutions delivers end-to-end IT services, staffing and workforce
-        solutions, helping businesses hire, manage and scale with confidence.
-    </p>
-
-    <div class="social-icons">
-        <a href="#"><i class="bi bi-facebook"></i></a>
-        <a href="#"><i class="bi bi-instagram"></i></a>
-        <a href="#"><i class="bi bi-linkedin"></i></a>
-        <a href="#"><i class="bi bi-twitter-x"></i></a>
-    </div>
-
-</div>
-
-            <!-- Quick Links -->
-            <div class="col-lg-2 reveal-up" #revealEl>
-
-                <h5>Quick Links</h5>
-
-                <ul>
-                    <li><a routerLink="/">Home</a></li>
-                    <li><a routerLink="/about">About</a></li>
-
-                    <li><a routerLink="/our-clients">Our Clients</a></li>
-                    <li><a routerLink="/contact">Contact</a></li>
-                </ul>
+                <div class="social-icons">
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                    <a href="#"><i class="bi bi-twitter-x"></i></a>
+                </div>
 
             </div>
 
+            <!-- Quick Links -->
+            <div class="col-lg-2 col-md-3 col-6 reveal-up" #revealEl>
+                <h5>Quick Links</h5>
+                <ul>
+                    <li><a routerLink="/">Home</a></li>
+                    <li><a routerLink="/about">About</a></li>
+                    <li><a routerLink="/our-clients">Our Clients</a></li>
+                    <li><a routerLink="/contact">Contact</a></li>
+                </ul>
+            </div>
+
             <!-- Services -->
-            <div class="col-lg-2 reveal-up" #revealEl>
-
+            <div class="col-lg-2 col-md-3 col-6 reveal-up" #revealEl>
                 <h5>Our Services</h5>
-
                 <ul>
                     <li><a routerLink="/services/management-services">Management Services</a></li>
                     <li><a routerLink="/services/enterprise-security-solutions">Enterprise Staffing</a></li>
                     <li><a routerLink="/services/it-staffing">IT Staffing</a></li>
                     <li><a routerLink="/services/non-it-staffing">Non-IT Staffing</a></li>
                 </ul>
-
             </div>
 
             <!-- Offices -->
-            <div class="col-lg-3 reveal-up" #revealEl>
-
+            <div class="col-lg-2 col-md-6 reveal-up" #revealEl>
                 <h5>Our Offices</h5>
-
                 <div class="office-block" *ngFor="let office of offices">
                     <p class="office-city">{{ office.city }}</p>
-                    <p class="office-address">
-                        <i class="bi bi-geo-alt-fill me-2"></i>
-                        {{ office.address }}
-                    </p>
                 </div>
-
             </div>
 
             <!-- Contact -->
-            <div class="col-lg-2 reveal-up" #revealEl>
-
+            <div class="col-lg-2 col-md-6 reveal-up" #revealEl>
                 <h5>Contact Us</h5>
-
-                <p>
-                    <i class="bi bi-envelope-fill me-2"></i>
-                     info@nayantechsolutions.com
-
-                </p>
-
-                <p>
-                    <i class="bi bi-telephone-fill me-2"></i>
-                    +91 9052039196
-                </p>
-
+                <p><i class="bi bi-envelope-fill me-2"></i>info&#64;nayantechsolutions.com</p>
+                <p><i class="bi bi-telephone-fill me-2"></i>+91 9052039196</p>
             </div>
 
         </div>
@@ -95,9 +67,7 @@
         <hr>
 
         <div class="copyright">
-            © {{2018}}
-            NayanTech Solutions.
-            All Rights Reserved.
+            © {{ year }} NayanTech Solutions. All Rights Reserved.
         </div>
 
     </div>
