@@ -1,20 +1,43 @@
 <section class="statistics py-5">
   <div class="container">
-    <div class="statistics-heading mb-5">
-      <h2 class="fw-bold reveal-up" #revealEl>
-        Delivering Technology Solutions <br class="d-none d-md-block">
-        at Scale Across MENA
-      </h2>
-      <p class="statistics-subtext reveal-up" #revealEl>
-        AIQU is the technology execution layer behind some of MENA's most ambitious enterprises,
-        delivering intelligent solutions from strategy through to execution.
-      </p>
-    </div>
+    <div class="statistics-card">
+      <span class="about-label reveal-up" #revealEl>About Nayan Tech</span>
 
-    <div class="stats-row">
-      <div class="stat-item reveal-up" #revealEl *ngFor="let stat of statistics">
-        <h2>{{stat.value}}</h2>
-        <p>{{stat.title}}</p>
+      <h2 class="fw-bold reveal-up" #revealEl>
+        Built On <span class="gradient-text">Experience</span>
+      </h2>
+
+      <p class="statistics-subtext reveal-up" #revealEl>
+        With years of hands-on experience and a strong in-house team, Nayan Tech delivers reliable digital solutions built around real-world business challenges. Our approach focuses on practical execution, close collaboration, and scalable system design, enabling clients to launch faster, improve efficiency, and grow with confidence.
+      </p>
+
+      <div class="stats-row">
+        <div class="stat-item reveal-up" #revealEl *ngFor="let stat of statistics; let i = index">
+          <div class="stat-circle">
+            <svg viewBox="0 0 200 200" class="circle-text-svg">
+              <defs>
+                <path [attr.id]="'topPath' + i"
+                      d="M 10,100 A 90,90 0 1,1 190,100" />
+                <path [attr.id]="'bottomPath' + i"
+                      d="M 190,100 A 90,90 0 1,1 10,100" />
+              </defs>
+              <text text-anchor="middle">
+                <textPath [attr.href]="'#topPath' + i" startOffset="50%">
+                  {{stat.topText}}
+                </textPath>
+              </text>
+              <text text-anchor="middle">
+                <textPath [attr.href]="'#bottomPath' + i" startOffset="50%">
+                  {{stat.bottomText}}
+                </textPath>
+              </text>
+            </svg>
+            <div class="stat-center">
+              <h2>{{stat.value}}</h2>
+            </div>
+          </div>
+          <p>{{stat.title}}</p>
+        </div>
       </div>
     </div>
   </div>

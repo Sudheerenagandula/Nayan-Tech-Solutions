@@ -9,12 +9,12 @@ import { CommonModule } from '@angular/common';
   styleUrl: './statistics.css'
 })
 export class Statistics implements AfterViewInit, OnDestroy {
-  statistics = [
-    { value: '25K+', title: 'Registered Candidates' },
-    { value: '1200+', title: 'Hiring Companies' },
-    { value: '8500+', title: 'Jobs Posted' },
-    { value: '98%', title: 'Placement Success' }
-  ];
+ statistics = [
+  { value: '70+', title: 'Technical Experts', topText: 'Powering Digital', bottomText: 'Excellence' },
+  { value: '900+', title: 'Projects Delivered', topText: 'Crafting Winning', bottomText: 'Solutions' },
+  { value: '13+', title: 'Years of Experience', topText: 'Experience Meets', bottomText: 'Innovation' },
+  { value: '300+', title: 'Clients Served', topText: 'Trusted Worldwide', bottomText: 'Partners' }
+];
 
   // ---------- SCROLL REVEAL ----------
   @ViewChildren('revealEl') revealEls!: QueryList<ElementRef>;
